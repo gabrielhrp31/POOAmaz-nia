@@ -60,10 +60,15 @@ public class GoogleDrive {
     }
 
     public void uploadFile() throws IOException{
+        //buscando a pasta satelite no drive
         File folder = this.getFolder();
         File fileMetadata = new File();
+
+        //indicando o nome do arquivo
         fileMetadata.setName("photo.ppm");
+        //indicando qual a pasta pai do arquivo
         fileMetadata.setParents(Collections.singletonList(folder.getId()));
+        //instancio novo caminho de arquivo
         java.io.File filePath = new java.io.File("photos/photo.ppm");
         FileContent mediaContent = new FileContent("image/jpeg", filePath);
         File file = this.driveService.files().create(fileMetadata, mediaContent)
@@ -72,6 +77,10 @@ public class GoogleDrive {
         System.out.println("File ID: " + file.getId());
     }
 
+    /*
+
+        @return File
+     */
     private File getFolder() throws IOException{
         String pageToken = null;
 
