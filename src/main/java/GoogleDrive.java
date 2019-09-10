@@ -14,10 +14,7 @@ import com.google.api.services.drive.DriveScopes;
 import com.google.api.services.drive.model.File;
 import com.google.api.services.drive.model.FileList;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.security.GeneralSecurityException;
 import java.util.Collections;
 import java.util.List;
@@ -61,14 +58,10 @@ public class GoogleDrive {
 
     public void uploadFile() throws IOException{
         //buscando a pasta satelite no drive
-        File folder = this.getFolder();
+        File folder = this.getFile("application/vnd.google-apps.folder","satellite");
         File fileMetadata = new File();
-
-        //indicando o nome do arquivo
         fileMetadata.setName("photo.ppm");
-        //indicando qual a pasta pai do arquivo
         fileMetadata.setParents(Collections.singletonList(folder.getId()));
-        //instancio novo caminho de arquivo
         java.io.File filePath = new java.io.File("photos/photo.ppm");
         FileContent mediaContent = new FileContent("image/jpeg", filePath);
         File file = this.driveService.files().create(fileMetadata, mediaContent)
@@ -77,28 +70,75 @@ public class GoogleDrive {
         System.out.println("File ID: " + file.getId());
     }
 
+
+    public void downloadFile() throws IOException {
+        String fileId = getFile("","photo.ppm").getId(); //COLOCA O ID DO ARQUIVO DO DRIVE (DPS TEM Q VER COMO PEGAR AUTOMATICO)
+
+        java.io.File theDir = new java.io.File("photos"+ java.io.File.separator+"downloads");
+
+// se o diretorio não existir cria ele
+        if (!theDir.exists()) {
+            System.out.println("creating directory: " + theDir.getName());
+            boolean result = false;
+
+            try{
+                theDir.mkdir();
+                result = true;
+            }
+            catch(SecurityException se){
+                //handle it
+            }
+            if(result) {
+                System.out.println("new Directory created");
+            }
+        }
+
+
+        OutputStream outputStream = new FileOutputStream("photos/downloads/photo.ppm");
+
+
+
+
+        driveService.files().get(fileId)
+                .executeMediaAndDownloadTo(outputStream);
+    }
+
+
     /*
 
         @return File
      */
-    private File getFolder() throws IOException{
+
+    private File getFile(String mimeType, String name) throws IOException{
         String pageToken = null;
 
         List<File> files;
 
         do {
-            FileList result = this.driveService.files().list()
-                    .setQ("mimeType='application/vnd.google-apps.folder' and name='satellite' ")
-                    .setSpaces("drive")
-                    .setFields("nextPageToken, files(id, name)")
-                    .setPageToken(pageToken)
-                    .execute();
+            FileList result;
+            if(mimeType.isEmpty()){
+                result = this.driveService.files().list()
+                        .setQ("name='"+name+"' ")
+                        .setSpaces("drive")
+                        .setFields("nextPageToken, files(id, name)")
+                        .setPageToken(pageToken)
+                        .execute();
+            }else{
+                result = this.driveService.files().list()
+                        .setQ("mimeType='"+mimeType+"' and name='"+name+"' ")
+                        .setSpaces("drive")
+                        .setFields("nextPageToken, files(id, name)")
+                        .setPageToken(pageToken)
+                        .execute();
+            }
             files = result.getFiles();
+
             pageToken = result.getNextPageToken();
         } while (pageToken != null);
 
         return files.get(0);
     }
+
 
     GoogleDrive() throws IOException, GeneralSecurityException {
         // Build a new authorized API client service.

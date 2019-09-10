@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c7fc6bf-442d-4f02-93f1-c5bd1cdf149d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GoogleDrive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GoogleDrive.java" afterDir="false" />
     </list>
@@ -30,6 +30,7 @@
   <component name="ProjectId" id="1QYpmiP0x3SEbsNW4hka0P4oG61" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -87,6 +88,7 @@
       <updated>1567957544646</updated>
       <workItem from="1567957547742" duration="1658000" />
       <workItem from="1568047902240" duration="1000000" />
+      <workItem from="1568117520010" duration="166000" />
     </task>
     <servers />
   </component>
