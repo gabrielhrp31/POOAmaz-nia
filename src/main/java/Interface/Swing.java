@@ -1,5 +1,6 @@
 package Interface;
 
+import informationAnalysis.Region;
 import informationAnalysis.Squad;
 
 import javax.swing.*;
@@ -7,9 +8,11 @@ import javax.xml.soap.Text;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.*;
+import java.util.ArrayList;
 
 
-public class Swing{
+public class Swing {
     //Funcoes para as telas SWING
 
     public void menuOptions() {//MENU DE REGISTRO
@@ -48,13 +51,20 @@ public class Swing{
         i2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                registrationRegion();
+                try {
+                    registrationRegion();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
         });
     }
 
     //SUB MENUS DO REGISTRATION
+
+
+    //SALVA OS DADOS EM UM TXT
     public void registrationSquad() {
         JFrame f = new JFrame("Squad Registration"); //declara o frame
         f.getContentPane().setBackground(Color.DARK_GRAY);//cor do background da janela
@@ -70,13 +80,13 @@ public class Swing{
         l3.setForeground(Color.white);
 
         JButton b1 = new JButton("Confirm");
-        String country[] = {"Select","North", "South", "East", "West"};
+        String country[] = {"Select", "North", "South", "East", "West"};
         final JComboBox cb = new JComboBox(country);
 
 
         //DEFINIÇÕES TAMANHO + POSICAO TELA
 
-                    //  x       y    width   height
+        //  x       y    width   height
         l1.setBounds(50, 70, 200, 30);//atributos label
         f.add(l1);
         t1.setBounds(50, 100, 200, 30); //atributos do text
@@ -87,7 +97,7 @@ public class Swing{
         t2.setBounds(300, 100, 200, 30);//atributos do text
         f.add(t2);
 
-        l3.setBounds(300,190,200,30);
+        l3.setBounds(300, 190, 200, 30);
         f.add(l3);
         cb.setBounds(300, 220, 100, 30);//atributos do checkbox
         f.add(cb);
@@ -98,67 +108,224 @@ public class Swing{
         //ENVIANDO OS VALORES DIGITADOS NA GUI PARA A CLASSE
         b1.addActionListener(new ActionListener() { //ACAO DO BUTTON
             public void actionPerformed(ActionEvent actionEvent) {
-            Squad squadButton= new Squad();//INSTANCIA PARA ENVIAR OS DADOS QUANDO CLICA NO BOTAO
-            squadButton.setName(t1.getText());
-            int qntdSold= Integer.parseInt(t2.getText());//CONVERTENDO A STRING PARA INT
-            squadButton.setQuantityOfSoldiers(qntdSold);
-            String specSold= (String) cb.getSelectedItem();
-            squadButton.setSpecialty(specSold);
+                Squad squadButton = new Squad();//INSTANCIA PARA ENVIAR OS DADOS QUANDO CLICA NO BOTAO
+                squadButton.setName(t1.getText());
+                int qntdSold = Integer.parseInt(t2.getText());//CONVERTENDO A STRING PARA INT
+                squadButton.setQuantityOfSoldiers(qntdSold);
+                String specSold = (String) cb.getSelectedItem();
+                squadButton.setSpecialty(specSold);
 
 
+                JOptionPane.showMessageDialog(null, "Nome:" + squadButton.getName() + "\n" +
+                        "Quantidade de Soldados:" + squadButton.getQuantityOfSoldiers() + "\nRegiao:" + squadButton.getSpecialty());
 
-                JOptionPane.showMessageDialog(null, "\nNome:"+squadButton.getName()+"\n"+
-                        "Quantidade de Soldados:"+squadButton.getQuantityOfSoldiers()+"\nRegiao:"+squadButton.getSpecialty());
+
+                //GERANDO OS TXTS
+
+                File squadFile = new File("information\\registrationSquad.txt");//pega o diretório do arquivo
+
+                if (squadFile.exists()) {//SE O ARQUIVO JÁ EXISTIR
+                    String textToAppend =
+                            "\nNome:" + squadButton.getName() + "\n" +
+                                    "Quantidade de Soldados:" + squadButton.getQuantityOfSoldiers() + "\nRegiao:" + squadButton.getSpecialty();
+
+                    BufferedWriter writer = null;
+                    try {
+                        writer = new BufferedWriter(
+                                new FileWriter("information\\registrationSquad.txt", true)  //Set true for append mode
+                        );
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        writer.newLine();   //Add new line
+                        writer.write(textToAppend);
+                        writer.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else { //SE O ARQUIVO NÃO EXISTE
+
+                    FileWriter arq = null;
+
+                    try {
+                        arq = new FileWriter("information\\registrationSquad.txt");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    PrintWriter gravarArq = new PrintWriter(arq);
+                    gravarArq.printf("Nome:" + squadButton.getName() + "\n" +
+                            "Quantidade de Soldados:" + squadButton.getQuantityOfSoldiers() + "\nRegiao:" + squadButton.getSpecialty());
+
+                    try {
+                        arq.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+
+                }
+
             }
         });
 
 
-
-        f.setSize(600, 400); //tamanho do frame
+        f.setSize(600, 500); //tamanho do frame
         f.setLayout(null);
         f.setVisible(true);
         f.setLocationRelativeTo(null);
     }
 
-    public void registrationRegion() {
-        JFrame f = new JFrame("Region Registration"); //declara o frame
-        f.getContentPane().setBackground(Color.DARK_GRAY);
-        JLabel l1 = new JLabel("Select region:");
-        l1.setForeground(Color.white);
-        JLabel l2 = new JLabel("Protected area:");
-        l2.setForeground(Color.white);
-        JButton b1 = new JButton("Confirm");
-        String country[] = {"North", "South", "East", "West"};
-
-        JComboBox cb = new JComboBox(country);
-        JRadioButton r1 = new JRadioButton("A) Yes");
-        JRadioButton r2 = new JRadioButton("B) No");
+    public void registrationRegion() throws IOException {
+        File squadRegistration = new File("information\\registrationSquad.txt");
+        if (squadRegistration.exists()) {
+            JFrame f = new JFrame("Region Registration"); //declara o frame
+            f.getContentPane().setBackground(Color.DARK_GRAY);
+            final JLabel l1 = new JLabel("Select region:");
+            l1.setForeground(Color.white);
+            final JLabel l2 = new JLabel("Protected area:");
+            l2.setForeground(Color.white);
+            final JLabel l3 = new JLabel("Squad responsible:");
+            l3.setForeground(Color.white);
 
 
-        //  x       y    width   height
-        l1.setBounds(50, 70, 200, 30);//atributos label
-        f.add(l1);
-        cb.setBounds(50, 100, 200, 30);//atributos do checkbox
-        f.add(cb);
+            final JButton b1 = new JButton("Confirm");
+            String country[] = {"North", "South", "East", "West"};
 
-        l2.setBounds(300, 60, 200, 30);//atributos label
-        f.add(l2);
+            final JComboBox cb = new JComboBox(country);
+            final JRadioButton r1 = new JRadioButton("A) Yes");
+            final JRadioButton r2 = new JRadioButton("B) No");
 
-        r1.setBounds(300, 90, 200, 30);//atributos do radioButton
-        r2.setBounds(300, 110, 200, 30);
-        f.add(r1);
-        f.add(r2);
+            final ArrayList<String> listSquads = new ArrayList<String>();//ARRAY COM OS SQUADS
+
+            BufferedReader squadsList = new BufferedReader(new FileReader(squadRegistration));
+            String st;
 
 
-        b1.setBounds(50, 200, 100, 50); //atributos do button
-        f.add(b1);
+            String line = "";
+
+            int contLinha = 0;
+            int i = 0;
+            String linha;
+
+            //a cada readLine ele pula uma linha, dentro do while ent nuh
+            linha = squadsList.readLine();
+            while (linha != null) {
+                if (i == contLinha) {
+                    listSquads.add(linha);//ADICIONA NO ARRAY
+                    contLinha = contLinha + 4;
+                }
+                i++;
+                linha = squadsList.readLine();
+            }
 
 
-        f.setSize(600, 400); //tamanho do frame
-        f.setLayout(null);
-        f.setVisible(true);
-        f.setLocationRelativeTo(null);
+            System.out.println("Line: " + line); //trocar o line por um .add no array
+
+
+            final JComboBox cb2 = new JComboBox(listSquads.toArray());
+
+
+            //  x       y    width   height
+            l1.setBounds(50, 70, 200, 30);//atributos label
+            f.add(l1);
+            cb.setBounds(50, 100, 200, 30);//atributos do checkbox
+            f.add(cb);
+
+            l2.setBounds(300, 60, 200, 30);//atributos label
+            f.add(l2);
+
+            r1.setBounds(300, 90, 200, 30);//atributos do radioButton
+            r2.setBounds(300, 110, 200, 30);
+            f.add(r1);
+            f.add(r2);
+
+
+            b1.setBounds(50, 200, 100, 50); //atributos do button
+            f.add(b1);
+
+            l3.setBounds(300, 190, 200, 30);
+            f.add(l3);
+
+
+            cb2.setBounds(300, 220, 200, 30);
+            f.add(cb2);
+
+
+            b1.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent actionEvent) {
+
+                    Region regionButton = new Region();//INSTANCIA PARA ENVIAR OS DADOS QUANDO CLICA NO BOTAO
+                    String region = (String) cb.getSelectedItem();
+                    regionButton.setName(region);
+                    if (r1.isSelected()) {
+                        regionButton.setProtectedArea(true);
+                    } else {
+                        regionButton.setProtectedArea(false);
+                    }
+                    if (r2.isSelected()) {
+                        regionButton.setProtectedArea(false);
+                    }
+
+
+                    //CRIANDO ARQUIVO
+                    File regionFile = new File("information\\registrationRegion.txt");//pega o diretório do arquivo
+
+                    if (regionFile.exists()) {//SE O ARQUIVO JÁ EXISTIR
+                        String textToAppend = "\nNome:" + regionButton.getName() + "\n" +
+                                "Area Responsável:" + "nada ainda" + "\nProtegida:" + regionButton.isProtectedArea();
+
+                        BufferedWriter writer = null;
+                        try {
+                            writer = new BufferedWriter(
+                                    new FileWriter("information\\registrationRegion.txt", true)  //Set true for append mode
+                            );
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        try {
+                            writer.newLine();   //Add new line
+                            writer.write(textToAppend);
+                            writer.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    } else { //SE O ARQUIVO NÃO EXISTIR
+
+                        FileWriter arq = null;
+
+                        try {
+                            arq = new FileWriter("information\\registrationRegion.txt");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        PrintWriter gravarArq = new PrintWriter(arq);
+                        gravarArq.printf("Nome:" + regionButton.getName() + "\n" +
+                                "Area Responsável:" + "nada ainda" + "\nProtegida:" + regionButton.isProtectedArea());
+
+                        try {
+                            arq.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+
+                    }
+
+
+                }
+            });
+
+
+            f.setSize(600, 500); //tamanho do frame
+            f.setLayout(null);
+            f.setVisible(true);
+            f.setLocationRelativeTo(null);
+        } else {
+            JOptionPane.showMessageDialog(null, "First Register a Squad");
+        }
     }
-
-
 }
+
+

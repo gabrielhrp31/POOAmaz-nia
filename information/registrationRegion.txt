@@ -1,0 +1,15 @@
+Nome:North
+Area Responsável:nada ainda
+Protegida:true
+
+Nome:South
+Area Responsável:nada ainda
+Protegida:false
+
+Nome:North
+Area Responsável:nada ainda
+Protegida:false
+
+Nome:North
+Area Responsável:nada ainda
+Protegida:false

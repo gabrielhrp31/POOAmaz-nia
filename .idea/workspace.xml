@@ -2,20 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c7fc6bf-442d-4f02-93f1-c5bd1cdf149d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/informationAnalysis/Region.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/GoogleDrive.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/GoogleDrive.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Interface/Swing$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Interface/Swing$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Interface/Swing$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Interface/Swing$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Interface/Swing$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Interface/Swing$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Interface/Swing.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Interface/Swing.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GoogleDrive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GoogleDrive.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Interface/Swing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/Swing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tokens/StoredCredential" beforeDir="false" afterPath="$PROJECT_DIR$/tokens/StoredCredential" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,6 +45,7 @@
   <component name="ProjectId" id="1QYpmiP0x3SEbsNW4hka0P4oG61" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -51,6 +56,9 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -109,6 +117,10 @@
       <workItem from="1568291303431" duration="63000" />
       <workItem from="1568295117596" duration="4544000" />
       <workItem from="1568300108303" duration="18000" />
+      <workItem from="1568300485785" duration="110000" />
+      <workItem from="1568339027888" duration="3885000" />
+      <workItem from="1568495207391" duration="7924000" />
+      <workItem from="1568504678027" duration="5150000" />
     </task>
     <servers />
   </component>
@@ -127,5 +139,21 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Interface/Swing.java</url>
+          <line>213</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Interface/Swing.java</url>
+          <line>211</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

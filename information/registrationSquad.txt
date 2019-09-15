@@ -1,0 +1,7 @@
+Nome:Police
+Quantidade de Soldados:132
+Regiao:North
+
+Nome:Squad3
+Quantidade de Soldados:12
+Regiao:East
