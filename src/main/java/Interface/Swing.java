@@ -1,10 +1,13 @@
 package Interface;
 
-import informationAnalysis.Region;
-import informationAnalysis.Squad;
+import DAO.Region;
+import DAO.Squad;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import tools.SaveFiles;
 
 import javax.swing.*;
-import javax.xml.soap.Text;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,7 +24,7 @@ public class Swing {
         JMenuItem i1, i2, i3, i4, i5; //Novo item
         JFrame f = new JFrame("Safe the Amazonia"); //Novo Frame
 
-        f.getContentPane().setBackground(Color.DARK_GRAY); //background do Jframe f, usando definições tipo RGB
+        f.getContentPane().setBackground(new java.awt.Color(255,204,102)); //background do Jframe f, usando definições tipo RGB
         JMenuBar mb = new JMenuBar();
         menu = new JMenu("Registration");
         i1 = new JMenuItem("Squad Registration");
@@ -67,6 +70,7 @@ public class Swing {
     //SALVA OS DADOS EM UM TXT
     public void registrationSquad() {
         JFrame f = new JFrame("Squad Registration"); //declara o frame
+        //TESTE
         f.getContentPane().setBackground(Color.DARK_GRAY);//cor do background da janela
         final JTextField t1 = new JTextField(""); //declaram o text
 
@@ -105,10 +109,11 @@ public class Swing {
         f.add(b1);
 
         //ACOES:
-        //ENVIANDO OS VALORES DIGITADOS NA GUI PARA A CLASSE
-        b1.addActionListener(new ActionListener() { //ACAO DO BUTTON
+        //ACAO DO BUTTON (sets + gerar arquivos)
+        b1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 Squad squadButton = new Squad();//INSTANCIA PARA ENVIAR OS DADOS QUANDO CLICA NO BOTAO
+                SaveFiles saveFiles = new SaveFiles();
                 squadButton.setName(t1.getText());
                 int qntdSold = Integer.parseInt(t2.getText());//CONVERTENDO A STRING PARA INT
                 squadButton.setQuantityOfSoldiers(qntdSold);
@@ -116,55 +121,18 @@ public class Swing {
                 squadButton.setSpecialty(specSold);
 
 
-                JOptionPane.showMessageDialog(null, "Nome:" + squadButton.getName() + "\n" +
-                        "Quantidade de Soldados:" + squadButton.getQuantityOfSoldiers() + "\nRegiao:" + squadButton.getSpecialty());
 
+                //TESTAR SE ISSO AQUI ESTA FUNFANDO, PASSA DIRETORIO PRIMEIRO, DEPOIS O OBJETO COM OS DADOS
+                //SE FUNFAR REPLICA NO SATELLITE
 
-                //GERANDO OS TXTS
-
-                File squadFile = new File("information\\registrationSquad.txt");//pega o diretório do arquivo
-
-                if (squadFile.exists()) {//SE O ARQUIVO JÁ EXISTIR
-                    String textToAppend =
-                            "\nNome:" + squadButton.getName() + "\n" +
-                                    "Quantidade de Soldados:" + squadButton.getQuantityOfSoldiers() + "\nRegiao:" + squadButton.getSpecialty();
-
-                    BufferedWriter writer = null;
-                    try {
-                        writer = new BufferedWriter(
-                                new FileWriter("information\\registrationSquad.txt", true)  //Set true for append mode
-                        );
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    try {
-                        writer.newLine();   //Add new line
-                        writer.write(textToAppend);
-                        writer.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                } else { //SE O ARQUIVO NÃO EXISTE
-
-                    FileWriter arq = null;
-
-                    try {
-                        arq = new FileWriter("information\\registrationSquad.txt");
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    PrintWriter gravarArq = new PrintWriter(arq);
-                    gravarArq.printf("Nome:" + squadButton.getName() + "\n" +
-                            "Quantidade de Soldados:" + squadButton.getQuantityOfSoldiers() + "\nRegiao:" + squadButton.getSpecialty());
-
-                    try {
-                        arq.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
-
+                try {
+                    saveFiles.saveJson("information\\registrationSquad.json", squadButton, null, 0);
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
+                //dir, squad, region, opc
+                //opc save, 0= Squad, 1 = Region
+
 
             }
         });
@@ -177,7 +145,7 @@ public class Swing {
     }
 
     public void registrationRegion() throws IOException {
-        File squadRegistration = new File("information\\registrationSquad.txt");
+        File squadRegistration = new File("information\\registrationSquad.json");
         if (squadRegistration.exists()) {
             JFrame f = new JFrame("Region Registration"); //declara o frame
             f.getContentPane().setBackground(Color.DARK_GRAY);
@@ -187,7 +155,7 @@ public class Swing {
             l2.setForeground(Color.white);
             final JLabel l3 = new JLabel("Squad responsible:");
             l3.setForeground(Color.white);
-
+            final SaveFiles saveFiles = new SaveFiles();
 
             final JButton b1 = new JButton("Confirm");
             String country[] = {"North", "South", "East", "West"};
@@ -204,11 +172,11 @@ public class Swing {
 
             String line = "";
 
-            int contLinha = 0;
+            int contLinha = 1;
             int i = 0;
             String linha;
-
-            //a cada readLine ele pula uma linha, dentro do while ent nuh
+        //--->> ARRUMAR PARA PEGAR A LISTA DOS SQUADS
+            //PEGA A LISTA DOS ESQUADRÕES PARA IR NA CHECKBOX
             linha = squadsList.readLine();
             while (linha != null) {
                 if (i == contLinha) {
@@ -220,10 +188,7 @@ public class Swing {
             }
 
 
-            System.out.println("Line: " + line); //trocar o line por um .add no array
-
-
-            final JComboBox cb2 = new JComboBox(listSquads.toArray());
+            final JComboBox cb2 = new JComboBox(listSquads.toArray()); //COMBOBOX COM O ARRAY DOS SQUADS
 
 
             //  x       y    width   height
@@ -251,8 +216,9 @@ public class Swing {
             cb2.setBounds(300, 220, 200, 30);
             f.add(cb2);
 
-
-            b1.addActionListener(new ActionListener() {
+            //ACAO DO BOTAO
+            //Setando valores e gerando .json
+            b1.addActionListener(new ActionListener() { //AÇÃO DO BOTAO
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
 
@@ -267,52 +233,18 @@ public class Swing {
                     if (r2.isSelected()) {
                         regionButton.setProtectedArea(false);
                     }
+                    String squadRegion = (String) cb2.getSelectedItem();
+                    regionButton.setSquadResponsable(squadRegion);
 
 
                     //CRIANDO ARQUIVO
-                    File regionFile = new File("information\\registrationRegion.txt");//pega o diretório do arquivo
 
-                    if (regionFile.exists()) {//SE O ARQUIVO JÁ EXISTIR
-                        String textToAppend = "\nNome:" + regionButton.getName() + "\n" +
-                                "Area Responsável:" + "nada ainda" + "\nProtegida:" + regionButton.isProtectedArea();
-
-                        BufferedWriter writer = null;
-                        try {
-                            writer = new BufferedWriter(
-                                    new FileWriter("information\\registrationRegion.txt", true)  //Set true for append mode
-                            );
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        try {
-                            writer.newLine();   //Add new line
-                            writer.write(textToAppend);
-                            writer.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    } else { //SE O ARQUIVO NÃO EXISTIR
-
-                        FileWriter arq = null;
-
-                        try {
-                            arq = new FileWriter("information\\registrationRegion.txt");
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        PrintWriter gravarArq = new PrintWriter(arq);
-                        gravarArq.printf("Nome:" + regionButton.getName() + "\n" +
-                                "Area Responsável:" + "nada ainda" + "\nProtegida:" + regionButton.isProtectedArea());
-
-                        try {
-                            arq.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-
-
+                    //FUNCAO TA FUNFANDO MAS TEM QUE FAZER ELA ADD MAIS INFORMAÇOES CASO EXISTIR
+                    try {
+                        saveFiles.saveJson("information\\registrationRegion.json", null, regionButton, 1);
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
-
 
                 }
             });
