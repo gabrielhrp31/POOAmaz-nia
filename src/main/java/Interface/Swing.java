@@ -18,6 +18,8 @@ import java.util.ArrayList;
 public class Swing {
     //Funcoes para as telas SWING
 
+
+
     public void menuOptions() {//MENU DE REGISTRO
 
         JMenu menu;
