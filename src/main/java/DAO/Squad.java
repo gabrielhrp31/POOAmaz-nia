@@ -4,7 +4,7 @@ public class Squad {
     //Classe para os esquadrões do exército
 
     private String name;
-    private String specialty;
+    private String regionResponsable;
     private int quantityOfSoldiers;
 
     public Squad() {
@@ -12,7 +12,7 @@ public class Squad {
 
     public Squad(String name, String specialty, int quantityOfSoldiers) {
         this.name = name;
-        this.specialty = specialty;
+        this.regionResponsable = specialty;
         this.quantityOfSoldiers = quantityOfSoldiers;
     }
 
@@ -24,12 +24,12 @@ public class Squad {
         this.name = name;
     }
 
-    public String getSpecialty() {
-        return specialty;
+    public String getRegionResponsable() {
+        return regionResponsable;
     }
 
-    public void setSpecialty(String specialty) {
-        this.specialty = specialty;
+    public void setRegionResponsable(String regionResponsable) {
+        this.regionResponsable = regionResponsable;
     }
 
     public int getQuantityOfSoldiers() {

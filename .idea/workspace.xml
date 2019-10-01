@@ -1,25 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c7fc6bf-442d-4f02-93f1-c5bd1cdf149d" name="Default Changelist" comment="">
+    <list default="true" id="a4c0cdb0-b32e-4fbb-a0db-39852b2736ee" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Interface/Swing$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Interface/Swing$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Interface/Swing$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Interface/Swing$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Interface/Swing$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Interface/Swing$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Interface/Swing$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Interface/Swing$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Interface/Swing.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Interface/Swing.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DAO/Region.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/DAO/Region.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DAO/Squad.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/DAO/Squad.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Interface/Swing$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Interface/Swing$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Interface/Swing$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Interface/Swing$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Interface/Swing.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/AmazoniaAnalysis-1.0.tar" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/AmazoniaAnalysis-1.0.tar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/AmazoniaAnalysis-1.0.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/AmazoniaAnalysis-1.0.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/AmazoniaAnalysis-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/AmazoniaAnalysis-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/Swing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interface/Swing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/tools/GoogleDrive.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/tools/GoogleDrive.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/tools/SaveFiles.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/AmazoniaAnalysis-1.0.tar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/AmazoniaAnalysis-1.0.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/AmazoniaAnalysis-1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scripts/AmazoniaAnalysis" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scripts/AmazoniaAnalysis.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/information/registrationSquad.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/photo.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Squad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/Squad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Interface/Swing.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tools/GoogleDrive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tools/GoogleDrive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tools/SaveFiles.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/teste.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tokens/StoredCredential" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,48 +60,33 @@
       <ProjectState />
     </projectState>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1QYpmiP0x3SEbsNW4hka0P4oG61" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1Ra4fsn1HXkEEuVfgMVw7rkLGLx" />
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="Downloaded.Files.Path.Enabled" value="false" />
-    <property name="Repository.Attach.Annotations" value="false" />
-    <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="Repository.Attach.Sources" value="false" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="223" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="findjar.last.used.dir" value="$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.8.5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../POOamazoniaSatellite" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.3862069" />
-    <property name="settings.editor.selected.configurable" value="project.propGUI" />
+    <property name="project.structure.side.proportion" value="0.5955882" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Users\gabri\Documentos\CC\4º Periodo\POO\AmazoniaAnalysis" />
-      <recent name="D:\Users\gabri\Documentos\CC\4º Periodo\POO\AmazoniaAnalysis\src\main\resources" />
+      <recent name="C:\Users\Atlas\Documents\POOamazoniaAnalysisV2" />
+      <recent name="C:\Users\Atlas\Documents\POOamazoniaAnalysisV2\src\main\java" />
+      <recent name="D:\Users\gabri\Documentos\CC\4º Periodo\ED\hellofx\src\main\java" />
+      <recent name="D:\Users\gabri\Documentos\CC\4º Periodo\ED\hellofx\src\main" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -89,16 +102,16 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="AmazoniaAnalysis.main" />
+    <configuration name="HelloFX" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="HelloFX" />
+      <module name="hellofx.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="view" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view" />
-      <module name="AmazoniaAnalysis.main" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="POOamazoniaAnalysis.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -106,6 +119,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.HelloFX" />
       </list>
     </recent_temporary>
   </component>
@@ -114,42 +128,18 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3c7fc6bf-442d-4f02-93f1-c5bd1cdf149d" name="Default Changelist" comment="" />
-      <created>1567957544646</created>
+      <changelist id="a4c0cdb0-b32e-4fbb-a0db-39852b2736ee" name="Default Changelist" comment="" />
+      <created>1569891978223</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1567957544646</updated>
-      <workItem from="1567957547742" duration="1658000" />
-      <workItem from="1568047902240" duration="1000000" />
-      <workItem from="1568117520010" duration="210000" />
-      <workItem from="1568159974855" duration="6343000" />
-      <workItem from="1568169092659" duration="1499000" />
-      <workItem from="1568250965469" duration="633000" />
-      <workItem from="1568254586939" duration="3948000" />
-      <workItem from="1568259216255" duration="790000" />
-      <workItem from="1568291303431" duration="63000" />
-      <workItem from="1568295117596" duration="4544000" />
-      <workItem from="1568300108303" duration="18000" />
-      <workItem from="1568300485785" duration="110000" />
-      <workItem from="1568339027888" duration="3885000" />
-      <workItem from="1568495207391" duration="7924000" />
-      <workItem from="1568504678027" duration="5489000" />
-      <workItem from="1568718761379" duration="6293000" />
-      <workItem from="1568731196233" duration="53000" />
-      <workItem from="1568746926675" duration="731000" />
-      <workItem from="1568747945753" duration="831000" />
-      <workItem from="1568748964357" duration="78000" />
-      <workItem from="1568757003601" duration="11882000" />
-      <workItem from="1568769916336" duration="680000" />
-      <workItem from="1568827689582" duration="606000" />
-      <workItem from="1568828898161" duration="221000" />
-      <workItem from="1569505991916" duration="371000" />
-      <workItem from="1569513425562" duration="658000" />
-      <workItem from="1569514436940" duration="79000" />
-      <workItem from="1569535806666" duration="301000" />
-      <workItem from="1569550857523" duration="3517000" />
-      <workItem from="1569554724414" duration="439000" />
-      <workItem from="1569555296812" duration="579000" />
+      <updated>1569891978223</updated>
+      <workItem from="1569891981233" duration="3070000" />
+      <workItem from="1569933390025" duration="355000" />
+      <workItem from="1569934131082" duration="2370000" />
+      <workItem from="1569944497329" duration="1001000" />
+      <workItem from="1569945923590" duration="82000" />
+      <workItem from="1569946492861" duration="74000" />
+      <workItem from="1569947010612" duration="318000" />
     </task>
     <servers />
   </component>
@@ -161,26 +151,10 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Interface/Swing.java</url>
-          <line>130</line>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/AmazoniaAnalysis$view.ic" NAME="view Coverage Results" MODIFIED="1569552141473" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

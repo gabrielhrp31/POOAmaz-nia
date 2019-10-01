@@ -1,17 +1,31 @@
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+import views.components.SectorGrid;
 
-import Interface.Swing;
+public class Main extends Application {
 
-import java.awt.*;
-import java.io.IOException;
-import java.security.GeneralSecurityException;
-import javax.swing.*;
-
-
-public class Main {
-    public static void main(String[] args) throws IOException, GeneralSecurityException {
-        Swing gui = new Swing();
-        gui.menuOptions();
-
+    @Override
+    public void  start(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Index.fxml"));
+        Scene scene = new Scene(root);
+        BorderPane borderPane = (BorderPane) scene.lookup("#borderPane");
+        stage.setTitle("Amazônia Satelite");
+        stage.setScene(scene);
+        stage.show();
     }
 
+
+
+
+
+
+
+    public static void main(String[] args) {
+        launch(args);
+    }
 }
