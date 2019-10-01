@@ -38,12 +38,19 @@
                         <Insets top="30.0" />
                     </VBox.margin>
                 </HBox>
-                <HBox fx:id="hboxSatellite" alignment="CENTER" prefHeight="61.0" prefWidth="215.0" style="-fx-background-color: #b0db4d;">
+                <HBox fx:id="hboxSatelite" alignment="CENTER" prefHeight="61.0" prefWidth="215.0" style="-fx-background-color: #b0db4d;">
                     <children>
-                        <Button minWidth="29.0" mnemonicParsing="false" onAction="#teste" prefHeight="61.0" prefWidth="29.0" style="-fx-background-color: #abd941; -fx-text-fill: white;">
+                        <Button minWidth="29.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="47.0" style="-fx-background-color: #abd941; -fx-text-fill: white;">
                             <HBox.margin>
                                 <Insets />
                             </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="46.0" fitWidth="47.0">
+                           <image>
+                              <Image url="@../../../icones/satellite.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                         </Button>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18; -fx-fill: white;" text="SATELITE" wrappingWidth="150.7392578125">
                             <HBox.margin>
@@ -55,9 +62,9 @@
                         <Insets bottom="30.0" top="30.0" />
                     </VBox.margin>
                 </HBox>
-                <HBox fx:id="hboxDados" alignment="CENTER" prefHeight="61.0" prefWidth="215.0" style="-fx-background-color: #b0db4d;">
+                <HBox fx:id="hboxAnalise" alignment="CENTER" prefHeight="61.0" prefWidth="215.0" style="-fx-background-color: #b0db4d;">
                     <children>
-                        <Button minWidth="29.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="58.0" style="-fx-background-color: #abd941; -fx-text-fill: white;">
+                        <Button minWidth="29.0" mnemonicParsing="false" onAction="#telaAnalisesMain" prefHeight="61.0" prefWidth="58.0" style="-fx-background-color: #abd941; -fx-text-fill: white;">
                             <HBox.margin>
                                 <Insets />
                             </HBox.margin>
@@ -69,7 +76,7 @@
                         </ImageView>
                      </graphic>
                         </Button>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18; -fx-fill: white;" text="DADOS" wrappingWidth="150.7392578125">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18; -fx-fill: white;" text="ANALISE" wrappingWidth="150.7392578125">
                             <HBox.margin>
                                 <Insets left="10.0" />
                             </HBox.margin>
@@ -82,7 +89,4 @@
             </children>
         </VBox>
     </left>
-    <center>
-        <VBox fx:id="vbox2" BorderPane.alignment="CENTER" />
-    </center>
 </BorderPane>

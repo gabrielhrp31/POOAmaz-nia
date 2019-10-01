@@ -13,6 +13,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import javax.swing.*;
+import java.beans.Visibility;
 import java.io.*;
 import java.util.List;
 import java.util.logging.Level;
@@ -22,10 +23,6 @@ public class Controller {
 
 
     //ELEMENTOS DOS FXMLS
-
-
-    @FXML
-    private BorderPane borderPane;
 
 
     @FXML
@@ -58,10 +55,6 @@ public class Controller {
 
     //CRIA UMA NOVA TELA
 
-    @FXML
-    private void teste(){
-        JOptionPane.showMessageDialog(null,"AAA");
-    }
 
     @FXML
     private void creatUI(String ui) {
@@ -87,7 +80,8 @@ public class Controller {
         } catch (IOException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
-        borderPane.setCenter(root);
+        
+        borderPanel.setCenter(root);
     }
 
     //diretorio , esquadrão(pode ser null), regiao     opc se ta salvo
@@ -142,15 +136,14 @@ public class Controller {
 
     //A FUNÇÃO QUE CARREGA O NOVO FXML \/ , O FXML TEM QUE TER O ID COM O MESMO NOME TBM
     @FXML
-    private void telaPessoasMain() {
-        loadUI("pessoasMain");
+    private void telaCadastroMain() {
+        loadUI("cadastroMain");
     }
 
 
     @FXML
-    private void telaDadosTeste(){
-        loadUI("dadosMain");
-
+    private void telaAnalisesMain() {
+        loadUI("analisesMain");
     }
 
     @FXML
@@ -172,18 +165,15 @@ public class Controller {
     }
 
 
-
-
     @FXML
     void botaoEnviarRegistroRegion() throws FileNotFoundException {
         Region regionButton = new Region();
         //String squadResponsable; -> TEM QUE APARECER O VALOR NA CHECKBOX PRIMEIRO
         String nomeRegion = comboBoxRegion.getValue();
         regionButton.setName(nomeRegion);
-        if(checkBoxProtegida.isSelected()){
+        if (checkBoxProtegida.isSelected()) {
             regionButton.setProtectedArea(true);
-        }
-        else{
+        } else {
             regionButton.setProtectedArea(false);
         }
 
@@ -206,9 +196,6 @@ public class Controller {
         //AÍ AQUI JÁ ENVIA OS DADOS P SALVAR O ARQUIVO
         salvarJSON("information\\registrationSquad.json", squadButton, null, 0);
     }
-
-
-
 
 
 }

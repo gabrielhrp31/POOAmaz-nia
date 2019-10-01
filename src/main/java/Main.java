@@ -14,7 +14,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Index.fxml"));
         Scene scene = new Scene(root);
         BorderPane borderPane = (BorderPane) scene.lookup("#borderPane");
-        stage.setTitle("Amazônia Satelite");
+        stage.setTitle("Amazonia Analysis");
         stage.setScene(scene);
         stage.show();
     }
