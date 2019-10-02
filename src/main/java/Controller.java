@@ -1,5 +1,8 @@
 import DAO.Region;
 import DAO.Squad;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,6 +18,7 @@ import javafx.stage.Stage;
 import javax.swing.*;
 import java.beans.Visibility;
 import java.io.*;
+import java.lang.reflect.Type;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -80,53 +84,55 @@ public class Controller {
         } catch (IOException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         borderPanel.setCenter(root);
     }
 
     //diretorio , esquadrão(pode ser null), regiao     opc se ta salvo
     @FXML
-    private void salvarJSON(String dir, Squad squadButton, Region regionButton, int opcSave) throws FileNotFoundException {
-        //Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    private void salvarJSON(String dir, Squad squadButton, Region regionButton, int opcSave) throws IOException {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
         File dirFile = new File(dir);//diretorio onde irá o arquivo
         List<Squad> listaSquad = null;
         List<Region> listaRegion = null;
-        //cuidar o que vai salvar
-        boolean docExist = false;
         String gsonString = "";
 
 
-        if (dirFile.exists()) {//Se já existir uma arquivo ele carrega as informações dele para um List e adiciona as novas na List
-            Reader reader = new FileReader(dir);
-            if (opcSave == 0) {//OPC =0 , é para salvar os dados do esquadrão
-                docExist = true;
-                //listaSquad = gson.fromJson(reader, List.class);
+        if (dirFile.exists()) {//SE JÁ EXISTIR O ARQUIVO
+            Reader reader = new FileReader(dir);//le os dados do arquivo
+            if (opcSave == 0) {//OPC =0 , salvar os dados do esquadrão
+                Type listType = new TypeToken<List<Squad>>() {
+                }.getType();
+                listaSquad = gson.fromJson(reader, listType);
                 listaSquad.add(squadButton);//adiciona na lista do Esquadrão os dados
-            } else {//OPC =1, é para salvar os dados da region
-                docExist = true;
-                //listaRegion = gson.fromJson(reader, List.class);
+            } else {//OPC =1, salvar os dados da region
+                Type listType = new TypeToken<List<Region>>() {
+                }.getType();
+                listaRegion = gson.fromJson(reader, listType);
                 listaRegion.add(regionButton);
             }
-        } else {//Nao existir
-            //gera só um arquivo mesmo
+        } else {//SE NAO EXISTIR
+            //AQUI TEM CRIAR A PASTA
+            
+            new File("C:\\Users\\Atlas\\Documents\\POOamazoniaAnalysis\\src\\main\\java\\Data\\teste.txt");
             if (opcSave == 0) {//SQUAD
-                gsonString = "teste";
-                //gsonString = gson.toJson(squadButton);
+                gsonString = gson.toJson(squadButton);
             } else {//REGION
-                //gsonString = gson.toJson(regionButton);
+                gsonString = gson.toJson(regionButton);
             }
+
         }
 
-        //E AQUI JÁ SALVA O ARQUIVO NO DIRETORIO
+
+        //E AQUI SALVA O ARQUIVO NO DIRETORIO
         try {
+            //TERMINAR SA MERDA P SALVAR AQUI
             FileWriter salvaArq = new FileWriter(dirFile); //Cria um fileWriter no diretorio passado pelo dir(obs: o diretorio tem que existir)
-            if (docExist) {
-                salvaArq.write(String.valueOf(listaSquad));//escreve a Lista no documento
-            } else {
-                salvaArq.write(String.valueOf(gsonString));//escreve a String no documento
-            }
+            //₢riar a pasta data aqui
+            salvaArq.write(gsonString);//escreve a String no documento
             salvaArq.close();
-        } catch (Exception e) {
+        } catch (
+                Exception e) {
             e.printStackTrace();
         }
 
@@ -165,6 +171,7 @@ public class Controller {
     }
 
 
+    //AQUI TEM QUE ARRUAMR PARA SALVAR O JSON
     @FXML
     void botaoEnviarRegistroRegion() throws FileNotFoundException {
         Region regionButton = new Region();
@@ -182,8 +189,9 @@ public class Controller {
         //  salvarJSON("information\\registrationRegion.json", null, regionButton, 0);
     }
 
+    //AQUI TEM QUE ARRUAMR PARA SALVAR O JSON TBM
     @FXML
-    void botaoEnviarRegistroSquad() throws FileNotFoundException {
+    void botaoEnviarRegistroSquad() throws IOException {
         Squad squadButton = new Squad();
         String nomeSquad = textRegistrationSquadName.getText();
         String numberSquad = textRegistrationSquadQuantitySoldiers.getText();
@@ -194,7 +202,7 @@ public class Controller {
         squadButton.setQuantityOfSoldiers(numberSquadInt);
         squadButton.setRegionResponsable(region);
         //AÍ AQUI JÁ ENVIA OS DADOS P SALVAR O ARQUIVO
-        salvarJSON("information\\registrationSquad.json", squadButton, null, 0);
+        salvarJSON("\\src\\main\\java\\Data", squadButton, null, 0);
     }
 
 
