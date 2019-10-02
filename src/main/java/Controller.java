@@ -95,14 +95,15 @@ public class Controller {
         //AQUI É ONDE GERA O ARQUIVO
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         File dirFile = new File(dir);//diretorio onde irá o arquivo
-        File dirDataFile = new File("C:\\Users\\Atlas\\Documents\\POOamazoniaAnalysis\\src\\main\\java\\Data");
         List<Squad> listaSquad = new ArrayList<Squad>();
         List<Region> listaRegion = new ArrayList<Region>();
         String gsonString = "";
 
         /*PRIMEIRO VERIFICA SE O ARQUIVO JÁ EXISTE, E DPS SE VAI SALVAR UM SQUAD OU UMA REGION*/
+
         if (dirFile.exists()) {//SE JÁ EXISTIR O ARQUIVO (O .JSON)
             Reader reader = new FileReader(dirFile);//LE OS DADOS DO ARQUIVO
+
             if (opcSave == 0) {//OPC =0 -> salvar os dados do esquadrão
                 Type listType = new TypeToken<ArrayList<Squad>>(){}.getType();
                 listaSquad = gson.fromJson(reader, listType);//ERRO AQUI, NA HORA DE ADICIONAR NA LISTA OS DADOS LIDOS DO ARQUIVO
@@ -181,7 +182,7 @@ public class Controller {
 
     //AQUI TEM QUE ARRUAMR PARA SALVAR O JSON
     @FXML
-    void botaoEnviarRegistroRegion() throws FileNotFoundException {
+    void botaoEnviarRegistroRegion() throws IOException {
         Region regionButton = new Region();
         //String squadResponsable; -> TEM QUE APARECER O VALOR NA CHECKBOX PRIMEIRO
         String nomeRegion = comboBoxRegion.getValue();
@@ -191,13 +192,16 @@ public class Controller {
         } else {
             regionButton.setProtectedArea(false);
         }
-
         regionButton.setSquadResponsable(comboBoxRegion.getValue()); //aqui precisa pegar o valor do checkbox
-        //AÍ AQUI CHAMA O SALVAR ARQUIVO PARA REGISTRO, SQUAD NULL, REGISTRO
-        //  salvarJSON("information\\registrationRegion.json", null, regionButton, 0);
+       //VOU TER QUE CARREGAR OS DADOS DO SQUAD PARA O CHECKBOX ANTES
+
+        //AÍ AQUI JÁ ENVIA OS DADOS P SALVAR O ARQUIVO
+        //DPS TROCAR ESSE DIR POR UM CAMINHO RELATIVO E NAO UM PATH COMPLETO
+        //OPCSAVE=0 ->SQUAD
+        salvarJSON("C:\\Users\\Atlas\\Documents\\POOamazoniaAnalysis\\src\\main\\java\\Data\\regionJ.json", null, regionButton, 1);
     }
 
-    //AQUI TEM QUE ARRUAMR PARA SALVAR O JSON TBM
+
     @FXML
     void botaoEnviarRegistroSquad() throws IOException {
         //AQUI INSTANCIA E FAZ AS CONVERSÕES, E ATRIBUIÇÕES AO OBJETO, E DPS PASSA O OBJETO
@@ -213,6 +217,7 @@ public class Controller {
         squadButton.setRegionResponsable(region);
         //AÍ AQUI JÁ ENVIA OS DADOS P SALVAR O ARQUIVO
         //DPS TROCAR ESSE DIR POR UM CAMINHO RELATIVO E NAO UM PATH COMPLETO
+        //OPCSAVE=0 ->SQUAD
         salvarJSON("C:\\Users\\Atlas\\Documents\\POOamazoniaAnalysis\\src\\main\\java\\Data\\squadJ.json", squadButton, null, 0);
     }
 
