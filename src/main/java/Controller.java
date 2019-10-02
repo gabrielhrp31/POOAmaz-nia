@@ -19,6 +19,7 @@ import javax.swing.*;
 import java.beans.Visibility;
 import java.io.*;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -88,47 +89,40 @@ public class Controller {
         borderPanel.setCenter(root);
     }
 
-    //diretorio , esquadrão(pode ser null), regiao     opc se ta salvo
+    //diretorio , esquadrão(pode ser null), regiao(pode ser null),     opc se ta salvo
     @FXML
-    private void salvarJSON(String dir, Squad squadButton, Region regionButton, int opcSave) throws IOException {
+    private void salvarJSONaux(String dir, Squad squadButton, Region regionButton, int opcSave) throws IOException {
+        //AQUI É ONDE GERA O ARQUIVO
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         File dirFile = new File(dir);//diretorio onde irá o arquivo
-        List<Squad> listaSquad = null;
-        List<Region> listaRegion = null;
+        File dirDataFile = new File("C:\\Users\\Atlas\\Documents\\POOamazoniaAnalysis\\src\\main\\java\\Data");
+        List<Squad> listaSquad = new ArrayList<Squad>();
+        List<Region> listaRegion = new ArrayList<Region>();
         String gsonString = "";
 
-
-        if (dirFile.exists()) {//SE JÁ EXISTIR O ARQUIVO
-            Reader reader = new FileReader(dir);//le os dados do arquivo
-            if (opcSave == 0) {//OPC =0 , salvar os dados do esquadrão
-                Type listType = new TypeToken<List<Squad>>() {
-                }.getType();
-                listaSquad = gson.fromJson(reader, listType);
-                listaSquad.add(squadButton);//adiciona na lista do Esquadrão os dados
-            } else {//OPC =1, salvar os dados da region
-                Type listType = new TypeToken<List<Region>>() {
-                }.getType();
+        /*PRIMEIRO VERIFICA SE O ARQUIVO JÁ EXISTE, E DPS SE VAI SALVAR UM SQUAD OU UMA REGION*/
+        if (dirFile.exists()) {//SE JÁ EXISTIR O ARQUIVO (O .JSON)
+            Reader reader = new FileReader(dirFile);//LE OS DADOS DO ARQUIVO
+            if (opcSave == 0) {//OPC =0 -> salvar os dados do esquadrão
+                Type listType = new TypeToken<ArrayList<Squad>>(){}.getType();
+                listaSquad = gson.fromJson(reader, listType);//ERRO AQUI, NA HORA DE ADICIONAR NA LISTA OS DADOS LIDOS DO ARQUIVO
+            } else {//OPC =1 -> salvar os dados da region
+                Type listType = new TypeToken<ArrayList<Region>>() {}.getType();
                 listaRegion = gson.fromJson(reader, listType);
-                listaRegion.add(regionButton);
             }
-        } else {//SE NAO EXISTIR
-            //AQUI TEM CRIAR A PASTA
-            
-            new File("C:\\Users\\Atlas\\Documents\\POOamazoniaAnalysis\\src\\main\\java\\Data\\teste.txt");
-            if (opcSave == 0) {//SQUAD
-                gsonString = gson.toJson(squadButton);
-            } else {//REGION
-                gsonString = gson.toJson(regionButton);
-            }
-
         }
 
+        if (opcSave == 0) {//SQUAD
+            listaSquad.add(squadButton);
+            gsonString = gson.toJson(listaSquad);
+        } else {//REGION
+            listaRegion.add(regionButton);
+            gsonString = gson.toJson(listaRegion);
+        }
 
-        //E AQUI SALVA O ARQUIVO NO DIRETORIO
+        //E AQUI GERA O ARQUIVO COM OS DADOS NO DIRETÓRIO
         try {
-            //TERMINAR SA MERDA P SALVAR AQUI
             FileWriter salvaArq = new FileWriter(dirFile); //Cria um fileWriter no diretorio passado pelo dir(obs: o diretorio tem que existir)
-            //₢riar a pasta data aqui
             salvaArq.write(gsonString);//escreve a String no documento
             salvaArq.close();
         } catch (
@@ -136,6 +130,20 @@ public class Controller {
             e.printStackTrace();
         }
 
+
+    }
+
+    @FXML
+    private void salvarJSON(String dir, Squad squadButton, Region regionButton, int opcSave) throws IOException {
+        //AQUI VERIFICA SE A PASTA EXISTE ANTES DE CHAMAR A FUNÇÃO QUE VAI GERAR O ARQUIVO
+        File dirDataFile = new File("C:\\Users\\Atlas\\Documents\\POOamazoniaAnalysis\\src\\main\\java\\Data");
+
+        if (dirDataFile.exists()) {//SE A PASTA EXISTIR
+            salvarJSONaux(dir, squadButton, regionButton, opcSave);//SÓ CHAMA A FUNÇÃO
+        } else {
+            dirDataFile.mkdir();//CRIA UMA NOVA PASTA NO DIRETORIO E DPS CHAMA A FUNÇÃO
+            salvarJSONaux(dir, squadButton, regionButton, opcSave);
+        }
 
     }
 
@@ -192,6 +200,8 @@ public class Controller {
     //AQUI TEM QUE ARRUAMR PARA SALVAR O JSON TBM
     @FXML
     void botaoEnviarRegistroSquad() throws IOException {
+        //AQUI INSTANCIA E FAZ AS CONVERSÕES, E ATRIBUIÇÕES AO OBJETO, E DPS PASSA O OBJETO
+        //COMO PARAMETRO
         Squad squadButton = new Squad();
         String nomeSquad = textRegistrationSquadName.getText();
         String numberSquad = textRegistrationSquadQuantitySoldiers.getText();
@@ -202,7 +212,8 @@ public class Controller {
         squadButton.setQuantityOfSoldiers(numberSquadInt);
         squadButton.setRegionResponsable(region);
         //AÍ AQUI JÁ ENVIA OS DADOS P SALVAR O ARQUIVO
-        salvarJSON("\\src\\main\\java\\Data", squadButton, null, 0);
+        //DPS TROCAR ESSE DIR POR UM CAMINHO RELATIVO E NAO UM PATH COMPLETO
+        salvarJSON("C:\\Users\\Atlas\\Documents\\POOamazoniaAnalysis\\src\\main\\java\\Data\\squadJ.json", squadButton, null, 0);
     }
 
 
