@@ -3,6 +3,8 @@ import DAO.Squad;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -55,6 +57,9 @@ public class Controller {
     @FXML
     private CheckBox checkBoxProtegida;
 
+    @FXML
+    public ComboBox<String> comboBoxSquadResponsable;
+
 
     //FUNÇÕES
 
@@ -99,16 +104,18 @@ public class Controller {
         List<Region> listaRegion = new ArrayList<Region>();
         String gsonString = "";
 
-        /*PRIMEIRO VERIFICA SE O ARQUIVO JÁ EXISTE, E DPS SE VAI SALVAR UM SQUAD OU UMA REGION*/
+        /*PRIMEIRO VERIFICA SE O ARQUIVO JÁ  EXISTE, E DPS SE VAI SALVAR UM SQUAD OU UMA REGION*/
 
         if (dirFile.exists()) {//SE JÁ EXISTIR O ARQUIVO (O .JSON)
             Reader reader = new FileReader(dirFile);//LE OS DADOS DO ARQUIVO
 
             if (opcSave == 0) {//OPC =0 -> salvar os dados do esquadrão
-                Type listType = new TypeToken<ArrayList<Squad>>(){}.getType();
+                Type listType = new TypeToken<ArrayList<Squad>>() {
+                }.getType();
                 listaSquad = gson.fromJson(reader, listType);//ERRO AQUI, NA HORA DE ADICIONAR NA LISTA OS DADOS LIDOS DO ARQUIVO
             } else {//OPC =1 -> salvar os dados da region
-                Type listType = new TypeToken<ArrayList<Region>>() {}.getType();
+                Type listType = new TypeToken<ArrayList<Region>>() {
+                }.getType();
                 listaRegion = gson.fromJson(reader, listType);
             }
         }
@@ -162,13 +169,35 @@ public class Controller {
     }
 
     @FXML
-    private void telaRegistrationRegion() {
+    private void telaRegistrationRegion() throws FileNotFoundException {
         //SÓ PODE ABRIR SE JÁ EXISTIR UM SQUAD REGISTRADO
-        File squadRegistration = new File("information\\registrationSquad.json");
-        if (squadRegistration != null) { //SE JÁ EXISTIR UM ESQUADRÃO REGISTRADO AO MENOS
+        File file = new File("C:\\Users\\Atlas\\Documents\\POOamazoniaAnalysis\\src\\main\\java\\Data\\squadJ.json");
+        if (file.exists()) { //SE JÁ EXISTIR UM ESQUADRÃO REGISTRADO AO MENOS
+            //CARREGAR OS DADOS DO ESQUADRÃO PARA A CHECKBOX
+            Region regionButton = new Region();
+            File dir = new File("C:\\Users\\Atlas\\Documents\\POOamazoniaAnalysis\\src\\main\\java\\Data\\squadJ.json");
+            Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
+            Type listType = new TypeToken<ArrayList<Region>>() {
+            }.getType();
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            List<Region> listaRegion = new ArrayList<Region>();
+            listaRegion = gson.fromJson(reader, listType);//carrega para a lista os dados do arquivo
+            ObservableList<String> olcomboBoxSquadResponsable;
+            List<String> listaRegionNomes = new ArrayList<String>();
+
+            for (int i = 0; i < listaRegion.size(); i++) {
+                listaRegionNomes.add(listaRegion.get(i).getName());
+            }
+            //olcomboBoxSquadResponsable = FXCollections.observableList(listaRegionNomes);
+
+            //comboBoxSquadResponsable.setItems(olcomboBoxSquadResponsable);
+
+
+
+            //OBS: TEM QUE INICIAR OS VALORES DO ARRAYLIST, NO CHECKBOX ANTES
             creatUI("registroRegion");
         } else {
-            JOptionPane.showMessageDialog(null, "Primeiro registre um Esquadrão");
+            JOptionPane.showMessageDialog(null, "Primeiro registre um Esquadrao");
         }
 
     }
@@ -183,8 +212,23 @@ public class Controller {
     //AQUI TEM QUE ARRUAMR PARA SALVAR O JSON
     @FXML
     void botaoEnviarRegistroRegion() throws IOException {
+        //DEPOIS TIRAR ISSO DE CARREGAR PARA A CHECKBOX AQUI
         Region regionButton = new Region();
-        //String squadResponsable; -> TEM QUE APARECER O VALOR NA CHECKBOX PRIMEIRO
+        File dir = new File("C:\\Users\\Atlas\\Documents\\POOamazoniaAnalysis\\src\\main\\java\\Data\\squadJ.json");
+        Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
+        Type listType = new TypeToken<ArrayList<Region>>() {
+        }.getType();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        List<Region> listaRegion = new ArrayList<Region>();
+        listaRegion = gson.fromJson(reader, listType);//carrega para a lista os dados do arquivo
+        ObservableList<String> olcomboBoxSquadResponsable = null;
+
+        List<String> listaRegionNomes = new ArrayList<String>();
+
+        for (int i = 0; i < listaRegion.size(); i++) {
+            listaRegionNomes.add(listaRegion.get(i).getName());
+        }
+
         String nomeRegion = comboBoxRegion.getValue();
         regionButton.setName(nomeRegion);
         if (checkBoxProtegida.isSelected()) {
@@ -192,14 +236,13 @@ public class Controller {
         } else {
             regionButton.setProtectedArea(false);
         }
-        regionButton.setSquadResponsable(comboBoxRegion.getValue()); //aqui precisa pegar o valor do checkbox
-       //VOU TER QUE CARREGAR OS DADOS DO SQUAD PARA O CHECKBOX ANTES
+        regionButton.setSquadResponsable(comboBoxSquadResponsable.getValue()); //aqui precisa pegar o valor do checkbox
 
-        //AÍ AQUI JÁ ENVIA OS DADOS P SALVAR O ARQUIVO
-        //DPS TROCAR ESSE DIR POR UM CAMINHO RELATIVO E NAO UM PATH COMPLETO
-        //OPCSAVE=0 ->SQUAD
+
         salvarJSON("C:\\Users\\Atlas\\Documents\\POOamazoniaAnalysis\\src\\main\\java\\Data\\regionJ.json", null, regionButton, 1);
     }
+
+
 
 
     @FXML

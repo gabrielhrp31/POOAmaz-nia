@@ -45,7 +45,11 @@
    <right>
       <AnchorPane prefHeight="348.0" prefWidth="254.0" BorderPane.alignment="CENTER">
          <children>
-            <ComboBox fx:id="comboBoxSquadResponsable" layoutX="52.0" layoutY="88.0" prefWidth="150.0" />
+            <ComboBox fx:id="comboBoxSquadResponsable" layoutX="52.0" layoutY="88.0" prefWidth="150.0">
+               <value>
+                  <String fx:value="Selecione" />
+               </value>
+            </ComboBox>
             <Text layoutX="14.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione o Esquadrão Responsável:" wrappingWidth="226.24607849121094" />
          </children></AnchorPane>
    </right>

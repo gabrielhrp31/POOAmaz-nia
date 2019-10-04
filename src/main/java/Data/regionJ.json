@@ -1,17 +1,27 @@
 [
   {
-    "name": "Sul",
-    "protectedArea": true,
-    "squadResponsable": "Sul"
+    "name": "Selecione",
+    "protectedArea": false,
+    "squadResponsable": "Selecione"
   },
   {
-    "name": "Sul",
+    "name": "Leste",
     "protectedArea": true,
-    "squadResponsable": "Sul"
+    "squadResponsable": "Poda"
   },
   {
-    "name": "Sul",
-    "protectedArea": true,
-    "squadResponsable": "Sul"
+    "name": "Selecione",
+    "protectedArea": false,
+    "squadResponsable": "Selecione"
+  },
+  {
+    "name": "Selecione",
+    "protectedArea": false,
+    "squadResponsable": "Selecione"
+  },
+  {
+    "name": "Selecione",
+    "protectedArea": false,
+    "squadResponsable": "Selecione"
   }
 ]
