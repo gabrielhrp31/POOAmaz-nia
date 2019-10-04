@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4c0cdb0-b32e-4fbb-a0db-39852b2736ee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ControllerAnalisesMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ControllerCadastroMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ControllerIndex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ControllerRegistroRegion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ControllerRegistroSquad.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ControllerUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -17,24 +10,21 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Controller$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Controller$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Controller$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Controller$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/Index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/Index.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/analisesMain.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/analisesMain.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/cadastroMain.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/cadastroMain.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerCadastroMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerCadastroMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroRegion$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroRegion$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroRegion.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroRegion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroSquad.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroSquad.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/registroRegion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/registroRegion.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/registroSquad.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/registroSquad.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Data/regionJ.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/regionJ.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Data/squadJ.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/squadJ.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Index.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/analisesMain.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/analisesMain.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/cadastroMain.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cadastroMain.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerCadastroMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerCadastroMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerRegistroRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerRegistroRegion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerRegistroSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerRegistroSquad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Data/regionJ.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Data/squadJ.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/registroRegion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/registroRegion.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/registroSquad.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/registroSquad.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -144,7 +134,7 @@
       <workItem from="1570034719955" duration="6933000" />
       <workItem from="1570109967153" duration="70000" />
       <workItem from="1570111959725" duration="2876000" />
-      <workItem from="1570139333581" duration="12528000" />
+      <workItem from="1570139333581" duration="16923000" />
     </task>
     <servers />
   </component>
@@ -167,6 +157,7 @@
   <component name="XDebuggerManager">
     <watches-manager>
       <configuration name="Remote">
+        <watch expression="comboBoxSquadResponsable" language="JAVA" />
         <watch expression="comboBoxSquadResponsable" language="JAVA" />
       </configuration>
     </watches-manager>

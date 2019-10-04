@@ -11,6 +11,7 @@ import javafx.scene.control.Control;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -29,10 +30,11 @@ public class ControllerUtil {
     //FUNÇÕES
     @FXML
     void creatUI(String ui) {
-        Parent root;
+        Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource(ui + ".fxml"));
             Stage stage = new Stage();
+
             stage.setTitle("Tela");
             stage.setScene(new Scene(root, Control.USE_COMPUTED_SIZE, Control.USE_COMPUTED_SIZE));
             stage.show();
@@ -42,7 +44,7 @@ public class ControllerUtil {
     }
 
 
-    //CARREGA UMA NOVA TELA NA MESMA SCENE
+
     @FXML
     void loadUI(String ui) {
         Parent root = null;
@@ -56,7 +58,7 @@ public class ControllerUtil {
     }
 
 
-    //diretorio , esquadrão(pode ser null), regiao(pode ser null),     opc se ta salvo
+    //diretorio , esquadrão(pode ser null), regiao(pode ser null),     opc (0,1)
     @FXML
     private void salvarJSONaux(String dir, Squad squadButton, Region regionButton, int opcSave) throws IOException {
         //AQUI É ONDE GERA O ARQUIVO
@@ -116,6 +118,10 @@ public class ControllerUtil {
         }
 
     }
+
+
+
+    
 
 
 }
