@@ -33,7 +33,6 @@ public class ControllerRegistroRegion extends ControllerUtil {
     //FUNÇÕES
     @FXML
     void botaoEnviarRegistroRegion() throws IOException {
-        //DEPOIS TIRAR ISSO DE CARREGAR PARA A CHECKBOX AQUI
         Region regionButton = new Region();
         String nomeRegion = comboBoxRegion.getValue();
         regionButton.setName(nomeRegion);
@@ -46,7 +45,9 @@ public class ControllerRegistroRegion extends ControllerUtil {
         regionButton.setSquadResponsable(comboBoxSquadResponsable.getValue());
 
 
-        salvarJSON("C:\\Users\\Atlas\\Documents\\POOamazoniaAnalysis\\src\\main\\java\\Data\\regionJ.json", null, regionButton, 1);
+        salvarJSON(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"regionJ.json", null, regionButton, 1);
+
+
     }
 
 

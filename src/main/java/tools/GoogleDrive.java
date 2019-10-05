@@ -1,5 +1,4 @@
 package tools;
-
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
 import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
@@ -13,6 +12,7 @@ import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.util.store.FileDataStoreFactory;
 import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.DriveScopes;
+import com.google.api.services.drive.model.File;
 import com.google.api.services.drive.model.FileList;
 
 import java.io.*;
@@ -57,28 +57,18 @@ public class GoogleDrive {
         return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
     }
 
-
-
-
-    public void uploadFile() throws IOException {
-        //DANDO ERO AQUI \/
-//
-//        File folder = this.getFile("application/vnd.google-apps.folder","analise");
-//        File fileMetadata = new File("");
-//        fileMetadata.setName("squadJ.json");
-//        fileMetadata.setParents(Collections.singletonList(folder.get()));
-//        java.io.File filePath = new java.io.File("Data/squadJ.json");
-//        FileContent mediaContent = new FileContent("application/json", filePath);
-//        File file = this.driveService.files().create(fileMetadata, mediaContent)
-//                .setFields("id")
-//                .execute();
-//        System.out.println("File ID: " + file.getId());
+    public void uploadFile(String url,String name) throws IOException {
+        File folder = this.getFile("application/vnd.google-apps.folder","analise");
+        File fileMetadata = new File();
+        fileMetadata.setParents(Collections.singletonList(folder.getId()));
+        java.io.File filePath = new java.io.File(url+".json");//diretorio do arquivo no pc
+        FileContent mediaContent = new FileContent("application/json", filePath);
+        fileMetadata.setName(name+".json");
+        File file = this.driveService.files().create(fileMetadata, mediaContent)
+                .setFields("id")
+                .execute();
+        System.out.println("File ID: " + file.getId());
     }
-
-
-
-
-
 
     public void downloadFile() throws IOException {
         String fileId = getFile("","photo.ppm").getId(); //COLOCA O ID DO ARQUIVO DO DRIVE (DPS TEM Q VER COMO PEGAR AUTOMATICO)
@@ -112,7 +102,7 @@ public class GoogleDrive {
                 .executeMediaAndDownloadTo(outputStream);
     }
 
-    private com.google.api.services.drive.model.File getFile(String mimeType, String name) throws IOException {
+    private  File getFile(String mimeType, String name) throws IOException {
         String pageToken = null;
 
         List<com.google.api.services.drive.model.File> files;

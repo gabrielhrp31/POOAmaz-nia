@@ -10,24 +10,28 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerAnalisesMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerAnalisesMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerCadastroMain$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerCadastroMain$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerCadastroMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerCadastroMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerIndex.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerIndex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerManipularMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerManipularMain.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroRegion$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroRegion$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroRegion.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroRegion.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroSquad.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroSquad.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/Index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/Index.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/analisesMain.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/analisesMain.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerAnalisesMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerAnalisesMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/tools/GoogleDrive.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/tools/GoogleDrive.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/tools/Image$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/tools/Image.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/tools/Image.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/tools/Teste.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/manipularMain.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/manipularMain.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControllerCadastroMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerCadastroMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerIndex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerManipularMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerManipularMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControllerRegistroRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerRegistroRegion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControllerRegistroSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerRegistroSquad.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControllerUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Data/regionJ.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/regionJ.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Data/squadJ.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/squadJ.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tools/GoogleDrive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tools/GoogleDrive.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Index.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/analisesMain.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/analisesMain.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tools/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tools/Image.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tools/Teste.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/manipularMain.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/manipularMain.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tokens/StoredCredential" beforeDir="false" afterPath="$PROJECT_DIR$/tokens/StoredCredential" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,6 +74,10 @@
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Atlas\Documents\POOamazoniaAnalysis" />
+      <recent name="C:\Users\Atlas\Documents\POOamazoniaAnalysis\src" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
     </key>

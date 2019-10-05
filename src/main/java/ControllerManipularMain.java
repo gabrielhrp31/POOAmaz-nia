@@ -1,4 +1,10 @@
 import javafx.fxml.FXML;
+import tools.GoogleDrive;
+
+import javax.swing.*;
+import java.io.File;
+import java.io.IOException;
+import java.security.GeneralSecurityException;
 
 public class ControllerManipularMain extends ControllerUtil{
 
@@ -7,11 +13,11 @@ public class ControllerManipularMain extends ControllerUtil{
 
 
     @FXML
-    private void enviarDados(){
-        //AQUI TENHO QUE DAR UM JEITO DE USAR A FUNÇÃO DE UPLOAD DO GOOGLE, SÓ QUE SUBINDO MEUS ARQUIVOS JSON SALVOS
-
-
-
+    private void enviarDados() throws IOException, GeneralSecurityException {
+         GoogleDrive gd= new GoogleDrive();
+        //primeiro envia o squad dps o region
+         gd.uploadFile(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"squadJ","squad");
+        gd.uploadFile(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"regionJ","region");
     }
 
 

@@ -3,5 +3,10 @@
     "name": "teste",
     "regionResponsable": "Sul",
     "quantityOfSoldiers": 12
+  },
+  {
+    "name": "novo",
+    "regionResponsable": "Sul",
+    "quantityOfSoldiers": 22
   }
 ]

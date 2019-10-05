@@ -25,12 +25,12 @@ public class ControllerCadastroMain extends ControllerUtil {
     //FUNÇÕES
     @FXML
     private void telaRegistrationRegion() throws FileNotFoundException {
-
-        File file = new File("C:\\Users\\Atlas\\Documents\\POOamazoniaAnalysis\\src\\main\\java\\Data\\squadJ.json");
-        if (file.exists()) { //SE JÁ EXISTIR UM ESQUADRÃO REGISTRADO AO MENOS
+//SE JÁ EXISTIR UM ESQUADRÃO REGISTRADO AO MENOS
+        File file = new File(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"squadJ.json");
+        if (file.exists()) {
             //CARREGAR OS DADOS DO ESQUADRÃO PARA A CHECKBOX
             Region regionButton = new Region();
-            File dir = new File("C:\\Users\\Atlas\\Documents\\POOamazoniaAnalysis\\src\\main\\java\\Data\\squadJ.json");
+            File dir = new File(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"squadJ.json");
             Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
             Type listType = new TypeToken<ArrayList<Region>>() {
             }.getType();

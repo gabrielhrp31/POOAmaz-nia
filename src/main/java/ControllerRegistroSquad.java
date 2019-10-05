@@ -3,6 +3,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
+import java.io.File;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 
@@ -33,7 +34,7 @@ public class ControllerRegistroSquad extends ControllerUtil {
         squadButton.setName(nomeSquad);
         squadButton.setQuantityOfSoldiers(numberSquadInt);
         squadButton.setRegionResponsable(region);
-        salvarJSON("C:\\Users\\Atlas\\Documents\\POOamazoniaAnalysis\\src\\main\\java\\Data\\squadJ.json", squadButton, null, 0);
+        salvarJSON(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"squadJ.json", squadButton, null, 0);
     }
 
 }

@@ -108,7 +108,7 @@ public class ControllerUtil{
     @FXML
     void salvarJSON(String dir, Squad squadButton, Region regionButton, int opcSave) throws IOException {
         //AQUI VERIFICA SE A PASTA EXISTE ANTES DE CHAMAR A FUNÇÃO QUE VAI GERAR O ARQUIVO
-        File dirDataFile = new File("C:\\Users\\Atlas\\Documents\\POOamazoniaAnalysis\\src\\main\\java\\Data");
+        File dirDataFile = new File(System.getProperty("user.dir")+ File.separator+"data");
 
         if (dirDataFile.exists()) {//SE A PASTA EXISTIR
             salvarJSONaux(dir, squadButton, regionButton, opcSave);//SÓ CHAMA A FUNÇÃO
