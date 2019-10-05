@@ -6,6 +6,7 @@ import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
 import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
 import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
+import com.google.api.client.http.FileContent;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
@@ -56,52 +57,61 @@ public class GoogleDrive {
         return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
     }
 
-//    public void uploadFile() throws IOException {
+
+
+
+    public void uploadFile() throws IOException {
+        //DANDO ERO AQUI \/
 //
-//        File folder = this.getFile("application/vnd.google-apps.folder","satellite");
+//        File folder = this.getFile("application/vnd.google-apps.folder","analise");
 //        File fileMetadata = new File("");
-//        fileMetadata.setName("photo.ppm");
+//        fileMetadata.setName("squadJ.json");
 //        fileMetadata.setParents(Collections.singletonList(folder.get()));
-//        java.io.File filePath = new java.io.File("photos/photo.ppm");
-//        FileContent mediaContent = new FileContent("image/jpeg", filePath);
+//        java.io.File filePath = new java.io.File("Data/squadJ.json");
+//        FileContent mediaContent = new FileContent("application/json", filePath);
 //        File file = this.driveService.files().create(fileMetadata, mediaContent)
 //                .setFields("id")
 //                .execute();
 //        System.out.println("File ID: " + file.getId());
-//    }
-//
-//    public void downloadFile() throws IOException {
-//        String fileId = getFile("","photo.ppm").getId(); //COLOCA O ID DO ARQUIVO DO DRIVE (DPS TEM Q VER COMO PEGAR AUTOMATICO)
-//
-//        java.io.File theDir = new java.io.File("photos"+ java.io.File.separator+"downloads");
-//
-//        // se o diretorio não existir cria ele
-//        if (!theDir.exists()) {
-//            System.out.println("creating directory: " + theDir.getName());
-//            boolean result = false;
-//
-//            try{
-//                theDir.mkdir();
-//                result = true;
-//            }
-//            catch(SecurityException se){
-//                //handle it
-//            }
-//            if(result) {
-//                System.out.println("new Directory created");
-//            }
-//        }
-//
-//
-//        OutputStream outputStream = new FileOutputStream("photos/downloads/photo.ppm");
-//
-//
-//
-//
-//        driveService.files().get(fileId)
-//                .executeMediaAndDownloadTo(outputStream);
-//    }
-//
+    }
+
+
+
+
+
+
+    public void downloadFile() throws IOException {
+        String fileId = getFile("","photo.ppm").getId(); //COLOCA O ID DO ARQUIVO DO DRIVE (DPS TEM Q VER COMO PEGAR AUTOMATICO)
+
+        java.io.File theDir = new java.io.File("photos"+ java.io.File.separator+"downloads");
+
+        // se o diretorio não existir cria ele
+        if (!theDir.exists()) {
+            System.out.println("creating directory: " + theDir.getName());
+            boolean result = false;
+
+            try{
+                theDir.mkdir();
+                result = true;
+            }
+            catch(SecurityException se){
+                //handle it
+            }
+            if(result) {
+                System.out.println("new Directory created");
+            }
+        }
+
+
+        OutputStream outputStream = new FileOutputStream("photos/downloads/photo.ppm");
+
+
+
+
+        driveService.files().get(fileId)
+                .executeMediaAndDownloadTo(outputStream);
+    }
+
     private com.google.api.services.drive.model.File getFile(String mimeType, String name) throws IOException {
         String pageToken = null;
 

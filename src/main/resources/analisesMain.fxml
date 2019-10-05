@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -8,7 +9,15 @@
    <center>
       <HBox alignment="CENTER" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#telaCadastroMain" prefHeight="44.0" prefWidth="206.0" style="-fx-background-color: #b0db4d; -fx-font-size: 20;" text="CADASTRAR" />
+            <Button mnemonicParsing="false" onAction="#telaCadastroMain" style="-fx-background-color: #b0db4d; -fx-font-size: 20;" text="CADASTRAR">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin></Button>
+            <Button mnemonicParsing="false" onAction="#telaManipularMain" style="-fx-background-color: #b0db4d; -fx-font-size: 20;" text="MANIPULAR">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </Button>
          </children>
       </HBox>
    </center>
