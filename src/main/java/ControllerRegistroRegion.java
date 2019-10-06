@@ -45,7 +45,7 @@ public class ControllerRegistroRegion extends ControllerUtil {
         regionButton.setSquadResponsable(comboBoxSquadResponsable.getValue());
 
 
-        salvarJSON(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"regionJ.json", null, regionButton, 1,null,null);
+        salvarJSON(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"regionJ.json", null, regionButton, 1,0,null,null);
 
 
     }

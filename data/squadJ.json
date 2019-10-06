@@ -1,22 +1,19 @@
 [
   {
     "name": "teste",
-    "regionResponsable": "Norte",
-    "quantityOfSoldiers": 23
+    "quantityOfSoldiers": 0
   },
   {
     "name": "car",
-    "regionResponsable": "Sul",
-    "quantityOfSoldiers": 12
-  },
-  {
-    "name": "oi",
-    "regionResponsable": "Sul",
-    "quantityOfSoldiers": 34
+    "quantityOfSoldiers": 0
   },
   {
     "name": "oooo",
-    "regionResponsable": "Oeste",
-    "quantityOfSoldiers": 2
+    "quantityOfSoldiers": 0
+  },
+  {
+    "name": "ei",
+    "regionResponsable": "Sul",
+    "quantityOfSoldiers": 10
   }
 ]

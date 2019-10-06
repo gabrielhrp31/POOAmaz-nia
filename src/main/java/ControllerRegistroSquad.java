@@ -34,7 +34,7 @@ public class ControllerRegistroSquad extends ControllerUtil {
         squadButton.setName(nomeSquad);
         squadButton.setQuantityOfSoldiers(numberSquadInt);
         squadButton.setRegionResponsable(region);
-        salvarJSON(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"squadJ.json", squadButton, null, 0,null,null);
+        salvarJSON(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"squadJ.json", squadButton, null, 0,0,null,null);
     }
 
 }

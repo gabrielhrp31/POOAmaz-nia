@@ -58,7 +58,7 @@ public class ControllerUtil {
 
     //diretorio , esquadrão(pode ser null), regiao(pode ser null),     opc (0,1)
     @FXML
-    private void salvarJSONaux(String dir, Squad squadButton, Region regionButton, int opcSave, String squadRemover, String regionRemover) throws IOException {
+    private void salvarJSONaux(String dir, Squad squadButton, Region regionButton, int opcSave, int editar, String squadRemover, String regionRemover) throws IOException {
         //AQUI É ONDE GERA O ARQUIVO
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         File dirFile = new File(dir);//diretorio onde irá o arquivo
@@ -71,45 +71,45 @@ public class ControllerUtil {
         /*
          * OPC= 0 - SALVAR SQUAD
          * OPC= 1 - SALVAR REGION
-         * OPC= 2 - EDITAR SQUAD
-         * OPC= 3 - EDITAR REGION
+         * EDITAR= 0 -NAO EDITA
+         * EDITAR= 1 - EDITA
          */
 
 
         if (dirFile.exists()) {//SE JÁ EXISTIR O ARQUIVO (O .JSON)
             Reader reader = new FileReader(dirFile);//LE OS DADOS DO ARQUIVO
 
-            if (opcSave == 0) {//OPC =0 -> salvar os dados do esquadrão
+            if (opcSave == 0 && editar == 0) {//OPC =0 -> salvar os dados do esquadrão
                 Type listType = new TypeToken<ArrayList<Squad>>() {
                 }.getType();
                 listaSquad = gson.fromJson(reader, listType);
             }
-            if (opcSave == 1) {//OPC =1 -> salvar os dados da region
+            if (opcSave == 1 && editar == 0) {//OPC =1 -> salvar os dados da region
                 Type listType = new TypeToken<ArrayList<Region>>() {
                 }.getType();
                 listaRegion = gson.fromJson(reader, listType);
             }
-            if (opcSave == 2) {//editar arquivo SQUAD
-                Type listType = new TypeToken<ArrayList<String>>() {
+            if (opcSave == 0 && editar == 1) {//editar arquivo SQUAD
+                Type listType = new TypeToken<ArrayList<Squad>>() {
                 }.getType();
                 listaSquad = gson.fromJson(reader, listType);//nesse momento minha lista tem os valores
 
-                //aqui remover o que foi passado, aí passa o opc e o parametro novo
+                //REMOVE A ANTIGA
                 for (int i = 0; i < listaSquad.size(); i++) {
-                    if (listaSquad.get(i).getName().equals(squadRemover)){
+                    if (listaSquad.get(i).getName().equals(squadRemover)) {
                         listaSquad.remove(i);
                     }
                 }
 
             }
-            if (opcSave == 3) {//editar arquivo REGION
+            if (opcSave == 1 && editar == 1) {//editar arquivo REGION
                 Type listType = new TypeToken<ArrayList<Region>>() {
                 }.getType();
                 listaRegion = gson.fromJson(reader, listType);
 
 
                 for (int i = 0; i < listaRegion.size(); i++) {
-                    if (listaRegion.get(i).getName().equals(regionRemover)){
+                    if (listaRegion.get(i).getName().equals(regionRemover)) {
                         listaRegion.remove(i);
                     }
                 }
@@ -138,15 +138,15 @@ public class ControllerUtil {
     }
 
     @FXML
-    void salvarJSON(String dir, Squad squadButton, Region regionButton, int opcSave, String squadRemover, String regionRemover) throws IOException {
+    void salvarJSON(String dir, Squad squadButton, Region regionButton, int opcSave, int editar, String squadRemover, String regionRemover) throws IOException {
         //AQUI VERIFICA SE A PASTA EXISTE ANTES DE CHAMAR A FUNÇÃO QUE VAI GERAR O ARQUIVO
         File dirDataFile = new File(System.getProperty("user.dir") + File.separator + "data");
 
         if (dirDataFile.exists()) {//SE A PASTA EXISTIR
-            salvarJSONaux(dir, squadButton, regionButton, opcSave, squadRemover, regionRemover);//SÓ CHAMA A FUNÇÃO
+            salvarJSONaux(dir, squadButton, regionButton, opcSave, editar, squadRemover, regionRemover);//SÓ CHAMA A FUNÇÃO
         } else {
             dirDataFile.mkdir();//CRIA UMA NOVA PASTA NO DIRETORIO E DPS CHAMA A FUNÇÃO
-            salvarJSONaux(dir, squadButton, regionButton, opcSave, squadRemover, regionRemover);
+            salvarJSONaux(dir, squadButton, regionButton, opcSave, editar, squadRemover, regionRemover);
         }
 
     }

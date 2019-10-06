@@ -39,7 +39,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
     public void carregarCheckBoxSquad() throws FileNotFoundException {
         File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ.json");
         Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
-        Type listType = new TypeToken<ArrayList<String>>() {
+        Type listType = new TypeToken<ArrayList<Squad>>() {
         }.getType();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         List<Squad> listaSquads = new ArrayList<Squad>();
@@ -62,7 +62,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
     public void atualizarCheckBoxSquad() throws FileNotFoundException {
         File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ.json");
         Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
-        Type listType = new TypeToken<ArrayList<String>>() {
+        Type listType = new TypeToken<ArrayList<Squad>>() {
         }.getType();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         List<Squad> listaSquads = new ArrayList<Squad>();
@@ -100,7 +100,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
     //carregando os dados em memória (TORNAR ESSE MÉTODO GENERICO)
         File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ.json");
         Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
-        Type listType = new TypeToken<ArrayList<String>>() {
+        Type listType = new TypeToken<ArrayList<Squad>>() {
         }.getType();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         List<Squad> listaSquads = new ArrayList<Squad>();
@@ -132,7 +132,13 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
 
                 //salvar
 
-                //salvarJSON(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"squadJ.json", listaSquads.get(i), null, 3,removerSquad,null);
+
+                //TERMINAR ESSE EDITAR DADOS, TA PRATICAMENTE TUDO PRONTO
+                  //      SÓ TENHO Q FAZER COM QUE ELE DA O REMOVE NO NOME DA LISTA Q EU PASSEI
+                    //    E ADICIONA O NOVO
+                String nomeComboBox=comboBoxSquadEditar.getValue(); //pega o nome selecionado na comboBox
+
+                salvarJSON(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"squadJ.json", listaSquads.get(i), null, 0,1,nomeComboBox,null);
                 //ver se vai remover direito e adicionar certo
 
 
