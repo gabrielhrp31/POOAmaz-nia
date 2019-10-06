@@ -1,5 +1,4 @@
 package DAO;
-
 public class Squad {
     //Classe para os esquadrões do exército
 

@@ -45,7 +45,7 @@ public class ControllerRegistroRegion extends ControllerUtil {
         regionButton.setSquadResponsable(comboBoxSquadResponsable.getValue());
 
 
-        salvarJSON(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"regionJ.json", null, regionButton, 1);
+        salvarJSON(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"regionJ.json", null, regionButton, 1,null,null);
 
 
     }
@@ -53,8 +53,7 @@ public class ControllerRegistroRegion extends ControllerUtil {
 
     @FXML
     void carregarDadosCheckBox() throws FileNotFoundException {
-        Region regionButton = new Region();
-        File dir = new File("C:\\Users\\Atlas\\Documents\\POOamazoniaAnalysis\\src\\main\\java\\Data\\squadJ.json");
+        File dir = new File(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"squadJ.json");
         Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
         Type listType = new TypeToken<ArrayList<Region>>() {
         }.getType();

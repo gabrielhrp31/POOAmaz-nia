@@ -1,3 +1,4 @@
+
 import DAO.Squad;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
@@ -5,7 +6,6 @@ import javafx.scene.control.TextField;
 
 import java.io.File;
 import java.io.IOException;
-import java.security.GeneralSecurityException;
 
 public class ControllerRegistroSquad extends ControllerUtil {
 
@@ -18,23 +18,23 @@ public class ControllerRegistroSquad extends ControllerUtil {
     private TextField textRegistrationSquadQuantitySoldiers;
 
     @FXML
-    private ComboBox<String> comboBoxSquad;
+    private ComboBox<java.lang.String> comboBoxSquad;
 
 
 
     //FUNÇÕES
     @FXML
     void botaoEnviarRegistroSquad() throws IOException {
-         Squad squadButton = new Squad();
-        String nomeSquad = textRegistrationSquadName.getText();
-        String numberSquad = textRegistrationSquadQuantitySoldiers.getText();
+        Squad squadButton = new Squad();
+        java.lang.String nomeSquad = textRegistrationSquadName.getText();
+        java.lang.String numberSquad = textRegistrationSquadQuantitySoldiers.getText();
         int numberSquadInt = Integer.parseInt(numberSquad);
-        String region = comboBoxSquad.getValue();
+        java.lang.String region = comboBoxSquad.getValue();
 
         squadButton.setName(nomeSquad);
         squadButton.setQuantityOfSoldiers(numberSquadInt);
         squadButton.setRegionResponsable(region);
-        salvarJSON(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"squadJ.json", squadButton, null, 0);
+        salvarJSON(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"squadJ.json", squadButton, null, 0,null,null);
     }
 
 }

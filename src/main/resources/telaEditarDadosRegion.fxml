@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerEditarDadosRegion">
+   <top>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <TextField editable="false" layoutX="188.0" layoutY="49.0" style="-fx-background-color: #49d43f; -fx-font-size: 18;" text="EDITAR DADOS REGIÕES" />
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>

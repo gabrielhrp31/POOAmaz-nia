@@ -1,7 +1,17 @@
 [
   {
-    "name": "Norte",
+    "name": "Sul",
     "protectedArea": true,
-    "squadResponsable": "teste"
+    "squadResponsable": "oooo"
+  },
+  {
+    "name": "Leste",
+    "protectedArea": true,
+    "squadResponsable": "car"
+  },
+  {
+    "name": "Leste",
+    "protectedArea": false,
+    "squadResponsable": "oi"
   }
 ]

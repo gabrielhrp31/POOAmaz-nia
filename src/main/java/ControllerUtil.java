@@ -11,7 +11,6 @@ import javafx.scene.control.Control;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ControllerUtil{
+public class ControllerUtil {
 
 
     //ATRIBUTOS
@@ -29,7 +28,7 @@ public class ControllerUtil{
 
     //FUNÇÕES
     @FXML
-    void creatUI(String ui) {
+    void creatUI(java.lang.String ui) {
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource(ui + ".fxml"));
@@ -44,9 +43,8 @@ public class ControllerUtil{
     }
 
 
-
     @FXML
-    void loadUI(String ui) {
+    void loadUI(java.lang.String ui) {
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource(ui + ".fxml"));
@@ -60,15 +58,23 @@ public class ControllerUtil{
 
     //diretorio , esquadrão(pode ser null), regiao(pode ser null),     opc (0,1)
     @FXML
-    private void salvarJSONaux(String dir, Squad squadButton, Region regionButton, int opcSave) throws IOException {
+    private void salvarJSONaux(String dir, Squad squadButton, Region regionButton, int opcSave, String squadRemover, String regionRemover) throws IOException {
         //AQUI É ONDE GERA O ARQUIVO
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         File dirFile = new File(dir);//diretorio onde irá o arquivo
         List<Squad> listaSquad = new ArrayList<Squad>();
         List<Region> listaRegion = new ArrayList<Region>();
-        String gsonString = "";
+        java.lang.String gsonString = "";
 
         /*PRIMEIRO VERIFICA SE O ARQUIVO JÁ  EXISTE, E DPS SE VAI SALVAR UM SQUAD OU UMA REGION*/
+
+        /*
+         * OPC= 0 - SALVAR SQUAD
+         * OPC= 1 - SALVAR REGION
+         * OPC= 2 - EDITAR SQUAD
+         * OPC= 3 - EDITAR REGION
+         */
+
 
         if (dirFile.exists()) {//SE JÁ EXISTIR O ARQUIVO (O .JSON)
             Reader reader = new FileReader(dirFile);//LE OS DADOS DO ARQUIVO
@@ -76,11 +82,37 @@ public class ControllerUtil{
             if (opcSave == 0) {//OPC =0 -> salvar os dados do esquadrão
                 Type listType = new TypeToken<ArrayList<Squad>>() {
                 }.getType();
-                listaSquad = gson.fromJson(reader, listType);//ERRO AQUI, NA HORA DE ADICIONAR NA LISTA OS DADOS LIDOS DO ARQUIVO
-            } else {//OPC =1 -> salvar os dados da region
+                listaSquad = gson.fromJson(reader, listType);
+            }
+            if (opcSave == 1) {//OPC =1 -> salvar os dados da region
                 Type listType = new TypeToken<ArrayList<Region>>() {
                 }.getType();
                 listaRegion = gson.fromJson(reader, listType);
+            }
+            if (opcSave == 2) {//editar arquivo SQUAD
+                Type listType = new TypeToken<ArrayList<String>>() {
+                }.getType();
+                listaSquad = gson.fromJson(reader, listType);//nesse momento minha lista tem os valores
+
+                //aqui remover o que foi passado, aí passa o opc e o parametro novo
+                for (int i = 0; i < listaSquad.size(); i++) {
+                    if (listaSquad.get(i).getName().equals(squadRemover)){
+                        listaSquad.remove(i);
+                    }
+                }
+
+            }
+            if (opcSave == 3) {//editar arquivo REGION
+                Type listType = new TypeToken<ArrayList<Region>>() {
+                }.getType();
+                listaRegion = gson.fromJson(reader, listType);
+
+
+                for (int i = 0; i < listaRegion.size(); i++) {
+                    if (listaRegion.get(i).getName().equals(regionRemover)){
+                        listaRegion.remove(i);
+                    }
+                }
             }
         }
 
@@ -106,22 +138,18 @@ public class ControllerUtil{
     }
 
     @FXML
-    void salvarJSON(String dir, Squad squadButton, Region regionButton, int opcSave) throws IOException {
+    void salvarJSON(String dir, Squad squadButton, Region regionButton, int opcSave, String squadRemover, String regionRemover) throws IOException {
         //AQUI VERIFICA SE A PASTA EXISTE ANTES DE CHAMAR A FUNÇÃO QUE VAI GERAR O ARQUIVO
-        File dirDataFile = new File(System.getProperty("user.dir")+ File.separator+"data");
+        File dirDataFile = new File(System.getProperty("user.dir") + File.separator + "data");
 
         if (dirDataFile.exists()) {//SE A PASTA EXISTIR
-            salvarJSONaux(dir, squadButton, regionButton, opcSave);//SÓ CHAMA A FUNÇÃO
+            salvarJSONaux(dir, squadButton, regionButton, opcSave, squadRemover, regionRemover);//SÓ CHAMA A FUNÇÃO
         } else {
             dirDataFile.mkdir();//CRIA UMA NOVA PASTA NO DIRETORIO E DPS CHAMA A FUNÇÃO
-            salvarJSONaux(dir, squadButton, regionButton, opcSave);
+            salvarJSONaux(dir, squadButton, regionButton, opcSave, squadRemover, regionRemover);
         }
 
     }
-
-
-
-
 
 
 }

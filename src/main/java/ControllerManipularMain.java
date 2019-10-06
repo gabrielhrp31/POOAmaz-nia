@@ -1,4 +1,5 @@
 import javafx.fxml.FXML;
+import javafx.scene.layout.BorderPane;
 import tools.GoogleDrive;
 
 import javax.swing.*;
@@ -13,11 +14,23 @@ public class ControllerManipularMain extends ControllerUtil{
 
 
     @FXML
+    private BorderPane borderPanel;
+
+
+    //METODOS
+
+    @FXML
+    private void telaEditarDadosMain() {
+        loadUI("editarDadosMain");
+    }
+
+
+    @FXML
     private void enviarDados() throws IOException, GeneralSecurityException {
          GoogleDrive gd= new GoogleDrive();
         //primeiro envia o squad dps o region
          gd.uploadFile(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"squadJ","squad");
-        gd.uploadFile(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"regionJ","region");
+         gd.uploadFile(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"regionJ","region");
     }
 
 
