@@ -1,17 +1,12 @@
 [
   {
     "name": "Sul",
-    "protectedArea": true,
-    "squadResponsable": "oooo"
-  },
-  {
-    "name": "Leste",
-    "protectedArea": true,
-    "squadResponsable": "car"
-  },
-  {
-    "name": "Leste",
     "protectedArea": false,
-    "squadResponsable": "oi"
+    "squadResponsable": "Área Protegida"
+  },
+  {
+    "name": "Leste",
+    "protectedArea": true,
+    "squadResponsable": "ei"
   }
 ]

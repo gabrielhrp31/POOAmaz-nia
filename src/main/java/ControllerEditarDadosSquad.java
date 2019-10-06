@@ -53,8 +53,6 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
         }
 
         olcomboBoxSquadResponsable = FXCollections.observableList(listaNomes);
-        //no listaSquads tem todos os dados, aí da o .get(posicao) p pegar o campo
-        //aí tenho que carregar os dados quando o cara clicar em atualizar p ele alterar
         comboBoxSquadEditar.setItems(olcomboBoxSquadResponsable);
     }
 
@@ -76,16 +74,13 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
         }
 
         olcomboBoxSquadResponsable = FXCollections.observableList(listaNomes);
-        //no listaSquads tem todos os dados, aí da o .get(posicao) p pegar o campo
-        //aí tenho que carregar os dados quando o cara clicar em atualizar p ele alterar
         comboBoxSquadEditar.setItems(olcomboBoxSquadResponsable);
 
         for (int i = 0; i < listaSquads.size(); i++) {
             if (comboBoxSquadEditar.getValue().equals(listaSquads.get(i).getName())) {//for igual o do checkbox
-                  java.lang.String quantify=Integer.toString(listaSquads.get(i).getQuantityOfSoldiers());
-                  txtNomeEditarSquad.setText(listaSquads.get(i).getName());
-                  txtNumeroEditarSquad.setText(quantify);
-                  //ARRUMAR A FUNÇÃO DE CARREGAR P ELE FICAR NA CONTROLLER UTIL E SER GENERICA
+                java.lang.String quantify = Integer.toString(listaSquads.get(i).getQuantityOfSoldiers());
+                txtNomeEditarSquad.setText(listaSquads.get(i).getName());
+                txtNumeroEditarSquad.setText(quantify);
             }
         }
 
@@ -95,9 +90,6 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
 
     @FXML
     public void botaoSalvarSquad() throws IOException {
-    //carregar os dados em memória, dps pegar os valores do txtField e substiruir e dps salvar
-
-    //carregando os dados em memória (TORNAR ESSE MÉTODO GENERICO)
         File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ.json");
         Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
         Type listType = new TypeToken<ArrayList<Squad>>() {
@@ -115,43 +107,22 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
 
         olcomboBoxSquadResponsable = FXCollections.observableList(listaNomes);
 
-        //ALTERANDO
-        //BUSCA PELO NOME
-
-      //  java.lang.String removerSquad=comboBoxSquadEditar.getValue();
-
         for (int i = 0; i < listaSquads.size(); i++) {
             if (comboBoxSquadEditar.getValue().equals(listaSquads.get(i).getName())) {//forem iguais
-              listaSquads.get(i).setName(txtNomeEditarSquad.getText());
-              int quantity=Integer.parseInt(txtNumeroEditarSquad.getText());
-              listaSquads.get(i).setQuantityOfSoldiers(quantity);
-              listaSquads.get(i).setRegionResponsable(checkBregiaoEditarSquad.getValue());
+                listaSquads.get(i).setName(txtNomeEditarSquad.getText());
+                int quantity = Integer.parseInt(txtNumeroEditarSquad.getText());
+                listaSquads.get(i).setQuantityOfSoldiers(quantity);
+                listaSquads.get(i).setRegionResponsable(checkBregiaoEditarSquad.getValue());
 
-                //ARRUMAR A FUNÇÃO DE CARREGAR P ELE FICAR NA CONTROLLER UTIL E SER GENERICA
+                String nomeComboBox = comboBoxSquadEditar.getValue(); //pega o nome selecionado na comboBox
 
-
-                //salvar
-
-
-                //TERMINAR ESSE EDITAR DADOS, TA PRATICAMENTE TUDO PRONTO
-                  //      SÓ TENHO Q FAZER COM QUE ELE DA O REMOVE NO NOME DA LISTA Q EU PASSEI
-                    //    E ADICIONA O NOVO
-                String nomeComboBox=comboBoxSquadEditar.getValue(); //pega o nome selecionado na comboBox
-
-                salvarJSON(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"squadJ.json", listaSquads.get(i), null, 0,1,nomeComboBox,null);
-                //ver se vai remover direito e adicionar certo
-
-
+                salvarJSON(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ.json", listaSquads.get(i), null, 0, 1, nomeComboBox, null);
             }
 
         }
 
 
-
-
-
     }
-
 
 
 }
