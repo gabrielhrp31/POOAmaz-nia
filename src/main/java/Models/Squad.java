@@ -1,4 +1,4 @@
-package DAO;
+package Models;
 public class Squad {
     //Classe para os esquadrões do exército
 

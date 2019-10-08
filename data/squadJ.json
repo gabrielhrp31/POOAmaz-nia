@@ -15,5 +15,10 @@
     "name": "ei",
     "regionResponsable": "Sul",
     "quantityOfSoldiers": 10
+  },
+  {
+    "name": "policiais",
+    "regionResponsable": "Sul",
+    "quantityOfSoldiers": 11
   }
 ]

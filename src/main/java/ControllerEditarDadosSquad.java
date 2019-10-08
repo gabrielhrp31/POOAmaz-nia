@@ -1,4 +1,4 @@
-import DAO.Squad;
+import Models.Squad;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;

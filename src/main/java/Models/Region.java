@@ -1,4 +1,4 @@
-package DAO;
+package Models;
 
 public class Region {
     private String name;
