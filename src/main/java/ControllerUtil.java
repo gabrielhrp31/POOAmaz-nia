@@ -56,7 +56,24 @@ public class ControllerUtil {
     }
 
 
-    //diretorio , esquadrão(pode ser null), regiao(pode ser null),     opc (0,1)
+
+    public boolean isAlpha(String name) {
+        return name.matches("[a-zA-Z]+");
+    }
+
+
+    public static boolean soContemNumeros(String texto) {
+        if(texto == null)
+            return false;
+        for (char letra : texto.toCharArray())
+            if(letra < '0' || letra > '9')
+                return false;
+        return true;
+    }
+
+
+
+    //diretorio , esquadrão(pode ser null), regiao(pode ser null),     opc (0,1) editar(0,1)  squadRemover,regionRemover (podem ser vazios)
     @FXML
     private void salvarJSONaux(String dir, Squad squadButton, Region regionButton, int opcSave, int editar, String squadRemover, String regionRemover) throws IOException {
         //AQUI É ONDE GERA O ARQUIVO

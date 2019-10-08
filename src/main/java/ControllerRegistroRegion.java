@@ -1,3 +1,4 @@
+import DAO.RegionDAO;
 import Models.Region;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -35,7 +36,6 @@ public class ControllerRegistroRegion extends ControllerUtil {
         Region regionButton = new Region();
         String nomeRegion = comboBoxRegion.getValue();
         regionButton.setName(nomeRegion);
-
         if (checkBoxProtegida.isSelected()) {
             regionButton.setProtectedArea(true);
         } else {
@@ -43,32 +43,15 @@ public class ControllerRegistroRegion extends ControllerUtil {
         }
         regionButton.setSquadResponsable(comboBoxSquadResponsable.getValue());
 
-
         salvarJSON(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"regionJ.json", null, regionButton, 1,0,null,null);
-
-
     }
 
 
     @FXML
     void carregarDadosCheckBox() throws FileNotFoundException {
-        File dir = new File(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"squadJ.json");
-        Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
-        Type listType = new TypeToken<ArrayList<Region>>() {
-        }.getType();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Region> listaRegion = new ArrayList<Region>();
-        listaRegion = gson.fromJson(reader, listType);//carrega para a lista os dados do arquivo
+        RegionDAO regionDAO=new RegionDAO();
         ObservableList<String> olcomboBoxSquadResponsable = null;
-
-        List<String> listaRegionNomes = new ArrayList<String>();
-
-        for (int i = 0; i < listaRegion.size(); i++) {
-            listaRegionNomes.add(listaRegion.get(i).getName());
-        }
-
-        olcomboBoxSquadResponsable = FXCollections.observableList(listaRegionNomes);
-
+        olcomboBoxSquadResponsable = FXCollections.observableList(regionDAO.carregarComboBoxRegion());
         comboBoxSquadResponsable.setItems(olcomboBoxSquadResponsable);
     }
 

@@ -1,24 +1,47 @@
 [
   {
-    "name": "teste",
-    "quantityOfSoldiers": 0
+    "name": "ASD",
+    "regionResponsable": "Selecione",
+    "quantityOfSoldiers": 2
   },
   {
-    "name": "car",
-    "quantityOfSoldiers": 0
+    "name": "ASD",
+    "regionResponsable": "Selecione",
+    "quantityOfSoldiers": 2
   },
   {
-    "name": "oooo",
-    "quantityOfSoldiers": 0
+    "name": "ASD",
+    "regionResponsable": "Selecione",
+    "quantityOfSoldiers": 2
   },
   {
-    "name": "ei",
-    "regionResponsable": "Sul",
-    "quantityOfSoldiers": 10
+    "name": "ASD",
+    "regionResponsable": "Selecione",
+    "quantityOfSoldiers": 2
   },
   {
-    "name": "policiais",
-    "regionResponsable": "Sul",
-    "quantityOfSoldiers": 11
+    "name": "khg",
+    "regionResponsable": "Selecione",
+    "quantityOfSoldiers": 2
+  },
+  {
+    "name": "kjlk",
+    "regionResponsable": "Selecione",
+    "quantityOfSoldiers": 8
+  },
+  {
+    "name": "oiu",
+    "regionResponsable": "Selecione",
+    "quantityOfSoldiers": 8
+  },
+  {
+    "name": "123",
+    "regionResponsable": "Selecione",
+    "quantityOfSoldiers": 1
+  },
+  {
+    "name": "asd",
+    "regionResponsable": "Selecione",
+    "quantityOfSoldiers": 2
   }
 ]

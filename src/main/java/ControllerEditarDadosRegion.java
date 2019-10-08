@@ -1,3 +1,4 @@
+import DAO.SquadDAO;
 import Models.Region;
 import Models.Squad;
 import com.google.gson.Gson;
@@ -52,28 +53,16 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
 
     @FXML
     public void carregarCheckBoxSquad() throws FileNotFoundException {
-        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ.json");
-        Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
-        Type listType = new TypeToken<ArrayList<Squad>>() {
-        }.getType();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Squad> listaSquads = new ArrayList<Squad>();
-        listaSquads = gson.fromJson(reader, listType);//carrega para a lista os dados do arquivo
+        SquadDAO squadDAO = new SquadDAO();
         ObservableList<java.lang.String> olcomboBoxSquadResponsable = null;
-
-        List<String> listaNomes = new ArrayList<String>();
-
-        for (int i = 0; i < listaSquads.size(); i++) {
-            listaNomes.add(listaSquads.get(i).getName());
-        }
-
-        olcomboBoxSquadResponsable = FXCollections.observableList(listaNomes);
+        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxSquad());
         checkBSqudEditarRegion.setItems(olcomboBoxSquadResponsable);
     }
 
 
     @FXML
     public void botaoSalvarRegion() throws IOException {
+        //TENTAR ENTENDER Q Q ISSO FAZ PRIMEIRO
         File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "regionJ.json");
         Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
         Type listType = new TypeToken<ArrayList<Region>>() {
@@ -81,13 +70,8 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         List<Region> listaRegion = new ArrayList<Region>();
         listaRegion = gson.fromJson(reader, listType);//carrega para a lista os dados do arquivo
-        ObservableList<java.lang.String> olcomboBoxSquadResponsable = null;
 
-        List<java.lang.String> listaNomes = new ArrayList<java.lang.String>();
 
-        for (int i = 0; i < listaRegion.size(); i++) {
-            listaNomes.add(listaRegion.get(i).getName());
-        }
 
         for (int i = 0; i < listaRegion.size(); i++) {
             if (comboBoxRegionEditar.getValue().equals(listaRegion.get(i).getName())) {//forem iguais

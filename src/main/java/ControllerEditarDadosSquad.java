@@ -1,3 +1,4 @@
+import DAO.SquadDAO;
 import Models.Squad;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -8,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
+import javax.swing.*;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -90,6 +92,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
 
     @FXML
     public void botaoSalvarSquad() throws IOException {
+        SquadDAO squadDAO=new SquadDAO();
         File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ.json");
         Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
         Type listType = new TypeToken<ArrayList<Squad>>() {
@@ -109,6 +112,15 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
 
         for (int i = 0; i < listaSquads.size(); i++) {
             if (comboBoxSquadEditar.getValue().equals(listaSquads.get(i).getName())) {//forem iguais
+
+                if (!isAlpha(txtNomeEditarSquad.getText())) {
+                    JOptionPane.showMessageDialog(null, "Insira apenas Letras no nome");
+                    return;
+                }
+                if (!soContemNumeros(txtNumeroEditarSquad.getText())) {
+                    JOptionPane.showMessageDialog(null, "Insira apenas Numeros na quantidade");
+                    return;
+                }
                 listaSquads.get(i).setName(txtNomeEditarSquad.getText());
                 int quantity = Integer.parseInt(txtNumeroEditarSquad.getText());
                 listaSquads.get(i).setQuantityOfSoldiers(quantity);
