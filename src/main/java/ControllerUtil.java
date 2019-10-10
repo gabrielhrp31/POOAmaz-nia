@@ -11,6 +11,7 @@ import javafx.scene.control.Control;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -56,21 +57,19 @@ public class ControllerUtil {
     }
 
 
-
     public boolean isAlpha(String name) {
         return name.matches("[a-zA-Z]+");
     }
 
 
     public static boolean soContemNumeros(String texto) {
-        if(texto == null)
+        if (texto == null)
             return false;
         for (char letra : texto.toCharArray())
-            if(letra < '0' || letra > '9')
+            if (letra < '0' || letra > '9')
                 return false;
         return true;
     }
-
 
 
     //diretorio , esquadrão(pode ser null), regiao(pode ser null),     opc (0,1) editar(0,1)  squadRemover,regionRemover (podem ser vazios)
@@ -100,20 +99,25 @@ public class ControllerUtil {
                 Type listType = new TypeToken<ArrayList<Squad>>() {
                 }.getType();
                 listaSquad = gson.fromJson(reader, listType);
+                //pegar a ultima posição do id dentro do listaSquad e atribuir ao squadButton
+                squadButton.setId((listaSquad.get(listaSquad.size() - 1).getId()) + 1);
             }
             if (opcSave == 1 && editar == 0) {//OPC =1 -> salvar os dados da region
                 Type listType = new TypeToken<ArrayList<Region>>() {
                 }.getType();
                 listaRegion = gson.fromJson(reader, listType);
+                regionButton.setId((listaRegion.get(listaRegion.size() - 1).getId()) + 1);
             }
             if (opcSave == 0 && editar == 1) {//editar arquivo SQUAD
                 Type listType = new TypeToken<ArrayList<Squad>>() {
                 }.getType();
                 listaSquad = gson.fromJson(reader, listType);//nesse momento minha lista tem os valores
+                //no editar eu guardo é o id da que vai ser removida para salvar na nova
 
                 //REMOVE A ANTIGA
                 for (int i = 0; i < listaSquad.size(); i++) {
                     if (listaSquad.get(i).getName().equals(squadRemover)) {
+                        squadButton.setId(listaSquad.get(i).getId());
                         listaSquad.remove(i);
                     }
                 }
@@ -127,14 +131,23 @@ public class ControllerUtil {
 
                 for (int i = 0; i < listaRegion.size(); i++) {
                     if (listaRegion.get(i).getName().equals(regionRemover)) {
+                        regionButton.setId(listaRegion.get(i).getId());
                         listaRegion.remove(i);
                     }
                 }
             }
-        }
+        } else {
+            if (squadButton != null) {
+                squadButton.setId(1);//ARQUIVO NAO EXISTIR
+            }
+            if (regionButton != null) {
+                regionButton.setId(1);
+            }
 
+        }
+        //arquivo nao existir vem p cá direto, caso existir trata antes e dps vem
         if (opcSave == 0) {//SQUAD
-            listaSquad.add(squadButton);
+            listaSquad.add(squadButton);//aqui manipulo o id
             gsonString = gson.toJson(listaSquad);
         } else {//REGION
             listaRegion.add(regionButton);

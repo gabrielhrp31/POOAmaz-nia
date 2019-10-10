@@ -1,47 +1,20 @@
 [
   {
-    "name": "ASD",
-    "regionResponsable": "Selecione",
-    "quantityOfSoldiers": 2
+    "id": 1,
+    "name": "teste",
+    "regionResponsable": "Norte",
+    "quantityOfSoldiers": 12
   },
   {
-    "name": "ASD",
-    "regionResponsable": "Selecione",
-    "quantityOfSoldiers": 2
+    "id": 3,
+    "name": "moto",
+    "regionResponsable": "Leste",
+    "quantityOfSoldiers": 23
   },
   {
-    "name": "ASD",
-    "regionResponsable": "Selecione",
-    "quantityOfSoldiers": 2
-  },
-  {
-    "name": "ASD",
-    "regionResponsable": "Selecione",
-    "quantityOfSoldiers": 2
-  },
-  {
-    "name": "khg",
-    "regionResponsable": "Selecione",
-    "quantityOfSoldiers": 2
-  },
-  {
-    "name": "kjlk",
-    "regionResponsable": "Selecione",
-    "quantityOfSoldiers": 8
-  },
-  {
-    "name": "oiu",
-    "regionResponsable": "Selecione",
-    "quantityOfSoldiers": 8
-  },
-  {
-    "name": "123",
-    "regionResponsable": "Selecione",
-    "quantityOfSoldiers": 1
-  },
-  {
-    "name": "asd",
-    "regionResponsable": "Selecione",
-    "quantityOfSoldiers": 2
+    "id": 2,
+    "name": "trator",
+    "regionResponsable": "Norte",
+    "quantityOfSoldiers": 32
   }
 ]

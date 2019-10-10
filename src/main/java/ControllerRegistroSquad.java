@@ -28,7 +28,7 @@ public class ControllerRegistroSquad extends ControllerUtil {
     void botaoEnviarRegistroSquad() throws IOException {
         Squad squadButton = new Squad();
 
-        //is alpha retorna true se houver letras
+        //VERIFICAÇÃO DE INPUTS
         if (!(isAlpha(textRegistrationSquadName.getText()))) {
             JOptionPane.showMessageDialog(null,"Insira apenas Letras no nome");
             return;
@@ -39,9 +39,9 @@ public class ControllerRegistroSquad extends ControllerUtil {
         }
 
 
+        //ATRIBUI OS VALORES AO OBJETO
         java.lang.String nomeSquad = textRegistrationSquadName.getText();
         java.lang.String numberSquad = textRegistrationSquadQuantitySoldiers.getText();
-
         int numberSquadInt = Integer.parseInt(numberSquad);
         java.lang.String region = comboBoxSquad.getValue();
         squadButton.setName(nomeSquad);

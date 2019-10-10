@@ -1,7 +1,8 @@
 package Models;
+
 public class Squad {
     //Classe para os esquadrões do exército
-
+    private int id;
     private String name;
     private String regionResponsable;
     private int quantityOfSoldiers;
@@ -9,10 +10,20 @@ public class Squad {
     public Squad() {
     }
 
-    public Squad(String name, String specialty, int quantityOfSoldiers) {
+    public Squad(int id, String name, String regionResponsable, int quantityOfSoldiers) {
+        this.id = id;
         this.name = name;
-        this.regionResponsable = specialty;
+        this.regionResponsable = regionResponsable;
         this.quantityOfSoldiers = quantityOfSoldiers;
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
