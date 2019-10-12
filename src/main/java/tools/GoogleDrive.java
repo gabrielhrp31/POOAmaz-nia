@@ -1,4 +1,5 @@
 package tools;
+
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
 import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
@@ -35,6 +36,7 @@ public class GoogleDrive {
 
     /**
      * Creates an authorized Credential object.
+     *
      * @param HTTP_TRANSPORT The network HTTP Transport.
      * @return An authorized Credential object.
      * @throws IOException If the credentials.json file cannot be found.
@@ -57,37 +59,43 @@ public class GoogleDrive {
         return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
     }
 
-    public void uploadFile(String url,String name) throws IOException {
-        File folder = this.getFile("application/vnd.google-apps.folder","analise");
+    public void uploadFile(String url, String name) throws IOException {
+        File folder = this.getFile("application/vnd.google-apps.folder", "analise");
         File fileMetadata = new File();
         fileMetadata.setParents(Collections.singletonList(folder.getId()));
-        java.io.File filePath = new java.io.File(url+".json");//diretorio do arquivo no pc
+        java.io.File filePath = new java.io.File(url + ".json");//diretorio do arquivo no pc
         FileContent mediaContent = new FileContent("application/json", filePath);
-        fileMetadata.setName(name+".json");
+        fileMetadata.setName(name + ".json");
         File file = this.driveService.files().create(fileMetadata, mediaContent)
                 .setFields("id")
                 .execute();
         System.out.println("File ID: " + file.getId());
     }
 
-    public void downloadFile() throws IOException {
-        String fileId = getFile("","photo.ppm").getId(); //COLOCA O ID DO ARQUIVO DO DRIVE (DPS TEM Q VER COMO PEGAR AUTOMATICO)
+    public void deleteFile(String name) throws IOException {
+        String fileId = getFile("application/json", name+".json").getId();
+        if (fileId != null) {
+        driveService.files().delete(fileId).execute();
+        }
+    }
 
-        java.io.File theDir = new java.io.File("photos"+ java.io.File.separator+"downloads");
+    public void downloadFile() throws IOException {
+        String fileId = getFile("", "photo.ppm").getId(); //COLOCA O ID DO ARQUIVO DO DRIVE (DPS TEM Q VER COMO PEGAR AUTOMATICO)
+
+        java.io.File theDir = new java.io.File("photos" + java.io.File.separator + "downloads");
 
         // se o diretorio não existir cria ele
         if (!theDir.exists()) {
             System.out.println("creating directory: " + theDir.getName());
             boolean result = false;
 
-            try{
+            try {
                 theDir.mkdir();
                 result = true;
-            }
-            catch(SecurityException se){
+            } catch (SecurityException se) {
                 //handle it
             }
-            if(result) {
+            if (result) {
                 System.out.println("new Directory created");
             }
         }
@@ -96,29 +104,27 @@ public class GoogleDrive {
         OutputStream outputStream = new FileOutputStream("photos/downloads/photo.ppm");
 
 
-
-
         driveService.files().get(fileId)
                 .executeMediaAndDownloadTo(outputStream);
     }
 
-    private  File getFile(String mimeType, String name) throws IOException {
+    private File getFile(String mimeType, String name) throws IOException {
         String pageToken = null;
 
         List<com.google.api.services.drive.model.File> files;
 
         do {
             FileList result;
-            if(mimeType.isEmpty()){
+            if (mimeType.isEmpty()) {
                 result = this.driveService.files().list()
-                        .setQ("name='"+name+"' ")
+                        .setQ("name='" + name + "' ")
                         .setSpaces("drive")
                         .setFields("nextPageToken, files(id, name)")
                         .setPageToken(pageToken)
                         .execute();
-            }else{
+            } else {
                 result = this.driveService.files().list()
-                        .setQ("mimeType='"+mimeType+"' and name='"+name+"' ")
+                        .setQ("mimeType='" + mimeType + "' and name='" + name + "' ")
                         .setSpaces("drive")
                         .setFields("nextPageToken, files(id, name)")
                         .setPageToken(pageToken)

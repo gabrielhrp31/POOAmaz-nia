@@ -7,10 +7,9 @@ import java.io.File;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 
-public class ControllerManipularMain extends ControllerUtil{
+public class ControllerManipularMain extends ControllerUtil {
 
-  //FUNÇÃO PARA ENVIAR JSON, FUNÇÃO PARA EDITAR DADOS
-
+    //FUNÇÃO PARA ENVIAR JSON, FUNÇÃO PARA EDITAR DADOS
 
 
     @FXML
@@ -27,10 +26,18 @@ public class ControllerManipularMain extends ControllerUtil{
 
     @FXML
     private void enviarDados() throws IOException, GeneralSecurityException {
-         GoogleDrive gd= new GoogleDrive();
+        GoogleDrive gd = new GoogleDrive();
+
+
+        //deleta os velhos primeiros (só deleta caso o arquivo existir no drive <- ARRUMAR ISSO)
+        gd.deleteFile("region");
+        gd.deleteFile("squad");
+
+        //substitui os novos
         //primeiro envia o squad dps o region
-         gd.uploadFile(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"squadJ","squad");
-         gd.uploadFile(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"regionJ","region");
+        gd.uploadFile(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ", "squad");
+        gd.uploadFile(System.getProperty("user.dir") + File.separator + "data" + File.separator + "regionJ", "region");
+
     }
 
 

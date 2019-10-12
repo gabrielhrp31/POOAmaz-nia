@@ -10,5 +10,11 @@
     "name": "Norte",
     "protectedArea": false,
     "squadResponsable": "teste"
+  },
+  {
+    "id": 2,
+    "name": "Sul",
+    "protectedArea": true,
+    "squadResponsable": "trator"
   }
 ]
