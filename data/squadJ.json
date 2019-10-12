@@ -1,20 +1,14 @@
 [
   {
     "id": 1,
-    "name": "teste",
-    "regionResponsable": "Norte",
+    "name": "aaaa",
+    "regionResponsable": "Sul",
     "quantityOfSoldiers": 12
   },
   {
-    "id": 3,
-    "name": "moto",
-    "regionResponsable": "Leste",
-    "quantityOfSoldiers": 23
-  },
-  {
     "id": 2,
-    "name": "trator",
-    "regionResponsable": "Norte",
-    "quantityOfSoldiers": 32
+    "name": "aa",
+    "regionResponsable": "Sul",
+    "quantityOfSoldiers": 12
   }
 ]

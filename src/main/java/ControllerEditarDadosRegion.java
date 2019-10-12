@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 
+import javax.swing.*;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -84,8 +85,10 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
                 }
 
                 String nomeComboBox = comboBoxRegionEditar.getValue(); //pega o nome selecionado na comboBox
+                int id=listaRegion.get(i).getId();
                 listaRegion.get(i).setSquadResponsable(checkBSqudEditarRegion.getValue());
-                salvarJSON(System.getProperty("user.dir") + File.separator + "data" + File.separator + "regionJ.json", null, listaRegion.get(i), 1, 1, null, nomeComboBox);
+                salvarJSON(System.getProperty("user.dir") + File.separator + "data" + File.separator + "regionJ.json", null, listaRegion.get(i), 1, 1, 0, id);
+                JOptionPane.showMessageDialog(null,"Acao Concluidada","SUCESSO",JOptionPane.INFORMATION_MESSAGE);
             }
 
         }

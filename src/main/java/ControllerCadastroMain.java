@@ -19,32 +19,31 @@ public class ControllerCadastroMain extends ControllerUtil {
     //ATRIBUTOS
 
     @FXML
-    private ComboBox<String> comboBoxSquadResponsable= new ComboBox<>();
+    private ComboBox<String> comboBoxSquadResponsable = new ComboBox<>();
 
 
     //FUNÇÕES
     @FXML
     private void telaRegistrationRegion() throws FileNotFoundException {
 //SE JÁ EXISTIR UM ESQUADRÃO REGISTRADO AO MENOS
-        File file = new File(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"squadJ.json");
+        File file = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ.json");
         if (file.exists()) {
             //CARREGAR OS DADOS DO ESQUADRÃO PARA A CHECKBOX
-            SquadDAO squadDAO=new SquadDAO();
+            SquadDAO squadDAO = new SquadDAO();
             ObservableList<String> olcomboBoxSquadResponsable;
             olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxSquad());
             comboBoxSquadResponsable.setItems(olcomboBoxSquadResponsable);
-         creatUI("registroRegion");
+            creatUI("registroRegion");
         } else {
             JOptionPane.showMessageDialog(null, "Primeiro registre um Esquadrao");
         }
 
     }
+
     @FXML
     private void telaRegistrationSquad() {
         creatUI("registroSquad");
     }
-
-
 
 
 }

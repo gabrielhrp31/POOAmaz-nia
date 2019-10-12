@@ -89,10 +89,51 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
 
     }
 
+    @FXML
+    public void removerSquad() throws IOException {
+        SquadDAO squadDAO = new SquadDAO();
+        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ.json");
+        Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
+        Type listType = new TypeToken<ArrayList<Squad>>() {
+        }.getType();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        List<Squad> listaSquads = new ArrayList<>();
+        listaSquads = gson.fromJson(reader, listType);//carrega para a lista os dados do arquivo
+
+        List<java.lang.String> listaNomes = new ArrayList<java.lang.String>();
+
+        for (int i = 0; i < listaSquads.size(); i++) {
+            listaNomes.add(listaSquads.get(i).getName());
+        }
+
+        for (int i = 0; i < listaSquads.size(); i++) {
+
+            if (comboBoxSquadEditar.getValue().equals(listaSquads.get(i).getName())) {//forem iguais
+                //   String nomeComboBox = comboBoxSquadEditar.getValue(); //pega o nome selecionado na comboBox
+                int id = listaSquads.get(i).getId();
+
+                Object[] options = {"Sim", "Nao"};
+                int w = JOptionPane.showOptionDialog(null, "Tem certeza que deseja remover este esquadrao?", "ATENCAO",
+                        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
+                        options, options[0]);
+                if (w == JOptionPane.YES_OPTION) {
+                    JOptionPane.showMessageDialog(null, "Ent");
+                    salvarJSON(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ.json", null, null, 2, 1, id, 0);
+                    JOptionPane.showMessageDialog(null, "Acao Concluidada", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
+                }
+
+
+            }
+
+        }
+
+
+    }
+
 
     @FXML
     public void botaoSalvarSquad() throws IOException {
-        SquadDAO squadDAO=new SquadDAO();
+        SquadDAO squadDAO = new SquadDAO();
         File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ.json");
         Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
         Type listType = new TypeToken<ArrayList<Squad>>() {
@@ -127,8 +168,9 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
                 listaSquads.get(i).setRegionResponsable(checkBregiaoEditarSquad.getValue());
 
                 String nomeComboBox = comboBoxSquadEditar.getValue(); //pega o nome selecionado na comboBox
-
-                salvarJSON(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ.json", listaSquads.get(i), null, 0, 1, nomeComboBox, null);
+                int id = listaSquads.get(i).getId();
+                salvarJSON(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ.json", listaSquads.get(i), null, 0, 1, id, 0);
+                JOptionPane.showMessageDialog(null, "Acao Concluidada", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
             }
 
         }
