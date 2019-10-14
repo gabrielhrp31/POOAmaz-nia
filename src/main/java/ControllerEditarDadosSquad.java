@@ -119,7 +119,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
                 if (w == JOptionPane.YES_OPTION) {
                     JOptionPane.showMessageDialog(null, "Ent");
                     salvarJSON(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ.json", null, null, 2, 1, id, 0);
-                    JOptionPane.showMessageDialog(null, "Acao Concluidada", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
                 }
 
 

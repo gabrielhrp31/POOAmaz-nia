@@ -35,6 +35,17 @@ public class ControllerRegistroRegion extends ControllerUtil {
     @FXML
     void botaoEnviarRegistroRegion() throws IOException {
         Region regionButton = new Region();
+
+
+        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ.json");
+        Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
+        Type listType = new TypeToken<ArrayList<Region>>() {
+        }.getType();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        List<Region> listaRegion = new ArrayList<Region>();
+        listaRegion = gson.fromJson(reader, listType);//carrega para a lista os dados do arquivo
+
+
         String nomeRegion = comboBoxRegion.getValue();
         regionButton.setName(nomeRegion);
         if (checkBoxProtegida.isSelected()) {
@@ -42,16 +53,23 @@ public class ControllerRegistroRegion extends ControllerUtil {
         } else {
             regionButton.setProtectedArea(false);
         }
-        regionButton.setSquadResponsable(comboBoxSquadResponsable.getValue());
 
-        salvarJSON(System.getProperty("user.dir")+ File.separator+"data"+File.separator+"regionJ.json", null, regionButton, 1,0,0,0);
-        JOptionPane.showMessageDialog(null,"Acao Concluidada","SUCESSO",JOptionPane.INFORMATION_MESSAGE);
+
+        for (int i = 0; i < listaRegion.size(); i++) {
+            if (listaRegion.get(i).getName().equals(comboBoxSquadResponsable.getValue())) {
+                regionButton.setSquadResponsable(listaRegion.get(i).getId());
+            }
+        }
+
+
+        salvarJSON(System.getProperty("user.dir") + File.separator + "data" + File.separator + "regionJ.json", null, regionButton, 1, 0, 0, 0);
+        JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
     }
 
 
     @FXML
     void carregarDadosCheckBox() throws FileNotFoundException {
-        RegionDAO regionDAO=new RegionDAO();
+        RegionDAO regionDAO = new RegionDAO();
         ObservableList<String> olcomboBoxSquadResponsable = null;
         olcomboBoxSquadResponsable = FXCollections.observableList(regionDAO.carregarComboBoxRegion());
         comboBoxSquadResponsable.setItems(olcomboBoxSquadResponsable);

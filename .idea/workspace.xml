@@ -10,27 +10,19 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerCadastroMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerCadastroMain.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosRegion.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosRegion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosSquad$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosSquad$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosSquad.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosSquad.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroRegion.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroRegion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroSquad.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroSquad.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/telaEditarDadosSquad.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/telaEditarDadosSquad.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Models/Region.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Models/Region.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/registroRegion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/registroRegion.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/regionJ.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/data/squadJ.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerCadastroMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerCadastroMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosRegion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosSquad.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControllerRegistroRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerRegistroRegion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControllerRegistroSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerRegistroSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Index.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/telaEditarDadosSquad.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/telaEditarDadosSquad.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Region.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Region.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/registroRegion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/registroRegion.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -162,7 +154,8 @@
       <workItem from="1570742740887" duration="66000" />
       <workItem from="1570866286563" duration="3951000" />
       <workItem from="1570898062786" duration="51000" />
-      <workItem from="1570906917150" duration="5568000" />
+      <workItem from="1570906917150" duration="5881000" />
+      <workItem from="1571021592469" duration="5035000" />
     </task>
     <servers />
   </component>

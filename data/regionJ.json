@@ -1,26 +1,14 @@
 [
   {
-    "id": 2,
-    "name": "Sul",
-    "protectedArea": true,
-    "squadResponsable": "trator"
-  },
-  {
-    "id": 2,
-    "name": "Sul",
-    "protectedArea": true,
-    "squadResponsable": "trator"
-  },
-  {
-    "id": 3,
-    "name": "Sul",
-    "protectedArea": true,
-    "squadResponsable": "zecas"
-  },
-  {
     "id": 1,
     "name": "Norte",
-    "protectedArea": true,
-    "squadResponsable": "aa"
+    "protectedArea": false,
+    "squadResponsable": 0
+  },
+  {
+    "id": 2,
+    "name": "Leste",
+    "protectedArea": false,
+    "squadResponsable": 3
   }
 ]

@@ -63,7 +63,7 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
 
     @FXML
     public void botaoSalvarRegion() throws IOException {
-        //TENTAR ENTENDER Q Q ISSO FAZ PRIMEIRO
+        //region
         File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "regionJ.json");
         Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
         Type listType = new TypeToken<ArrayList<Region>>() {
@@ -71,12 +71,24 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         List<Region> listaRegion = new ArrayList<Region>();
         listaRegion = gson.fromJson(reader, listType);//carrega para a lista os dados do arquivo
-
+        //squad
+        dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ.json");
+        reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
+        listType = new TypeToken<ArrayList<Squad>>() {
+        }.getType();
+        gson = new GsonBuilder().setPrettyPrinting().create();
+        List<Squad> listaSquad = new ArrayList<Squad>();
+        listaSquad = gson.fromJson(reader, listType);//carrega para a lista os dados do arquivo
 
 
         for (int i = 0; i < listaRegion.size(); i++) {
             if (comboBoxRegionEditar.getValue().equals(listaRegion.get(i).getName())) {//forem iguais
-                listaRegion.get(i).setSquadResponsable(checkBoxProtegidaEditarRegion.getText());
+
+                for (int u = 0; u < listaSquad.size(); u++) {
+                    if (listaSquad.get(u).getName().equals(checkBSqudEditarRegion.getValue())) {
+                        listaRegion.get(i).setSquadResponsable(listaSquad.get(u).getId());
+                    }
+                }
 
                 if (checkBoxProtegidaEditarRegion.isSelected()) {
                     listaRegion.get(i).setProtectedArea(true);
@@ -85,10 +97,11 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
                 }
 
                 String nomeComboBox = comboBoxRegionEditar.getValue(); //pega o nome selecionado na comboBox
-                int id=listaRegion.get(i).getId();
-                listaRegion.get(i).setSquadResponsable(checkBSqudEditarRegion.getValue());
+                int id = listaRegion.get(i).getId();
+
+
                 salvarJSON(System.getProperty("user.dir") + File.separator + "data" + File.separator + "regionJ.json", null, listaRegion.get(i), 1, 1, 0, id);
-                JOptionPane.showMessageDialog(null,"Acao Concluidada","SUCESSO",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
             }
 
         }

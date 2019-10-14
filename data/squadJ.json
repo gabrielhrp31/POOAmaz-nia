@@ -1,13 +1,19 @@
 [
   {
     "id": 1,
-    "name": "aaaa",
-    "regionResponsable": "Sul",
+    "name": "teste",
+    "regionResponsable": "Leste",
     "quantityOfSoldiers": 12
   },
   {
     "id": 2,
-    "name": "aa",
+    "name": "VAI",
+    "regionResponsable": "Sul",
+    "quantityOfSoldiers": 12
+  },
+  {
+    "id": 3,
+    "name": "NO",
     "regionResponsable": "Sul",
     "quantityOfSoldiers": 12
   }
