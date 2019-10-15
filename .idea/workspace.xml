@@ -10,25 +10,50 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosRegion.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosRegion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerAnalisesMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerAnalisesMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosSquad.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosSquad.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerManipularMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerManipularMain.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroRegion.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroRegion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Models/Region.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Models/Region.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/registroRegion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/registroRegion.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroSquad.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroSquad.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DAO/RegionDAO$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/DAO/RegionDAO$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DAO/RegionDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/DAO/RegionDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/tools/GoogleDrive.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/tools/GoogleDrive.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/analisesMain.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/analisesMain.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/regionJ.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/data/squadJ.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerAnalisesMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerAnalisesMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerCadastroMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerCadastroMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosRegion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosSquad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerManipularMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerManipularMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControllerRegistroRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerRegistroRegion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControllerRegistroSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerRegistroSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Region.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Region.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/registroRegion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/registroRegion.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/RegionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/RegionDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/SquadDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/SquadDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tools/GoogleDrive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tools/GoogleDrive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/analisesMain.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/analisesMain.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tokens/StoredCredential" beforeDir="false" afterPath="$PROJECT_DIR$/tokens/StoredCredential" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -38,8 +63,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -156,6 +181,13 @@
       <workItem from="1570898062786" duration="51000" />
       <workItem from="1570906917150" duration="5881000" />
       <workItem from="1571021592469" duration="5035000" />
+      <workItem from="1571055157210" duration="64000" />
+      <workItem from="1571080922938" duration="1441000" />
+      <workItem from="1571092430724" duration="8659000" />
+      <workItem from="1571109097432" duration="4040000" />
+      <workItem from="1571113465489" duration="484000" />
+      <workItem from="1571140589419" duration="9012000" />
+      <workItem from="1571178293992" duration="3448000" />
     </task>
     <servers />
   </component>
@@ -176,11 +208,28 @@
     </option>
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ControllerManipularMain.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ControllerManipularMain.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Remote">
         <watch expression="comboBoxSquadResponsable" language="JAVA" />
         <watch expression="comboBoxSquadResponsable" language="JAVA" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/POOAmazoniaAnalysis$Main.ic" NAME="Main Coverage Results" MODIFIED="1571099049877" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

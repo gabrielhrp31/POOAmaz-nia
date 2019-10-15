@@ -26,7 +26,7 @@ public class ControllerCadastroMain extends ControllerUtil {
     @FXML
     private void telaRegistrationRegion() throws FileNotFoundException {
 //SE JÁ EXISTIR UM ESQUADRÃO REGISTRADO AO MENOS
-        File file = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ.json");
+        File file = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
         if (file.exists()) {
             //CARREGAR OS DADOS DO ESQUADRÃO PARA A CHECKBOX
             SquadDAO squadDAO = new SquadDAO();

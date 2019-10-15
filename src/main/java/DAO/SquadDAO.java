@@ -19,7 +19,7 @@ public class SquadDAO {
 
 
     public List<String> carregarComboBoxSquad() throws FileNotFoundException {
-        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ.json");
+        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
         Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
         Type listType = new TypeToken<ArrayList<Squad>>() {
         }.getType();

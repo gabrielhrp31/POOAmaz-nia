@@ -13,9 +13,10 @@ import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.util.store.FileDataStoreFactory;
 import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.DriveScopes;
-import com.google.api.services.drive.model.File;
 import com.google.api.services.drive.model.FileList;
+import com.google.api.services.drive.model.File;
 
+import javax.swing.*;
 import java.io.*;
 import java.security.GeneralSecurityException;
 import java.util.Collections;
@@ -32,7 +33,7 @@ public class GoogleDrive {
      */
     private static final List<String> SCOPES = Collections.singletonList(DriveScopes.DRIVE);
     private static final String CREDENTIALS_FILE_PATH = "/credentials.json";
-    private Drive driveService;
+    private static Drive driveService;
 
     /**
      * Creates an authorized Credential object.
@@ -41,7 +42,7 @@ public class GoogleDrive {
      * @return An authorized Credential object.
      * @throws IOException If the credentials.json file cannot be found.
      */
-    private Credential getCredentials(final NetHttpTransport HTTP_TRANSPORT) throws IOException {
+    private static Credential getCredentials(final NetHttpTransport HTTP_TRANSPORT) throws IOException {
         // Load client secrets.
         InputStream in = GoogleDrive.class.getResourceAsStream(CREDENTIALS_FILE_PATH);
         if (in == null) {
@@ -59,71 +60,71 @@ public class GoogleDrive {
         return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
     }
 
-    public void uploadFile(String url, String name) throws IOException {
-        File folder = this.getFile("application/vnd.google-apps.folder", "analise");
+    public String uploadFile(String name, String dir, String type) throws IOException {
+
+        System.out.println(
+                name
+        );
+
+        File folder = getFile("application/vnd.google-apps.folder", "analise");
         File fileMetadata = new File();
+        fileMetadata.setName(name);
         fileMetadata.setParents(Collections.singletonList(folder.getId()));
-        java.io.File filePath = new java.io.File(url + ".json");//diretorio do arquivo no pc
-        FileContent mediaContent = new FileContent("application/json", filePath);
-        fileMetadata.setName(name + ".json");
-        File file = this.driveService.files().create(fileMetadata, mediaContent)
+        java.io.File filePath = new java.io.File(dir + name);
+        FileContent mediaContent = new FileContent(type, filePath);
+        File file = driveService.files().create(fileMetadata, mediaContent)
                 .setFields("id")
                 .execute();
-        System.out.println("File ID: " + file.getId());
+        return file.getId();
     }
 
-    public void deleteFile(String name) throws IOException {
-        String fileId = getFile("application/json", name+".json").getId();
-        if (fileId != null) {
-        driveService.files().delete(fileId).execute();
+
+    public void downloadFile(String mimeType, String name, String path) throws IOException {
+        String fileId = null;
+        try {
+            fileId = getFile(mimeType, name).getId();
+        } catch (IOException e) {
+            System.out.println("Erro no DownloadFile");
         }
-    }
 
-    public void downloadFile() throws IOException {
-        String fileId = getFile("", "photo.ppm").getId(); //COLOCA O ID DO ARQUIVO DO DRIVE (DPS TEM Q VER COMO PEGAR AUTOMATICO)
-
-        java.io.File theDir = new java.io.File("photos" + java.io.File.separator + "downloads");
+        java.io.File theDir = new java.io.File(path);
 
         // se o diretorio não existir cria ele
         if (!theDir.exists()) {
-            System.out.println("creating directory: " + theDir.getName());
             boolean result = false;
 
             try {
-                theDir.mkdir();
+                theDir.mkdirs();
                 result = true;
             } catch (SecurityException se) {
                 //handle it
             }
-            if (result) {
-                System.out.println("new Directory created");
-            }
         }
 
 
-        OutputStream outputStream = new FileOutputStream("photos/downloads/photo.ppm");
-
-
-        driveService.files().get(fileId)
-                .executeMediaAndDownloadTo(outputStream);
+        OutputStream outputStream = new FileOutputStream(path + name);
+        try {
+            driveService.files().get(fileId)
+                    .executeMediaAndDownloadTo(outputStream);
+        } catch (IOException e) {
+            System.out.println("Nao achou o arquivo");
+        }
     }
 
-    private File getFile(String mimeType, String name) throws IOException {
-        String pageToken = null;
-
+    public File getFile(String mimeType, String name) throws IOException {
         List<com.google.api.services.drive.model.File> files;
-
+        String pageToken = null;
         do {
             FileList result;
             if (mimeType.isEmpty()) {
-                result = this.driveService.files().list()
+                result = driveService.files().list()
                         .setQ("name='" + name + "' ")
                         .setSpaces("drive")
                         .setFields("nextPageToken, files(id, name)")
                         .setPageToken(pageToken)
                         .execute();
             } else {
-                result = this.driveService.files().list()
+                result = driveService.files().list()
                         .setQ("mimeType='" + mimeType + "' and name='" + name + "' ")
                         .setSpaces("drive")
                         .setFields("nextPageToken, files(id, name)")
@@ -137,6 +138,14 @@ public class GoogleDrive {
 
         return files.get(0);
     }
+
+    public void deleteFile(String name) throws IOException {
+        String fileId = getFile("application/json", name + ".json").getId();
+        if (fileId != null) {
+            driveService.files().delete(fileId).execute();
+        }
+    }
+
 
     public GoogleDrive() throws IOException, GeneralSecurityException {
         // Build a new authorized API client service.

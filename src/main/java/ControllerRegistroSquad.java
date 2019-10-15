@@ -47,7 +47,7 @@ public class ControllerRegistroSquad extends ControllerUtil {
         squadButton.setName(nomeSquad);
         squadButton.setQuantityOfSoldiers(numberSquadInt);
         squadButton.setRegionResponsable(region);
-        salvarJSON(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ.json", squadButton, null, 0, 0, 0, 0);
+        salvarJSON(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json", squadButton, null, 0, 0, 0, 0);
         JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
     }
 

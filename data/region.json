@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Sul",
+    "protectedArea": true,
+    "squadResponsable": 1
+  },
+  {
+    "id": 2,
+    "name": "Sul",
+    "protectedArea": false,
+    "squadResponsable": 2
+  }
+]

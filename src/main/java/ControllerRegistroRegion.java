@@ -37,7 +37,7 @@ public class ControllerRegistroRegion extends ControllerUtil {
         Region regionButton = new Region();
 
 
-        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ.json");
+        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
         Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
         Type listType = new TypeToken<ArrayList<Region>>() {
         }.getType();
@@ -62,7 +62,7 @@ public class ControllerRegistroRegion extends ControllerUtil {
         }
 
 
-        salvarJSON(System.getProperty("user.dir") + File.separator + "data" + File.separator + "regionJ.json", null, regionButton, 1, 0, 0, 0);
+        salvarJSON(System.getProperty("user.dir") + File.separator + "data" + File.separator + "region.json", null, regionButton, 1, 0, 0, 0);
         JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
     }
 

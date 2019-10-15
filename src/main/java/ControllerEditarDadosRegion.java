@@ -32,7 +32,7 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
     //metodos
     @FXML
     public void carregarCheckBoxRegion() throws FileNotFoundException {
-        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "regionJ.json");
+        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "region.json");
         Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
         Type listType = new TypeToken<ArrayList<Region>>() {
         }.getType();
@@ -64,7 +64,7 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
     @FXML
     public void botaoSalvarRegion() throws IOException {
         //region
-        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "regionJ.json");
+        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "region.json");
         Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
         Type listType = new TypeToken<ArrayList<Region>>() {
         }.getType();
@@ -72,7 +72,7 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
         List<Region> listaRegion = new ArrayList<Region>();
         listaRegion = gson.fromJson(reader, listType);//carrega para a lista os dados do arquivo
         //squad
-        dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ.json");
+        dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
         reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
         listType = new TypeToken<ArrayList<Squad>>() {
         }.getType();
@@ -100,7 +100,7 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
                 int id = listaRegion.get(i).getId();
 
 
-                salvarJSON(System.getProperty("user.dir") + File.separator + "data" + File.separator + "regionJ.json", null, listaRegion.get(i), 1, 1, 0, id);
+                salvarJSON(System.getProperty("user.dir") + File.separator + "data" + File.separator + "region.json", null, listaRegion.get(i), 1, 1, 0, id);
                 JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
             }
 

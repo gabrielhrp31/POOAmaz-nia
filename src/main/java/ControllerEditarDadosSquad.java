@@ -39,7 +39,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
     //METODOS
     @FXML
     public void carregarCheckBoxSquad() throws FileNotFoundException {
-        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ.json");
+        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
         Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
         Type listType = new TypeToken<ArrayList<Squad>>() {
         }.getType();
@@ -60,7 +60,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
 
     @FXML
     public void atualizarCheckBoxSquad() throws FileNotFoundException {
-        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ.json");
+        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
         Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
         Type listType = new TypeToken<ArrayList<Squad>>() {
         }.getType();
@@ -92,7 +92,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
     @FXML
     public void removerSquad() throws IOException {
         SquadDAO squadDAO = new SquadDAO();
-        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ.json");
+        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
         Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
         Type listType = new TypeToken<ArrayList<Squad>>() {
         }.getType();
@@ -118,7 +118,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
                         options, options[0]);
                 if (w == JOptionPane.YES_OPTION) {
                     JOptionPane.showMessageDialog(null, "Ent");
-                    salvarJSON(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ.json", null, null, 2, 1, id, 0);
+                    salvarJSON(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json", null, null, 2, 1, id, 0);
                     JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
                 }
 
@@ -134,7 +134,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
     @FXML
     public void botaoSalvarSquad() throws IOException {
         SquadDAO squadDAO = new SquadDAO();
-        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ.json");
+        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
         Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
         Type listType = new TypeToken<ArrayList<Squad>>() {
         }.getType();
@@ -169,7 +169,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
 
                 String nomeComboBox = comboBoxSquadEditar.getValue(); //pega o nome selecionado na comboBox
                 int id = listaSquads.get(i).getId();
-                salvarJSON(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squadJ.json", listaSquads.get(i), null, 0, 1, id, 0);
+                salvarJSON(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json", listaSquads.get(i), null, 0, 1, id, 0);
                 JOptionPane.showMessageDialog(null, "Acao Concluidada", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
             }
 

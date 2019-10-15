@@ -18,6 +18,11 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </HBox.margin>
             </Button>
+            <Button mnemonicParsing="false" onAction="#gerarRelatorio" style="-fx-background-color: #b0db4d; -fx-font-size: 20;" text="RELATORIO">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </Button>
          </children>
       </HBox>
    </center>
