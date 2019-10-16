@@ -2,8 +2,8 @@
   {
     "id": 1,
     "name": "Sul",
-    "protectedArea": true,
-    "squadResponsable": 1
+    "protectedArea": false,
+    "squadResponsable": 2
   },
   {
     "id": 2,

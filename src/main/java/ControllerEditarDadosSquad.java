@@ -46,7 +46,6 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
         List<Squad> listaSquads;
         listaSquads = gson.fromJson(reader, listType);
         ObservableList<java.lang.String> olcomboBoxSquadResponsable;
-
         List<String> listaNomes = new ArrayList<>();
 
         for (int i = 0; i < listaSquads.size(); i++) {

@@ -60,12 +60,23 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
      */
     @FXML
     public void carregarCheckBoxSquad() throws FileNotFoundException {
-        SquadDAO squadDAO = new SquadDAO();
-        ObservableList<java.lang.String> olcomboBoxSquadResponsable = null;
-        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxSquad());
+        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
+        Reader reader = new FileReader(dir);
+        Type listType = new TypeToken<ArrayList<Squad>>() {
+        }.getType();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        List<Squad> listaSquads;
+        listaSquads = gson.fromJson(reader, listType);
+        ObservableList<java.lang.String> olcomboBoxSquadResponsable;
+        List<String> listaNomes = new ArrayList<>();
 
+        for (int i = 0; i < listaSquads.size(); i++) {
+            listaNomes.add(listaSquads.get(i).getName());
+        }
 
+        olcomboBoxSquadResponsable = FXCollections.observableList(listaNomes);
         checkBSqudEditarRegion.setItems(olcomboBoxSquadResponsable);
+
     }
 
 
@@ -75,7 +86,6 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
      */
     @FXML
     public void botaoSalvarRegion() throws IOException {
-        //region
         File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "region.json");
         Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
         Type listType = new TypeToken<ArrayList<Region>>() {
