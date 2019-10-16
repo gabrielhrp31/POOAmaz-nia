@@ -1,6 +1,4 @@
 import Models.Image;
-import Models.Region;
-import Models.Squad;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -16,17 +14,29 @@ import java.util.List;
 
 public class ControllerAnalisesMain extends ControllerUtil {
 
+    /**
+     * Carrega a tela do Cadastro Main
+     */
     @FXML
     private void telaCadastroMain() {
         loadUI("cadastroMain");
     }
 
+
+    /**
+     * Carrega a tela do Manipular Main
+     */
     @FXML
     private void telaManipularMain() {
         loadUI("manipularMain");
     }
 
 
+    /**
+     * Calcula como estão as queimadas pelas regiões nas fotos, e gera um relatório com os resultados
+     * @throws IOException
+     * @throws GeneralSecurityException
+     */
     @FXML
     private void gerarRelatorio() throws IOException, GeneralSecurityException {
         File fileSquad = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
@@ -47,17 +57,16 @@ public class ControllerAnalisesMain extends ControllerUtil {
                 return;
             }
 
-            Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
+            Reader reader = new FileReader(dir);
             Type listType = new TypeToken<ArrayList<Image>>() {
             }.getType();
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            List<Image> listaImage = new ArrayList<Image>();
-            listaImage = gson.fromJson(reader, listType);//carrega para a lista os dados do arquivo
-
-            List<Double> id1 = new ArrayList<Double>();
-            List<Double> id2 = new ArrayList<Double>();
-            List<Double> id3 = new ArrayList<Double>();
-            List<Double> id4 = new ArrayList<Double>();
+            List<Image> listaImage;
+            listaImage = gson.fromJson(reader, listType);
+            List<Double> id1 = new ArrayList<>();
+            List<Double> id2 = new ArrayList<>();
+            List<Double> id3 = new ArrayList<>();
+            List<Double> id4 = new ArrayList<>();
             String auxS1 = "", auxS2 = "", auxS3 = "", auxS4 = "", auxS = "";
             int controle1 = 0, controle2 = 0, controle3 = 0, controle4 = 0;
             for (Image el : listaImage) {
@@ -106,7 +115,6 @@ public class ControllerAnalisesMain extends ControllerUtil {
                 }
 
             }
-            System.out.println("TERMINOU");
             if (id1.size() > 0) {
                 double aux1 = 0.0;
                 aux1 = id1.get(id1.size() - 1) - id1.get(0);
@@ -164,7 +172,6 @@ public class ControllerAnalisesMain extends ControllerUtil {
             }
 
 
-            //GRAVANDO ARQUIVO
             File dirDataFile = new File(System.getProperty("user.dir") + File.separator + "data");
 
             if (dirDataFile.exists()) {//SE A PASTA EXISTIR
@@ -173,7 +180,7 @@ public class ControllerAnalisesMain extends ControllerUtil {
                 salvaArq.write(auxS);
                 salvaArq.close();
             } else {
-                dirDataFile.mkdir();//CRIA UMA NOVA PASTA NO DIRETORIO E DPS CHAMA A FUNÇÃO
+                dirDataFile.mkdir();
                 File dirSave = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "relatorio" + File.separator + "relatorio.txt");
                 FileWriter salvaArq = new FileWriter(dirSave);
                 salvaArq.write(auxS);

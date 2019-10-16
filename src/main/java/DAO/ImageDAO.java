@@ -14,6 +14,12 @@ public class ImageDAO {
         images = new ArrayList<>();
     }
 
+    /**
+     * Adiciona uma imagem ao pictures.json
+     * @param image
+     * @throws IOException
+     * @throws GeneralSecurityException
+     */
     public static void addImage(Image image) throws IOException, GeneralSecurityException {
         GsonTool.read("pictures.json",1);
         ImageDAO.images.add(image);

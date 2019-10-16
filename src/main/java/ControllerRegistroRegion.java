@@ -31,19 +31,21 @@ public class ControllerRegistroRegion extends ControllerUtil {
     public ComboBox<String> comboBoxSquadResponsable;
 
 
-    //FUNÇÕES
+    /**
+     * Cadastra uma nova Region
+     * @throws IOException
+     */
     @FXML
     void botaoEnviarRegistroRegion() throws IOException {
         Region regionButton = new Region();
 
-
         File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
-        Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
+        Reader reader = new FileReader(dir);
         Type listType = new TypeToken<ArrayList<Region>>() {
         }.getType();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Region> listaRegion = new ArrayList<Region>();
-        listaRegion = gson.fromJson(reader, listType);//carrega para a lista os dados do arquivo
+        List<Region> listaRegion;
+        listaRegion = gson.fromJson(reader, listType);
 
 
         String nomeRegion = comboBoxRegion.getValue();
@@ -67,6 +69,10 @@ public class ControllerRegistroRegion extends ControllerUtil {
     }
 
 
+    /**
+     * Carrega as region já cadastradas para a comboBox
+     * @throws FileNotFoundException
+     */
     @FXML
     void carregarDadosCheckBox() throws FileNotFoundException {
         RegionDAO regionDAO = new RegionDAO();

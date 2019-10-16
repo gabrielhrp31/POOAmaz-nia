@@ -1,7 +1,6 @@
 package Models;
 
 public class Squad {
-    //Classe para os esquadrões do exército
     private int id;
     private String name;
     private String regionResponsable;

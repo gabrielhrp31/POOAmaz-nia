@@ -13,17 +13,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RegionDAO {
-    //TUDO RELACIONADO A DADOS DO REGION
 
-
+    /**
+     * Carrega todos os dados dos esquadrões para o comboBox usado no region
+     * @return
+     * @throws FileNotFoundException
+     */
     public List<String> carregarComboBoxRegion() throws FileNotFoundException {
         File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
-        Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
+        Reader reader = new FileReader(dir);
         Type listType = new TypeToken<ArrayList<Region>>() {
         }.getType();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         List<Region> listaRegion = new ArrayList<Region>();
-        listaRegion = gson.fromJson(reader, listType);//carrega para a lista os dados do arquivo
+        listaRegion = gson.fromJson(reader, listType);
         List<String> listaRegionNomes = new ArrayList<String>();
         for (int i = 0; i < listaRegion.size(); i++) {
             listaRegionNomes.add(listaRegion.get(i).getName());
@@ -40,6 +43,13 @@ public class RegionDAO {
         regions = new ArrayList<>();
     }
 
+
+    /**
+     * Adiciona uma nova region no region.json
+     * @param region
+     * @throws IOException
+     * @throws GeneralSecurityException
+     */
     public static void addRegion(Region region) throws IOException, GeneralSecurityException {
         GsonTool.read("region.json", 1);
         RegionDAO.regions.add(region);

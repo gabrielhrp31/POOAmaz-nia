@@ -18,7 +18,6 @@ import java.util.List;
 
 public class ControllerEditarDadosRegion extends ControllerUtil {
 
-    //atributos
     @FXML
     private ComboBox<String> comboBoxRegionEditar;
 
@@ -29,6 +28,10 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
     private CheckBox checkBoxProtegidaEditarRegion;
 
 
+    /**
+     * Carrega para a CheckBox as regiões já cadastradas
+     * @throws FileNotFoundException
+     */
     //metodos
     @FXML
     public void carregarCheckBoxRegion() throws FileNotFoundException {
@@ -37,9 +40,9 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
         Type listType = new TypeToken<ArrayList<Region>>() {
         }.getType();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Region> listaRegions = new ArrayList<Region>();
+        List<Region> listaRegions;
         listaRegions = gson.fromJson(reader, listType);//carrega para a lista os dados do arquivo
-        ObservableList<java.lang.String> olcomboBoxSquadResponsable = null;
+        ObservableList<java.lang.String> olcomboBoxSquadResponsable;
 
         List<String> listaNomes = new ArrayList<String>();
 
@@ -52,6 +55,10 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
     }
 
 
+    /**
+     * Carrega os dados dos Esquadrões para uma CheckBox
+     * @throws FileNotFoundException
+     */
     @FXML
     public void carregarCheckBoxSquad() throws FileNotFoundException {
         SquadDAO squadDAO = new SquadDAO();
@@ -61,6 +68,10 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
     }
 
 
+    /**
+     * Salva as modificações feitas naquela region
+     * @throws IOException
+     */
     @FXML
     public void botaoSalvarRegion() throws IOException {
         //region
@@ -69,7 +80,7 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
         Type listType = new TypeToken<ArrayList<Region>>() {
         }.getType();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Region> listaRegion = new ArrayList<Region>();
+        List<Region> listaRegion;
         listaRegion = gson.fromJson(reader, listType);//carrega para a lista os dados do arquivo
         //squad
         dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
@@ -96,8 +107,7 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
                     listaRegion.get(i).setProtectedArea(false);
                 }
 
-                String nomeComboBox = comboBoxRegionEditar.getValue(); //pega o nome selecionado na comboBox
-                int id = listaRegion.get(i).getId();
+                 int id = listaRegion.get(i).getId();
 
 
                 salvarJSON(System.getProperty("user.dir") + File.separator + "data" + File.separator + "region.json", null, listaRegion.get(i), 1, 1, 0, id);

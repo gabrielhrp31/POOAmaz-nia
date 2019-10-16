@@ -11,7 +11,6 @@ import javafx.scene.control.Control;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -22,12 +21,14 @@ import java.util.logging.Logger;
 public class ControllerUtil {
 
 
-    //ATRIBUTOS
-    @FXML
+        @FXML
     private BorderPane borderPanel;
 
 
-    //FUNÇÕES
+    /**
+     * Cria uma nova tela do FXML
+     * @param ui
+     */
     @FXML
     void creatUI(java.lang.String ui) {
         Parent root = null;
@@ -44,6 +45,10 @@ public class ControllerUtil {
     }
 
 
+    /**
+     * Carrega uma nova tela do FXML
+     * @param ui
+     */
     @FXML
     void loadUI(java.lang.String ui) {
         Parent root = null;
@@ -57,11 +62,21 @@ public class ControllerUtil {
     }
 
 
+    /**
+     * Verifica se contém letras no input
+     * @param name
+     * @return
+     */
     public boolean isAlpha(String name) {
         return name.matches("[a-zA-Z]+");
     }
 
 
+    /**
+     * Verifica se só contém numeros no input
+     * @param texto
+     * @return
+     */
     public static boolean soContemNumeros(String texto) {
         if (texto == null)
             return false;
@@ -72,7 +87,18 @@ public class ControllerUtil {
     }
 
 
-    //diretorio , esquadrão(pode ser null), regiao(pode ser null),     opc (0,1) editar(0,1)  squadRemover,regionRemover (podem ser vazios)
+    /**
+     * Funçaõ para o salvamento de todos os arquivos Json
+     *
+     * @param dir
+     * @param squadButton
+     * @param regionButton
+     * @param opcSave
+     * @param editar
+     * @param idSquadRemover
+     * @param idRegionRemover
+     * @throws IOException
+     */
     @FXML
     private void salvarJSONaux(String dir, Squad squadButton, Region regionButton, int opcSave, int editar, int idSquadRemover, int idRegionRemover) throws IOException {
         //AQUI É ONDE GERA O ARQUIVO
@@ -184,9 +210,19 @@ public class ControllerUtil {
 
     }
 
+    /**
+     * Chama a função para salvar apenas verifica antes se precisa criar uma nova pasta ou não
+     * @param dir
+     * @param squadButton
+     * @param regionButton
+     * @param opcSave
+     * @param editar
+     * @param idSquadRemover
+     * @param idRegionRemover
+     * @throws IOException
+     */
     @FXML
     void salvarJSON(String dir, Squad squadButton, Region regionButton, int opcSave, int editar, int idSquadRemover, int idRegionRemover) throws IOException {
-        //AQUI VERIFICA SE A PASTA EXISTE ANTES DE CHAMAR A FUNÇÃO QUE VAI GERAR O ARQUIVO
         File dirDataFile = new File(System.getProperty("user.dir") + File.separator + "data");
 
         if (dirDataFile.exists()) {//SE A PASTA EXISTIR

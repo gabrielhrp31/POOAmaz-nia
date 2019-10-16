@@ -107,6 +107,10 @@ public class Image {
         colors[3][2] = 0;
     }
 
+    /**
+     * Calcula o valor das queimadas nas imagens
+     * @return
+     */
     public double intensitiesAverage() {
         int[][] matrix = this.getItensities();
         double result = 0;
@@ -120,6 +124,10 @@ public class Image {
         return result;
     }
 
+    /**
+     * Pega as intensidades das queimadas na matriz representando a imagem
+     * @return
+     */
     private int[][] getItensities() {
         String[] lines = this.image.split("\n");
         int[][] matriz = new int[this.scale][this.scale];
@@ -156,6 +164,12 @@ public class Image {
         return matriz;
     }
 
+    /**
+     * Compara as cores na matriz
+     * @param rgb
+     * @param color
+     * @return
+     */
     private boolean compareColors(int[] rgb, int[] color) {
 
         for (int i = 0; i < 3; i++) {

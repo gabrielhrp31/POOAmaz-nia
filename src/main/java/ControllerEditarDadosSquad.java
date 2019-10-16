@@ -18,10 +18,6 @@ import java.util.List;
 public class ControllerEditarDadosSquad extends ControllerUtil {
 
 
-    //CARREGAR OS ARQUIVOS DO SQUAD NO CHECKBOX P DEPOIS ALTERAR:
-
-    //ATRIBUTOS
-
 
     @FXML
     private ComboBox<java.lang.String> comboBoxSquadEditar;
@@ -36,19 +32,22 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
     private ComboBox<java.lang.String> checkBregiaoEditarSquad;
 
 
-    //METODOS
+    /**
+     * Carregar para a CheckBox Squad os dados dos Esquadrões
+     * @throws FileNotFoundException
+     */
     @FXML
     public void carregarCheckBoxSquad() throws FileNotFoundException {
         File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
-        Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
+        Reader reader = new FileReader(dir);
         Type listType = new TypeToken<ArrayList<Squad>>() {
         }.getType();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Squad> listaSquads = new ArrayList<Squad>();
-        listaSquads = gson.fromJson(reader, listType);//carrega para a lista os dados do arquivo
-        ObservableList<java.lang.String> olcomboBoxSquadResponsable = null;
+        List<Squad> listaSquads;
+        listaSquads = gson.fromJson(reader, listType);
+        ObservableList<java.lang.String> olcomboBoxSquadResponsable;
 
-        List<String> listaNomes = new ArrayList<String>();
+        List<String> listaNomes = new ArrayList<>();
 
         for (int i = 0; i < listaSquads.size(); i++) {
             listaNomes.add(listaSquads.get(i).getName());
@@ -58,18 +57,22 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
         comboBoxSquadEditar.setItems(olcomboBoxSquadResponsable);
     }
 
+    /**
+     * Atualiza os campos para que possam ser alterados
+     * @throws FileNotFoundException
+     */
     @FXML
     public void atualizarCheckBoxSquad() throws FileNotFoundException {
         File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
-        Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
+        Reader reader = new FileReader(dir);
         Type listType = new TypeToken<ArrayList<Squad>>() {
         }.getType();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Squad> listaSquads = new ArrayList<Squad>();
-        listaSquads = gson.fromJson(reader, listType);//carrega para a lista os dados do arquivo
-        ObservableList<java.lang.String> olcomboBoxSquadResponsable = null;
+        List<Squad> listaSquads;
+        listaSquads = gson.fromJson(reader, listType);
+        ObservableList<java.lang.String> olcomboBoxSquadResponsable;
 
-        List<java.lang.String> listaNomes = new ArrayList<java.lang.String>();
+        List<java.lang.String> listaNomes = new ArrayList<>();
 
         for (int i = 0; i < listaSquads.size(); i++) {
             listaNomes.add(listaSquads.get(i).getName());
@@ -79,7 +82,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
         comboBoxSquadEditar.setItems(olcomboBoxSquadResponsable);
 
         for (int i = 0; i < listaSquads.size(); i++) {
-            if (comboBoxSquadEditar.getValue().equals(listaSquads.get(i).getName())) {//for igual o do checkbox
+            if (comboBoxSquadEditar.getValue().equals(listaSquads.get(i).getName())) {
                 java.lang.String quantify = Integer.toString(listaSquads.get(i).getQuantityOfSoldiers());
                 txtNomeEditarSquad.setText(listaSquads.get(i).getName());
                 txtNumeroEditarSquad.setText(quantify);
@@ -89,18 +92,22 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
 
     }
 
+    /**
+     * Remove um esquadrão
+     * @throws IOException
+     */
     @FXML
     public void removerSquad() throws IOException {
         SquadDAO squadDAO = new SquadDAO();
         File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
-        Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
+        Reader reader = new FileReader(dir);
         Type listType = new TypeToken<ArrayList<Squad>>() {
         }.getType();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Squad> listaSquads = new ArrayList<>();
-        listaSquads = gson.fromJson(reader, listType);//carrega para a lista os dados do arquivo
+        List<Squad> listaSquads;
+        listaSquads = gson.fromJson(reader, listType);
 
-        List<java.lang.String> listaNomes = new ArrayList<java.lang.String>();
+        List<java.lang.String> listaNomes = new ArrayList<>();
 
         for (int i = 0; i < listaSquads.size(); i++) {
             listaNomes.add(listaSquads.get(i).getName());
@@ -108,10 +115,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
 
         for (int i = 0; i < listaSquads.size(); i++) {
 
-            if (comboBoxSquadEditar.getValue().equals(listaSquads.get(i).getName())) {//forem iguais
-                //   String nomeComboBox = comboBoxSquadEditar.getValue(); //pega o nome selecionado na comboBox
-                int id = listaSquads.get(i).getId();
-
+            if (comboBoxSquadEditar.getValue().equals(listaSquads.get(i).getName())) {  int id = listaSquads.get(i).getId();
                 Object[] options = {"Sim", "Nao"};
                 int w = JOptionPane.showOptionDialog(null, "Tem certeza que deseja remover este esquadrao?", "ATENCAO",
                         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
@@ -131,25 +135,26 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
     }
 
 
+    /**
+     * Salva as alterações feitas no Esquadrão
+     * @throws IOException
+     */
     @FXML
     public void botaoSalvarSquad() throws IOException {
         SquadDAO squadDAO = new SquadDAO();
         File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
-        Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
+        Reader reader = new FileReader(dir);
         Type listType = new TypeToken<ArrayList<Squad>>() {
         }.getType();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Squad> listaSquads = new ArrayList<Squad>();
-        listaSquads = gson.fromJson(reader, listType);//carrega para a lista os dados do arquivo
-        ObservableList<java.lang.String> olcomboBoxSquadResponsable = null;
+        List<Squad> listaSquads;
+        listaSquads = gson.fromJson(reader, listType);
 
         List<java.lang.String> listaNomes = new ArrayList<java.lang.String>();
 
         for (int i = 0; i < listaSquads.size(); i++) {
             listaNomes.add(listaSquads.get(i).getName());
         }
-
-        olcomboBoxSquadResponsable = FXCollections.observableList(listaNomes);
 
         for (int i = 0; i < listaSquads.size(); i++) {
             if (comboBoxSquadEditar.getValue().equals(listaSquads.get(i).getName())) {//forem iguais
@@ -167,7 +172,6 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
                 listaSquads.get(i).setQuantityOfSoldiers(quantity);
                 listaSquads.get(i).setRegionResponsable(checkBregiaoEditarSquad.getValue());
 
-                String nomeComboBox = comboBoxSquadEditar.getValue(); //pega o nome selecionado na comboBox
                 int id = listaSquads.get(i).getId();
                 salvarJSON(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json", listaSquads.get(i), null, 0, 1, id, 0);
                 JOptionPane.showMessageDialog(null, "Acao Concluidada", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);

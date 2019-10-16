@@ -1,5 +1,3 @@
-
-import DAO.SquadDAO;
 import Models.Squad;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
@@ -23,12 +21,14 @@ public class ControllerRegistroSquad extends ControllerUtil {
     private ComboBox<java.lang.String> comboBoxSquad;
 
 
-    //FUNÇÕES
+    /**
+     * Cadastra um novo Esquadrão
+     * @throws IOException
+     */
     @FXML
     void botaoEnviarRegistroSquad() throws IOException {
         Squad squadButton = new Squad();
 
-        //VERIFICAÇÃO DE INPUTS
         if (!(isAlpha(textRegistrationSquadName.getText()))) {
             JOptionPane.showMessageDialog(null,"Insira apenas Letras no nome");
             return;

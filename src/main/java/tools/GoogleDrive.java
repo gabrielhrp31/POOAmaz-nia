@@ -13,10 +13,9 @@ import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.util.store.FileDataStoreFactory;
 import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.DriveScopes;
-import com.google.api.services.drive.model.FileList;
 import com.google.api.services.drive.model.File;
+import com.google.api.services.drive.model.FileList;
 
-import javax.swing.*;
 import java.io.*;
 import java.security.GeneralSecurityException;
 import java.util.Collections;
@@ -60,6 +59,14 @@ public class GoogleDrive {
         return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
     }
 
+    /**
+     * Sobe um novo arquivo para a pasta do Drive
+     * @param name
+     * @param dir
+     * @param type
+     * @return
+     * @throws IOException
+     */
     public String uploadFile(String name, String dir, String type) throws IOException {
 
         System.out.println(
@@ -78,6 +85,14 @@ public class GoogleDrive {
         return file.getId();
     }
 
+    /**
+     * Baixa um arquivo da pasta do Drive
+     * @param mimeType
+     * @param name
+     * @param path
+     * @throws IOException
+     * @throws GeneralSecurityException
+     */
     public static void downloadFile(String mimeType, String name, String path) throws IOException, GeneralSecurityException {
         File file = null;
         GoogleDrive googleDrive=new GoogleDrive();
@@ -108,6 +123,15 @@ public class GoogleDrive {
                 .executeMediaAndDownloadTo(outputStream);
     }
 
+
+    /**
+     * Baixa o arquivo do Drive pelo ID
+     * @param mimeType
+     * @param fileId
+     * @param path
+     * @param nome
+     * @throws FileNotFoundException
+     */
     public void downloadFileById(String mimeType, String fileId, String path, String nome) throws FileNotFoundException {
         java.io.File theDir = new java.io.File(path);
         // se o diretorio não existir cria ele
@@ -130,6 +154,13 @@ public class GoogleDrive {
     }
 
 
+    /**
+     * Localiza um arquivo no Drive
+     * @param mimeType
+     * @param name
+     * @return
+     * @throws IOException
+     */
     public File getFile(String mimeType, String name) throws IOException {
         List<com.google.api.services.drive.model.File> files;
         String pageToken = null;
@@ -158,6 +189,12 @@ public class GoogleDrive {
         return files.get(0);
     }
 
+
+    /**
+     * Apaga um arquivo da pasta do Drive
+     * @param name
+     * @throws IOException
+     */
     public void deleteFile(String name) throws IOException {
         String fileId = getFile("application/json", name + ".json").getId();
         if (fileId != null) {
