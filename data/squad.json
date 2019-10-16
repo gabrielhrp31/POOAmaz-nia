@@ -16,5 +16,11 @@
     "name": "Cientistas",
     "regionResponsable": "Leste",
     "quantityOfSoldiers": 110
+  },
+  {
+    "id": 4,
+    "name": "Policia",
+    "regionResponsable": "Norte",
+    "quantityOfSoldiers": 123
   }
 ]

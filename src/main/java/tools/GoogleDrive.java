@@ -78,13 +78,13 @@ public class GoogleDrive {
         return file.getId();
     }
 
-
-    public void downloadFile(String mimeType, String name, String path) throws IOException {
-        String fileId = null;
+    public static void downloadFile(String mimeType, String name, String path) throws IOException, GeneralSecurityException {
+        File file = null;
+        GoogleDrive googleDrive=new GoogleDrive();
         try {
-            fileId = getFile(mimeType, name).getId();
-        } catch (IOException e) {
-            System.out.println("Erro no DownloadFile");
+            file = googleDrive.getFile(mimeType, name); //COLOCA O ID DO ARQUIVO DO DRIVE (DPS TEM Q VER COMO PEGAR AUTOMATICO)
+        } catch (Exception e) {
+            return;
         }
 
         java.io.File theDir = new java.io.File(path);
@@ -103,13 +103,32 @@ public class GoogleDrive {
 
 
         OutputStream outputStream = new FileOutputStream(path + name);
+
+        driveService.files().get(file.getId())
+                .executeMediaAndDownloadTo(outputStream);
+    }
+
+    public void downloadFileById(String mimeType, String fileId, String path, String nome) throws FileNotFoundException {
+        java.io.File theDir = new java.io.File(path);
+        // se o diretorio não existir cria ele
+        if (!theDir.exists()) {
+            boolean result = false;
+            try {
+                theDir.mkdirs();
+                result = true;
+            } catch (SecurityException se) {
+                //handle it
+            }
+        }
+        OutputStream outputStream = new FileOutputStream(path + nome);
         try {
             driveService.files().get(fileId)
                     .executeMediaAndDownloadTo(outputStream);
         } catch (IOException e) {
-            System.out.println("Nao achou o arquivo");
+            e.printStackTrace();
         }
     }
+
 
     public File getFile(String mimeType, String name) throws IOException {
         List<com.google.api.services.drive.model.File> files;

@@ -1,9 +1,13 @@
 package Models;
 
-public class Image extends Object{
+public class Image{
     private String fileId;
     private String fileName;
     private int generatedTime;
+    private int regionId;
+    private int scale;
+
+
     private boolean read;
 
     public Image() {
@@ -45,7 +49,26 @@ public class Image extends Object{
         return read;
     }
 
+    public int getRegionId() {
+        return regionId;
+    }
+
+    public void setRegionId(int regionId) {
+        this.regionId = regionId;
+    }
+
+    public int getScale() {
+        return scale;
+    }
+
+    public void setScale(int scale) {
+        this.scale = scale;
+    }
+
     public void setRead(boolean read) {
         this.read = read;
     }
+
+
+
 }
