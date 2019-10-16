@@ -1,16 +1,9 @@
 package tools;
 
 import DAO.ImageDAO;
-import DAO.RegionDAO;
-import Models.Region;
-import com.google.common.reflect.TypeToken;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 
-import javax.swing.*;
 import java.io.*;
-import java.lang.reflect.Type;
 import java.security.GeneralSecurityException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -119,7 +112,7 @@ public class Image {
                 result += el;
             }
         }
-        result /= (100);
+        result /= matrix.length;
 
         return result;
     }
@@ -275,7 +268,7 @@ public class Image {
             fos.close();
             String uploadedFileId = googleDrive.uploadFile(fileName, completeImagePath, "image/jpeg");
 
-            Models.Image image = new Models.Image();
+            models.Image image = new models.Image();
             image.setFileId(uploadedFileId);
             image.setFileName(fileName);
             image.setGeneratedTime(time);

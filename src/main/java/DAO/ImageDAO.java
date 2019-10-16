@@ -1,6 +1,6 @@
 package DAO;
 
-import Models.Image;
+import models.Image;
 import tools.GsonTool;
 
 import java.io.IOException;

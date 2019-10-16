@@ -1,5 +1,5 @@
 import DAO.SquadDAO;
-import Models.Squad;
+import models.Squad;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javax.swing.*;
 import java.io.*;
 import java.lang.reflect.Type;
+import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -96,7 +97,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
      * @throws IOException
      */
     @FXML
-    public void removerSquad() throws IOException {
+    public void removerSquad() throws IOException, GeneralSecurityException {
         SquadDAO squadDAO = new SquadDAO();
         File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
         Reader reader = new FileReader(dir);
@@ -139,7 +140,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
      * @throws IOException
      */
     @FXML
-    public void botaoSalvarSquad() throws IOException {
+    public void botaoSalvarSquad() throws IOException, GeneralSecurityException {
         SquadDAO squadDAO = new SquadDAO();
         File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
         Reader reader = new FileReader(dir);

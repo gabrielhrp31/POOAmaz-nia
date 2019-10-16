@@ -1,4 +1,4 @@
-import Models.Squad;
+import models.Squad;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -6,6 +6,7 @@ import javafx.scene.control.TextField;
 import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
+import java.security.GeneralSecurityException;
 
 public class ControllerRegistroSquad extends ControllerUtil {
 
@@ -26,7 +27,7 @@ public class ControllerRegistroSquad extends ControllerUtil {
      * @throws IOException
      */
     @FXML
-    void botaoEnviarRegistroSquad() throws IOException {
+    void botaoEnviarRegistroSquad() throws IOException, GeneralSecurityException {
         Squad squadButton = new Squad();
 
         if (!(isAlpha(textRegistrationSquadName.getText()))) {

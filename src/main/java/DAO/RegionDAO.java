@@ -1,6 +1,6 @@
 package DAO;
 
-import Models.Region;
+import models.Region;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;

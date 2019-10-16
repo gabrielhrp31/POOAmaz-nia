@@ -1,6 +1,5 @@
-import DAO.SquadDAO;
-import Models.Region;
-import Models.Squad;
+import models.Region;
+import models.Squad;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -13,6 +12,7 @@ import javafx.scene.control.ComboBox;
 import javax.swing.*;
 import java.io.*;
 import java.lang.reflect.Type;
+import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -85,7 +85,7 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
      * @throws IOException
      */
     @FXML
-    public void botaoSalvarRegion() throws IOException {
+    public void botaoSalvarRegion() throws IOException, GeneralSecurityException {
         File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "region.json");
         Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
         Type listType = new TypeToken<ArrayList<Region>>() {

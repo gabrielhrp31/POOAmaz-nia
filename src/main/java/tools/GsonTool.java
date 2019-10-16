@@ -2,8 +2,8 @@ package tools;
 
 import DAO.ImageDAO;
 import DAO.RegionDAO;
-import Models.Image;
-import Models.Region;
+import models.Image;
+import models.Region;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;

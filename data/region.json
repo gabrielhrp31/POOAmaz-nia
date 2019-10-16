@@ -2,13 +2,19 @@
   {
     "id": 1,
     "name": "Sul",
-    "protectedArea": false,
-    "squadResponsable": 2
+    "protectedArea": true,
+    "squadResponsable": 1
   },
   {
     "id": 2,
     "name": "Sul",
     "protectedArea": false,
     "squadResponsable": 2
+  },
+  {
+    "id": 3,
+    "name": "Leste",
+    "protectedArea": true,
+    "squadResponsable": 0
   }
 ]

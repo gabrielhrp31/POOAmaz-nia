@@ -93,7 +93,7 @@ public class GoogleDrive {
      * @throws IOException
      * @throws GeneralSecurityException
      */
-    public static void downloadFile(String mimeType, String name, String path) throws IOException, GeneralSecurityException {
+    public void downloadFile(String mimeType, String name, String path) throws IOException, GeneralSecurityException {
         File file = null;
         GoogleDrive googleDrive=new GoogleDrive();
         try {

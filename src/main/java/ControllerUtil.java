@@ -1,5 +1,5 @@
-import Models.Region;
-import Models.Squad;
+import models.Region;
+import models.Squad;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -10,9 +10,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Control;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import tools.GoogleDrive;
 
 import java.io.*;
 import java.lang.reflect.Type;
+import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -21,12 +23,13 @@ import java.util.logging.Logger;
 public class ControllerUtil {
 
 
-        @FXML
+    @FXML
     private BorderPane borderPanel;
 
 
     /**
      * Cria uma nova tela do FXML
+     *
      * @param ui
      */
     @FXML
@@ -47,6 +50,7 @@ public class ControllerUtil {
 
     /**
      * Carrega uma nova tela do FXML
+     *
      * @param ui
      */
     @FXML
@@ -64,6 +68,7 @@ public class ControllerUtil {
 
     /**
      * Verifica se contém letras no input
+     *
      * @param name
      * @return
      */
@@ -74,6 +79,7 @@ public class ControllerUtil {
 
     /**
      * Verifica se só contém numeros no input
+     *
      * @param texto
      * @return
      */
@@ -100,10 +106,10 @@ public class ControllerUtil {
      * @throws IOException
      */
     @FXML
-    private void salvarJSONaux(String dir, Squad squadButton, Region regionButton, int opcSave, int editar, int idSquadRemover, int idRegionRemover) throws IOException {
+    private void salvarJSONaux(String dir, Squad squadButton, Region regionButton, int opcSave, int editar, int idSquadRemover, int idRegionRemover) throws IOException, GeneralSecurityException {
         //AQUI É ONDE GERA O ARQUIVO
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        File dirFile = new File(dir);//diretorio onde irá o arquivo
+        GoogleDrive gd = new GoogleDrive();
         List<Squad> listaSquad = new ArrayList<Squad>();
         List<Region> listaRegion = new ArrayList<Region>();
         java.lang.String gsonString = "";
@@ -117,6 +123,19 @@ public class ControllerUtil {
          * EDITAR= 1 - EDITA
          */
 
+        try {
+            gd.downloadFile("application/json", "region.json", System.getProperty("user.dir") + File.separator + "data" + File.separator);
+        } catch (IOException e) {
+            return;
+        }
+
+        try {
+            gd.downloadFile("application/json", "squad.json", System.getProperty("user.dir") + File.separator + "data" + File.separator);
+        } catch (IOException e) {
+            return;
+        }
+
+        File dirFile = new File(dir);
 
         if (dirFile.exists()) {//SE JÁ EXISTIR O ARQUIVO (O .JSON)
             Reader reader = new FileReader(dirFile);//LE OS DADOS DO ARQUIVO
@@ -212,6 +231,7 @@ public class ControllerUtil {
 
     /**
      * Chama a função para salvar apenas verifica antes se precisa criar uma nova pasta ou não
+     *
      * @param dir
      * @param squadButton
      * @param regionButton
@@ -222,7 +242,7 @@ public class ControllerUtil {
      * @throws IOException
      */
     @FXML
-    void salvarJSON(String dir, Squad squadButton, Region regionButton, int opcSave, int editar, int idSquadRemover, int idRegionRemover) throws IOException {
+    void salvarJSON(String dir, Squad squadButton, Region regionButton, int opcSave, int editar, int idSquadRemover, int idRegionRemover) throws IOException, GeneralSecurityException {
         File dirDataFile = new File(System.getProperty("user.dir") + File.separator + "data");
 
         if (dirDataFile.exists()) {//SE A PASTA EXISTIR

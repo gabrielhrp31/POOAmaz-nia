@@ -1,4 +1,4 @@
-import Models.Image;
+import models.Image;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -15,7 +15,7 @@ import java.util.List;
 public class ControllerAnalisesMain extends ControllerUtil {
 
     /**
-     * Carrega a tela do Cadastro Main
+     * Carrega a tela do Cadastro analysis.Main
      */
     @FXML
     private void telaCadastroMain() {
@@ -24,7 +24,7 @@ public class ControllerAnalisesMain extends ControllerUtil {
 
 
     /**
-     * Carrega a tela do Manipular Main
+     * Carrega a tela do Manipular analysis.Main
      */
     @FXML
     private void telaManipularMain() {
