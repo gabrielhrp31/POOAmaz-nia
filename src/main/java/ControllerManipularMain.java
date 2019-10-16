@@ -18,6 +18,16 @@ public class ControllerManipularMain extends ControllerUtil {
 
 
     /**
+     * Chama a tela para listar os dados
+     */
+    @FXML
+    private void telaListarDados() {
+        loadUI("listarDados");
+    }
+
+
+
+    /**
      * Sobe os dados para a Pasta no Drive
      * @throws IOException
      * @throws GeneralSecurityException

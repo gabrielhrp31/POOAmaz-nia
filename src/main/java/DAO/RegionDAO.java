@@ -16,6 +16,7 @@ public class RegionDAO {
 
     /**
      * Carrega todos os dados dos esquadrões para o comboBox usado no region
+     *
      * @return
      * @throws FileNotFoundException
      */
@@ -25,15 +26,19 @@ public class RegionDAO {
         Type listType = new TypeToken<ArrayList<Region>>() {
         }.getType();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Region> listaRegion = new ArrayList<Region>();
-        listaRegion = gson.fromJson(reader, listType);
-        List<String> listaRegionNomes = new ArrayList<String>();
-        for (int i = 0; i < listaRegion.size(); i++) {
-            listaRegionNomes.add(listaRegion.get(i).getName());
+        List<Region> listaRegions = new ArrayList<Region>();
+        listaRegions = gson.fromJson(reader, listType);
+        List<String> listaNomes = new ArrayList<String>();
+        String nomeRegion = "", idText = "";
+        for (int i = 0; i < listaRegions.size(); i++) {
+            nomeRegion = listaRegions.get(i).getName();
+            nomeRegion = nomeRegion.concat("  -> id: ");
+            idText = Integer.toString(listaRegions.get(i).getId());
+            nomeRegion = nomeRegion.concat(idText);
+            listaNomes.add(nomeRegion);
         }
 
-
-        return listaRegionNomes;
+        return listaNomes;
     }
 
 
@@ -46,6 +51,7 @@ public class RegionDAO {
 
     /**
      * Adiciona uma nova region no region.json
+     *
      * @param region
      * @throws IOException
      * @throws GeneralSecurityException
@@ -59,5 +65,6 @@ public class RegionDAO {
     public static void setRegions(ArrayList<Region> list) {
         RegionDAO.regions = regions;
     }
+
 
 }

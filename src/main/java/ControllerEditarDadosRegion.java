@@ -32,7 +32,6 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
      * Carrega para a CheckBox as regiões já cadastradas
      * @throws FileNotFoundException
      */
-    //metodos
     @FXML
     public void carregarCheckBoxRegion() throws FileNotFoundException {
         File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "region.json");
@@ -64,6 +63,8 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
         SquadDAO squadDAO = new SquadDAO();
         ObservableList<java.lang.String> olcomboBoxSquadResponsable = null;
         olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxSquad());
+
+
         checkBSqudEditarRegion.setItems(olcomboBoxSquadResponsable);
     }
 

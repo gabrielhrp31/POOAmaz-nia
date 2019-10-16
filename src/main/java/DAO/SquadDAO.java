@@ -17,6 +17,7 @@ public class SquadDAO {
 
     /**
      * Carregar os dados dos esquadrões para a comboBox
+     *
      * @return
      * @throws FileNotFoundException
      */
@@ -26,18 +27,26 @@ public class SquadDAO {
         Type listType = new TypeToken<ArrayList<Squad>>() {
         }.getType();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Squad> listaSquad = new ArrayList<Squad>();
-        listaSquad = gson.fromJson(reader, listType);
-        List<String> listaSquadNomes = new ArrayList<String>();
-        for (int i = 0; i < listaSquad.size(); i++) {
-            listaSquadNomes.add(listaSquad.get(i).getName());
+        List<Squad> listaSquads = new ArrayList<Squad>();
+        listaSquads = gson.fromJson(reader, listType);
+
+        List<String> listaNomes = new ArrayList<>();
+        String nomeSquad = "", quantidadeSoldados = "", idText = "";
+        for (int i = 0; i < listaSquads.size(); i++) {
+            nomeSquad = listaSquads.get(i).getName();
+            quantidadeSoldados = Integer.toString(listaSquads.get(i).getQuantityOfSoldiers());
+            nomeSquad = nomeSquad.concat(" : Quantidade de Soldados: ");
+            nomeSquad = nomeSquad.concat(quantidadeSoldados);
+            nomeSquad = nomeSquad.concat("  -> id: ");
+            idText = Integer.toString(listaSquads.get(i).getId());
+            nomeSquad = nomeSquad.concat(idText);
+
+            listaNomes.add(nomeSquad);
         }
 
 
-        return listaSquadNomes;
+        return listaNomes;
     }
-
-
 
 
 }

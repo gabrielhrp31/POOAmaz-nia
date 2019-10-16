@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerListarDados">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text layoutX="141.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Esquadrões Registrados:" />
+            <Text layoutX="341.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Regiões Registradas:" />
+            <ComboBox fx:id="comboBoxSquadListar" layoutX="141.0" layoutY="163.0" onShowing="#carregarCheckBoxSquad" onShown="#carregarCheckBoxSquad" prefWidth="150.0" promptText="Clique para Exibir" />
+            <ComboBox fx:id="comboBoxRegionListar" layoutX="341.0" layoutY="163.0" onShowing="#carregarCheckBoxRegion" onShown="#carregarCheckBoxRegion" prefWidth="150.0" promptText="Clique para Exibir" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
