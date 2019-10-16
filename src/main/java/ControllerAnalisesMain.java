@@ -121,9 +121,9 @@ public class ControllerAnalisesMain extends ControllerUtil {
                 aux1 = (aux1 / id1.get(0)) * 100;
                 aux1 = Math.round(aux1);
                 if (aux1 > id1.get(0)) {
-                    auxS1 = "A regiao de ID1 -> Aumentando : " + aux1 + "% ";
+                    auxS1 = "\tA regiao de ID1 -> Aumentando as queimadas em : " + aux1 + "% ";
                 } else {
-                    auxS1 = "A regiao de ID1 -> Diminuindo : " + aux1 + "% ";
+                    auxS1 = "\tA regiao de ID1 -> Diminuindo as queimadas em : " + aux1 + "% ";
                 }
                 auxS = auxS.concat(auxS1);
             }
@@ -135,9 +135,9 @@ public class ControllerAnalisesMain extends ControllerUtil {
                 aux2 = (aux2 / id2.get(0)) * 100;
                 aux2 = Math.round(aux2);
                 if (aux2 > id2.get(0)) {
-                    auxS2 = "A regiao de ID2 -> Aumentando : " + aux2 + "% ";
+                    auxS2 = "\tA regiao de ID2 -> Aumentando as queimadas em : " + aux2 + "% ";
                 } else {
-                    auxS2 = "A regiao de ID2 -> Diminuindo : " + aux2 + "% ";
+                    auxS2 = "\tA regiao de ID2 -> Diminuindo as queimadas em : " + aux2 + "% ";
                 }
                 auxS = auxS.concat(auxS2);
 
@@ -149,9 +149,9 @@ public class ControllerAnalisesMain extends ControllerUtil {
                 aux3 = (aux3 / id3.get(0)) * 100;
                 aux3 = Math.round(aux3);
                 if (aux3 > id3.get(0)) {
-                    auxS3 = "A regiao de ID3 -> Aumentando : " + aux3 + "% ";
+                    auxS3 = "\tA regiao de ID3 -> Aumentando as queimadas em : " + aux3 + "% ";
                 } else {
-                    auxS3 = "A regiao de ID3 -> Diminuindo : " + aux3 + "% ";
+                    auxS3 = "\tA regiao de ID3 -> Diminuindo as queimadas em : " + aux3 + "% ";
                 }
                 auxS = auxS.concat(auxS3);
 
@@ -163,9 +163,9 @@ public class ControllerAnalisesMain extends ControllerUtil {
                 aux4 = (aux4 / id4.get(0)) * 100;
                 aux4 = Math.round(aux4);
                 if (aux4 > id4.get(0)) {
-                    auxS4 = "A regiao de ID4 -> Aumentando : " + aux4 + "% ";
+                    auxS4 = "\tA regiao de ID4 -> Aumentando as queimadas em : " + aux4 + "% ";
                 } else {
-                    auxS4 = "A regiao de ID4 -> Diminuindo : " + aux4 + "% ";
+                    auxS4 = "\tA regiao de ID4 -> Diminuindo as queimadas em : " + aux4 + "% ";
                 }
                 auxS = auxS.concat(auxS4);
 

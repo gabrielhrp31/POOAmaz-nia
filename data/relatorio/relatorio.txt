@@ -1,1 +1,1 @@
-A regiao de ID1 -> Aumentando : 4.0% O ID2 -> Diminuindo : -1.0% 
+A regiao de ID1 -> Aumentando : 4.0% A regiao de ID2 -> Diminuindo : -1.0% 

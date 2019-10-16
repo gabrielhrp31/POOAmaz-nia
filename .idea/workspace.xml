@@ -3,9 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="a4c0cdb0-b32e-4fbb-a0db-39852b2736ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosSquad.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosSquad.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosRegion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosSquad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/relatorio/1571181369.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/relatorio/1571185161.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/relatorio/1571185172.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/relatorio/1571185296.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/relatorio/1571185309.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/relatorio/1571188539.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/relatorio/1571188548.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/relatorio/pictures.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/relatorio/relatorio.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerAnalisesMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerAnalisesMain.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +67,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.5955882" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -162,6 +169,7 @@
       <workItem from="1571178293992" duration="12837000" />
       <workItem from="1571191362349" duration="20628000" />
       <workItem from="1571238742426" duration="2972000" />
+      <workItem from="1571255529929" duration="1493000" />
     </task>
     <servers />
   </component>
