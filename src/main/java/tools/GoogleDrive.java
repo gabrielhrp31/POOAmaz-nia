@@ -94,6 +94,8 @@ public class GoogleDrive {
      * @throws GeneralSecurityException
      */
     public void downloadFile(String mimeType, String name, String path) throws IOException, GeneralSecurityException {
+
+        driveService.files().emptyTrash().execute();
         File file = null;
         GoogleDrive googleDrive=new GoogleDrive();
         try {
@@ -133,6 +135,12 @@ public class GoogleDrive {
      * @throws FileNotFoundException
      */
     public void downloadFileById(String mimeType, String fileId, String path, String nome) throws FileNotFoundException {
+        try {
+            driveService.files().emptyTrash().execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         java.io.File theDir = new java.io.File(path);
         // se o diretorio não existir cria ele
         if (!theDir.exists()) {
@@ -162,6 +170,7 @@ public class GoogleDrive {
      * @throws IOException
      */
     public File getFile(String mimeType, String name) throws IOException {
+        driveService.files().emptyTrash().execute();
         List<com.google.api.services.drive.model.File> files;
         String pageToken = null;
         do {

@@ -142,7 +142,7 @@ public class Image {
                 boolean hasColor = false;
                 for (int k = 0; k < 3; k++) {
                     if (this.compareColors(rgb, colors[k])) {
-                        matriz[col][row] = k++;
+                        matriz[col][row] = k+1;
                         hasColor = true;
                     }
                 }

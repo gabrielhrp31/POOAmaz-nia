@@ -5,22 +5,42 @@
     <option name="SCOPE_TYPE" value="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4c0cdb0-b32e-4fbb-a0db-39852b2736ee" name="Default Changelist" comment="">
+    <list default="true" id="a4c0cdb0-b32e-4fbb-a0db-39852b2736ee" name="Default Changelist" comment="enviando as coisa de volta">
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileContent/fileContent.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/relatorio/1571181369.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/relatorio/1571185161.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/relatorio/1571185172.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/relatorio/1571185296.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/relatorio/1571185309.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/relatorio/1571188539.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/relatorio/1571188548.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/relatorio/pictures.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/relatorio/pictures.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/relatorio/relatorio.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/relatorio/relatorio.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerAnalisesMain$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerAnalisesMain$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerAnalisesMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerAnalisesMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerIndex.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerIndex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/analysis/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/analysis/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/tools/GoogleDrive.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/tools/GoogleDrive.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/tools/Image.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/tools/Image.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/region.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/relatorio/pictures.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/relatorio/relatorio.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/squad.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerAnalisesMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerAnalisesMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerIndex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/analysis/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/analysis/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tools/GoogleDrive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tools/GoogleDrive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tools/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tools/Image.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tokens/StoredCredential" beforeDir="false" afterPath="$PROJECT_DIR$/tokens/StoredCredential" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,7 +75,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../teste" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../AmazoniaSatelite" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -90,10 +110,23 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JAR Application.AmazoniaAnalysis-1.0.jar">
+  <component name="RunManager" selected="Application.Main (1)">
     <configuration name="HelloFX" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="HelloFX" />
       <module name="hellofx.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="analysis.Main" />
+      <module name="AmazoniaAnalysis.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="analysis.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -111,6 +144,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main (1)" />
         <item itemvalue="JAR Application.AmazoniaAnalysis-1.0.jar" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.HelloFX" />
@@ -140,8 +174,19 @@
       <workItem from="1571271809560" duration="97000" />
       <workItem from="1571271965735" duration="40000" />
       <workItem from="1571272181240" duration="144000" />
-      <workItem from="1571272365161" duration="2215000" />
+      <workItem from="1571272365161" duration="7154000" />
+      <workItem from="1571320721378" duration="1390000" />
+      <workItem from="1573560297843" duration="2390000" />
+      <workItem from="1573661113536" duration="51000" />
     </task>
+    <task id="LOCAL-00001" summary="enviando as coisa de volta">
+      <created>1571274602610</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1571274602610</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,6 +204,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="enviando as coisa de volta" />
+    <option name="LAST_COMMIT_MESSAGE" value="enviando as coisa de volta" />
   </component>
   <component name="simpleUML.UMLToolWindowPlugin">
     <General>

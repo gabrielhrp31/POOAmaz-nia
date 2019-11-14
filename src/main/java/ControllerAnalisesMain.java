@@ -1,3 +1,4 @@
+import analysis.Main;
 import models.Image;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -21,6 +22,7 @@ public class ControllerAnalisesMain extends ControllerUtil {
     private void telaCadastroMain() {
         loadUI("cadastroMain");
     }
+
 
 
     /**

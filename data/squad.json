@@ -1,11 +1,5 @@
 [
   {
-    "id": 1,
-    "name": "Policial",
-    "regionResponsable": "Norte",
-    "quantityOfSoldiers": 123
-  },
-  {
     "id": 2,
     "name": "Bombeiros",
     "regionResponsable": "Sul",
@@ -16,5 +10,16 @@
     "name": "Cientistas",
     "regionResponsable": "Leste",
     "quantityOfSoldiers": 110
+  },
+  {
+    "id": 1,
+    "name": "Policial",
+    "quantityOfSoldiers": 124
+  },
+  {
+    "id": 2,
+    "name": "esquadraox",
+    "regionResponsable": "Norte",
+    "quantityOfSoldiers": 100
   }
 ]
