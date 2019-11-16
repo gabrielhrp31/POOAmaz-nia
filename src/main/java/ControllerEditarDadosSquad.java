@@ -32,6 +32,13 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
     @FXML
     private ComboBox<java.lang.String> checkBregiaoEditarSquad;
 
+    @FXML
+    public void carregarCheckBoxRegion() throws FileNotFoundException {
+        SquadDAO squadDAO = new SquadDAO();
+        ObservableList<String> olcomboBoxSquadResponsable = null;
+        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxRegion());
+        checkBregiaoEditarSquad.setItems(olcomboBoxSquadResponsable);
+    }
 
     /**
      * Carregar para a CheckBox Squad os dados dos Esquadrões
@@ -48,10 +55,15 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
         listaSquads = gson.fromJson(reader, listType);
         ObservableList<java.lang.String> olcomboBoxSquadResponsable;
         List<String> listaNomes = new ArrayList<>();
-
+        String nomeRegion = "", idText = "";
         for (int i = 0; i < listaSquads.size(); i++) {
-            listaNomes.add(listaSquads.get(i).getName());
+            nomeRegion = listaSquads.get(i).getName();
+            nomeRegion = nomeRegion.concat("  -> id: ");
+            idText = Integer.toString(listaSquads.get(i).getId());
+            nomeRegion = nomeRegion.concat(idText);
+            listaNomes.add(nomeRegion);
         }
+
 
         olcomboBoxSquadResponsable = FXCollections.observableList(listaNomes);
         comboBoxSquadEditar.setItems(olcomboBoxSquadResponsable);

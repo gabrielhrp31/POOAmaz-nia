@@ -43,5 +43,15 @@ public class ControllerCadastroMain extends ControllerUtil {
         creatUI("registroSquad");
     }
 
+    @FXML
+    void telaInformacoesRegion() throws FileNotFoundException {
+        creatUI("informacoesRegion");
+    }
+
+
+    @FXML
+    void telaInformacoesSquad() throws FileNotFoundException {
+        creatUI("informacoesSquad");
+    }
 
 }

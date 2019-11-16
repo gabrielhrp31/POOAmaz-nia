@@ -82,4 +82,10 @@ public class ControllerRegistroRegion extends ControllerUtil {
         comboBoxSquadResponsable.setItems(olcomboBoxSquadResponsable);
     }
 
+
+    @FXML
+    void telaInformacoesRegion(){
+        creatUI("informacoesRegion");
+    }
+
 }

@@ -9,7 +9,7 @@
    <left>
       <HBox BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#telaRegistrationRegion" style="-fx-background-color: #b0db4d; -fx-font-size: 20;" text="REGISTRAR REGIAO">
+            <Button mnemonicParsing="false" onAction="#telaInformacoesRegion" prefHeight="44.0" prefWidth="153.0" style="-fx-background-color: #b0db4d; -fx-font-size: 20;" text="REGIÕES">
                <HBox.margin>
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </HBox.margin></Button>
@@ -17,14 +17,14 @@
          </children>
       </HBox>
    </left>
-   <right>
+   <bottom>
       <HBox BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#telaRegistrationSquad" style="-fx-background-color: #b0db4d; -fx-font-size: 20;" text="REGISTRAR ESQUADRAO">
+            <Button mnemonicParsing="false" onAction="#telaInformacoesSquad" style="-fx-background-color: #b0db4d; -fx-font-size: 20;" text="ESQUADRÕES">
                <HBox.margin>
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </HBox.margin></Button>
          </children>
       </HBox>
-   </right>
+   </bottom>
 </BorderPane>

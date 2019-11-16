@@ -44,9 +44,14 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
         ObservableList<java.lang.String> olcomboBoxSquadResponsable;
 
         List<String> listaNomes = new ArrayList<String>();
+        String nomeRegion = "", idText = "";
 
         for (int i = 0; i < listaRegions.size(); i++) {
-            listaNomes.add(listaRegions.get(i).getName());
+            nomeRegion = listaRegions.get(i).getName();
+            nomeRegion = nomeRegion.concat("  -> id: ");
+            idText = Integer.toString(listaRegions.get(i).getId());
+            nomeRegion = nomeRegion.concat(idText);
+            listaNomes.add(nomeRegion);
         }
 
         olcomboBoxSquadResponsable = FXCollections.observableList(listaNomes);
@@ -70,10 +75,15 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
         ObservableList<java.lang.String> olcomboBoxSquadResponsable;
         List<String> listaNomes = new ArrayList<>();
 
-        for (int i = 0; i < listaSquads.size(); i++) {
-            listaNomes.add(listaSquads.get(i).getName());
-        }
+        String nomeRegion = "", idText = "";
 
+        for (int i = 0; i < listaSquads.size(); i++) {
+            nomeRegion = listaSquads.get(i).getName();
+            nomeRegion = nomeRegion.concat("  -> id: ");
+            idText = Integer.toString(listaSquads.get(i).getId());
+            nomeRegion = nomeRegion.concat(idText);
+            listaNomes.add(nomeRegion);
+        }
         olcomboBoxSquadResponsable = FXCollections.observableList(listaNomes);
         checkBSqudEditarRegion.setItems(olcomboBoxSquadResponsable);
 
@@ -101,13 +111,18 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
         gson = new GsonBuilder().setPrettyPrinting().create();
         List<Squad> listaSquad = new ArrayList<Squad>();
         listaSquad = gson.fromJson(reader, listType);//carrega para a lista os dados do arquivo
+        String comboBoxIDReal[]=comboBoxRegionEditar.getValue().split(" id: ");
+        String comboBoxIDRealSquad[]=checkBSqudEditarRegion.getValue().split(" id: ");
+        int comparacaoIDReal=0,comparacaoIDRealSQUAD=0;
 
 
         for (int i = 0; i < listaRegion.size(); i++) {
-            if (comboBoxRegionEditar.getValue().equals(listaRegion.get(i).getName())) {//forem iguais
-
+       //problema na comparação int com String provavel
+            comparacaoIDReal=Integer.parseInt(comboBoxIDReal[1]);
+            comparacaoIDRealSQUAD=Integer.parseInt(comboBoxIDRealSquad[1]);
+            if (comparacaoIDReal==(listaRegion.get(i).getId())) {//forem iguais
                 for (int u = 0; u < listaSquad.size(); u++) {
-                    if (listaSquad.get(u).getName().equals(checkBSqudEditarRegion.getValue())) {
+                    if (comparacaoIDRealSQUAD==(listaSquad.get(u).getId())) {//isso aqui que ta zoado, mesmo se eu marcar 1, vai sair 2, TESTE
                         listaRegion.get(i).setSquadResponsable(listaSquad.get(u).getId());
                     }
                 }
@@ -124,6 +139,9 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
                 salvarJSON(System.getProperty("user.dir") + File.separator + "data" + File.separator + "region.json", null, listaRegion.get(i), 1, 1, 0, id);
                 JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
             }
+
+
+
 
         }
 

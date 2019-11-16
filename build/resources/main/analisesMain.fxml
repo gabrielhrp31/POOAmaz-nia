@@ -9,16 +9,11 @@
    <center>
       <HBox alignment="CENTER" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#telaCadastroMain" style="-fx-background-color: #b0db4d; -fx-font-size: 20;" text="CADASTRAR">
+            <Button mnemonicParsing="false" onAction="#telaCadastroMain" style="-fx-background-color: #b0db4d; -fx-font-size: 20;" text="GERIR">
                <HBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </HBox.margin></Button>
-            <Button mnemonicParsing="false" onAction="#telaManipularMain" style="-fx-background-color: #b0db4d; -fx-font-size: 20;" text="MANIPULAR">
-               <HBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </HBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#gerarRelatorio" style="-fx-background-color: #b0db4d; -fx-font-size: 20;" text="RELATORIO">
+            <Button mnemonicParsing="false" onAction="#gerarRelatorio" prefWidth="197.0" style="-fx-background-color: #b0db4d; -fx-font-size: 20;" text="GERAR RELATORIO">
                <HBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </HBox.margin>

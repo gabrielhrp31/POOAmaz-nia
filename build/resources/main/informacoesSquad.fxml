@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerInformacoesSquad">
+   <left>
+      <TableView fx:id="tabbleViewSquad" prefHeight="400.0" prefWidth="481.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="tabbleColumnSquadID" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="tabbleColumnSquadNOME" prefWidth="75.0" text="NOME" />
+            <TableColumn fx:id="tabbleColumnSquadREGIONRESPONSABLE" prefWidth="158.0" text="REGIAO RESPONSAVEL" />
+            <TableColumn fx:id="tabbleColumnSquadQUANTIDADEDESOLDADOS" prefWidth="170.0" text="QUANTIDADE DE SOLDADOS" />
+        </columns>
+      </TableView>
+   </left>
+   <center>
+      <AnchorPane prefHeight="400.0" prefWidth="135.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="12.0" layoutY="81.0" mnemonicParsing="false" onAction="#atualizarTabbleViewSquad" style="-fx-background-color: #b0db4d; -fx-font-size: 15;" text="ATUALIZAR" />
+            <Button layoutX="28.0" layoutY="224.0" mnemonicParsing="false" onAction="#telaRegistrationSquad" style="-fx-background-color: #b0db4d; -fx-font-size: 15;" text="NOVO" />
+            <Button layoutX="25.0" layoutY="159.0" mnemonicParsing="false" onAction="#telaEditarSquad" style="-fx-background-color: #b0db4d; -fx-font-size: 15;" text="EDITAR" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

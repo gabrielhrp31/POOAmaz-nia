@@ -10,11 +10,5 @@
     "name": "Sul",
     "protectedArea": false,
     "squadResponsable": 2
-  },
-  {
-    "id": 3,
-    "name": "Norte",
-    "protectedArea": true,
-    "squadResponsable": 0
   }
 ]

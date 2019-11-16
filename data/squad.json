@@ -15,11 +15,5 @@
     "id": 1,
     "name": "Policial",
     "quantityOfSoldiers": 124
-  },
-  {
-    "id": 2,
-    "name": "esquadraox",
-    "regionResponsable": "Norte",
-    "quantityOfSoldiers": 100
   }
 ]

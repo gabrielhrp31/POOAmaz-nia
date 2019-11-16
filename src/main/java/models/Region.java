@@ -33,7 +33,7 @@ public class Region {
         this.name = name;
     }
 
-    public boolean isProtectedArea() {
+    public boolean getProtectedArea() {
         return protectedArea;
     }
 
@@ -45,6 +45,8 @@ public class Region {
     public int getSquadResponsable() {
         return squadResponsable;
     }
+
+
 
     public void setSquadResponsable(int squadResponsable) {
         this.squadResponsable = squadResponsable;
