@@ -6,6 +6,7 @@ import models.Region;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import models.Squad;
 import tools.Firebase;
 import tools.GsonTool;
 
@@ -46,6 +47,28 @@ public class RegionDAO {
         }
 
         return listaNomes;
+    }
+
+
+    public List<Region> carregarComboBoxRegionEditarDados(Firebase firebase) throws FileNotFoundException, ExecutionException, InterruptedException {
+
+        List<QueryDocumentSnapshot> listaRegions = firebase.read(0);
+
+        Region region;
+        List<Region> lista = new ArrayList<>();
+
+        String nomeRegion = "", idText = "";
+
+        for (int i = 0; i < listaRegions.size(); i++) {
+             region= new Region();
+            nomeRegion = listaRegions.get(i).getString("name");
+            region.setName(nomeRegion);
+            region.setId(i);
+
+            lista.add(region);
+        }
+
+        return lista;
     }
 
 

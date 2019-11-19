@@ -55,14 +55,36 @@ public class SquadDAO {
 
         List<Squad> lista = new ArrayList<>();
         Squad squad;
-        String nomeSquad = "", idText = "";
-
+        String nomeSquad = "", idText = "", sQuantityOfSoldiers = " ";
+        int quantityOfSoldiers = 0;
         for (int i = 0; i < listaSquads.size(); i++) {
             squad = new Squad();
             nomeSquad = listaSquads.get(i).getString("name");
+            sQuantityOfSoldiers = String.valueOf(listaSquads.get(i).get("quantityOfSoldiers"));
+            quantityOfSoldiers = Integer.parseInt(sQuantityOfSoldiers);//erro aqui n era p subir o nome no squadresponsavel
+            squad.setQuantityOfSoldiers(quantityOfSoldiers);
             squad.setId(i);
             squad.setName(nomeSquad);
             lista.add(squad);
+        }
+
+        return lista;
+    }
+
+    public List<String> carregarComboBoxSquadEditarDados(Firebase firebase) throws ExecutionException, InterruptedException {
+
+        List<QueryDocumentSnapshot> listaSquads = firebase.read(1);
+
+        List<String> lista = new ArrayList<>();
+        Squad squad;
+        String nomeSquad = "", idText = "";
+
+        for (int i = 0; i < listaSquads.size(); i++) {
+            nomeSquad = listaSquads.get(i).getString("name");
+            nomeSquad = nomeSquad.concat("  -> id: ");
+            idText = Integer.toString(i);
+            nomeSquad = nomeSquad.concat(idText);
+            lista.add(nomeSquad);
         }
 
         return lista;

@@ -54,7 +54,7 @@ public class ControllerAnalisesMain extends ControllerUtil {
      */
     @FXML
     private void gerarRelatorio() throws IOException, GeneralSecurityException {
-
+ JOptionPane.showMessageDialog(null,"FALTA UPAR AS FOTO PÔ");
         /*
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmacao");

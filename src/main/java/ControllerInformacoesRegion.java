@@ -100,13 +100,7 @@ public class ControllerInformacoesRegion extends ControllerUtil {
 
     @FXML
     private void telaEditarRegion() {
-        File file = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "region.json");
-        if (file.exists()) {
             creatUI("telaEditarDadosRegion");
-        } else {
-            JOptionPane.showMessageDialog(null, "Primeiro tenha uma regiao ja registrada");
-        }
-
     }
 
 

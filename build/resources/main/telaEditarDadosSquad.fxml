@@ -19,13 +19,13 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ComboBox fx:id="comboBoxSquadEditar" layoutX="235.0" layoutY="69.0" onShowing="#carregarCheckBoxSquad" onShown="#carregarCheckBoxSquad" prefWidth="150.0">
+            <ComboBox fx:id="comboBoxSquadEditar" layoutX="235.0" layoutY="69.0" onAction="#carregarCheckBoxSquad" onShowing="#carregarCheckBoxSquad" onShown="#carregarCheckBoxSquad" prefWidth="150.0">
                <value>
                   <String fx:value="Selecione" />
                </value>
             </ComboBox>
             <Text layoutX="200.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione o Esquadrão que deseja alterar:" />
-            <Button layoutX="256.0" layoutY="124.0" mnemonicParsing="false" onAction="#atualizarCheckBoxSquad" style="-fx-background-color: #b0db4d;" text="Atualizar Campos" />
+            <Button layoutX="256.0" layoutY="124.0" mnemonicParsing="false" onAction="#atualizarDadosCheckBoxSquad" style="-fx-background-color: #b0db4d;" text="Atualizar Campos" />
             <TextField fx:id="txtNomeEditarSquad" layoutX="23.0" layoutY="215.0" />
             <TextField fx:id="txtNumeroEditarSquad" layoutX="209.0" layoutY="215.0" prefHeight="25.0" prefWidth="158.0" />
             <ComboBox fx:id="checkBregiaoEditarSquad" layoutX="403.0" layoutY="215.0" onAction="#carregarCheckBoxRegion" onShowing="#carregarCheckBoxRegion" onShown="#carregarCheckBoxRegion" prefWidth="150.0">

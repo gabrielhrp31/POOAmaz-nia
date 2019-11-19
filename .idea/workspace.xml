@@ -14,9 +14,37 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosRegion$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosRegion$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosRegion$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosRegion$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosRegion.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosRegion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosSquad$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosSquad$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosSquad$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosSquad$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosSquad.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosSquad.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerListarDados$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerListarDados$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerListarDados$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerListarDados.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerListarDados.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DAO/RegionDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/DAO/RegionDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/DAO/SquadDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/DAO/SquadDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerInformacoesSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerInformacoesSquad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/tools/Firebase.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/tools/Firebase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/registroRegion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/registroRegion.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/telaEditarDadosRegion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/telaEditarDadosRegion.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/telaEditarDadosSquad.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/telaEditarDadosSquad.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerAnalisesMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerAnalisesMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosRegion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosSquad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerInformacoesRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerInformacoesRegion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerListarDados.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerListarDados.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/RegionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/RegionDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DAO/SquadDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/SquadDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tools/Firebase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tools/Firebase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/registroRegion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/registroRegion.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/telaEditarDadosRegion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/telaEditarDadosRegion.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/telaEditarDadosSquad.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/telaEditarDadosSquad.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -194,7 +222,8 @@
       <workItem from="1573952694354" duration="112000" />
       <workItem from="1574035813411" duration="362000" />
       <workItem from="1574096968484" duration="85000" />
-      <workItem from="1574116460099" duration="30712000" />
+      <workItem from="1574116460099" duration="30845000" />
+      <workItem from="1574182559154" duration="12686000" />
     </task>
     <task id="LOCAL-00001" summary="enviando as coisa de volta">
       <created>1571274602610</created>
@@ -230,30 +259,12 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/ControllerEditarDadosRegion.java</url>
-          <line>66</line>
-          <properties class="ControllerEditarDadosRegion" method="carregarCheckBoxSquad">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/DAO/SquadDAO.java</url>
-          <line>71</line>
+          <line>93</line>
           <properties class="DAO.SquadDAO" method="carregarTabbleViewSquad">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="93" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/tools/Firebase.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="80" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/DAO/SquadDAO.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="82" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ControllerRegistroRegion.java</url>
@@ -261,14 +272,14 @@
           <option name="timeStamp" value="83" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/tools/Firebase.java</url>
-          <line>62</line>
-          <option name="timeStamp" value="86" />
+          <url>file://$PROJECT_DIR$/src/main/java/DAO/RegionDAO.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="92" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/DAO/RegionDAO.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="92" />
+          <url>file://$PROJECT_DIR$/src/main/java/ControllerEditarDadosSquad.java</url>
+          <line>183</line>
+          <option name="timeStamp" value="116" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

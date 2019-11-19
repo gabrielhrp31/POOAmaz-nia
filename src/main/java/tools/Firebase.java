@@ -42,6 +42,7 @@ public class Firebase {
         Map<String, Object> data = new HashMap<>();
         String idString = " ";
         idString = Integer.toString(id);
+
         if (qualSalvar == 0) {//REGION
             docRef = db.collection("regions").document(idString);
             //Adiciona as informações ao documento com o id "nomeID" usando a hashMap
@@ -92,4 +93,13 @@ public class Firebase {
 
     return documents;
     }
+
+    public void remove(String tabela,String coluna) throws ExecutionException, InterruptedException {
+        // asynchronously delete a document
+        ApiFuture<WriteResult> writeResult = db.collection(tabela).document(coluna).delete();
+// ...
+        System.out.println("Update time : " + writeResult.get().getUpdateTime());
+    }
+
+
 }

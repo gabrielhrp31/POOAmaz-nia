@@ -22,9 +22,10 @@
             <ComboBox fx:id="comboBoxRegionEditar" layoutX="232.0" layoutY="41.0" onShowing="#carregarCheckBoxRegion" onShown="#carregarCheckBoxRegion" prefWidth="150.0" promptText="Selecione" />
             <Text layoutX="249.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione a Região:" />
             <ComboBox fx:id="checkBSqudEditarRegion" layoutX="20.0" layoutY="144.0" onShowing="#carregarCheckBoxSquad" onShown="#carregarCheckBoxSquad" prefWidth="150.0" promptText="Selecione" />
-            <Button layoutX="300.0" layoutY="234.0" mnemonicParsing="false" onAction="#botaoSalvarRegion" text="Salvar" />
+            <Button layoutX="57.0" layoutY="234.0" mnemonicParsing="false" onAction="#botaoSalvarRegion" style="-fx-background-color: #b0db4d;" text="SALVAR NOVAS INFORMACOES DESTA REGIÃO" />
             <CheckBox fx:id="checkBoxProtegidaEditarRegion" layoutX="468.0" layoutY="148.0" mnemonicParsing="false" text="Área Protegida" />
             <Text layoutX="20.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Esquadrão Responsável" />
+            <Button layoutX="382.0" layoutY="234.0" mnemonicParsing="false" onAction="#removerRegion" style="-fx-background-color: #b0db4d;" text="REMOVER ESTA REGIAO" />
          </children>
       </AnchorPane>
    </center>

@@ -1,3 +1,4 @@
+import DAO.SquadDAO;
 import models.Region;
 import models.Squad;
 import com.google.gson.Gson;
@@ -15,6 +16,7 @@ import java.io.Reader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class ControllerListarDados extends ControllerUtil {
 
@@ -67,27 +69,10 @@ public class ControllerListarDados extends ControllerUtil {
      * @throws FileNotFoundException
      */
     @FXML
-    public void carregarCheckBoxRegion() throws FileNotFoundException {
-        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "region.json");
-        Reader reader = new FileReader(dir);//LE OS DADOS DO ARQUIVO
-        Type listType = new TypeToken<ArrayList<Region>>() {
-        }.getType();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Region> listaRegions;
-        listaRegions = gson.fromJson(reader, listType);//carrega para a lista os dados do arquivo
-        ObservableList<java.lang.String> olcomboBoxSquadResponsable;
-
-        List<String> listaNomes = new ArrayList<String>();
-        String nomeRegion = "", idText = "";
-        for (int i = 0; i < listaRegions.size(); i++) {
-            nomeRegion = listaRegions.get(i).getName();
-            nomeRegion = nomeRegion.concat("  -> id: ");
-            idText = Integer.toString(listaRegions.get(i).getId());
-            nomeRegion = nomeRegion.concat(idText);
-            listaNomes.add(nomeRegion);
-        }
-
-        olcomboBoxSquadResponsable = FXCollections.observableList(listaNomes);
+    public void carregarCheckBoxRegion() throws FileNotFoundException, ExecutionException, InterruptedException {
+        SquadDAO squadDAO = new SquadDAO();
+        ObservableList<String> olcomboBoxSquadResponsable = null;
+        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxRegion(ControllerAnalisesMain.firebase));
         comboBoxRegionListar.setItems(olcomboBoxSquadResponsable);
     }
 

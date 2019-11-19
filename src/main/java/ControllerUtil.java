@@ -106,6 +106,7 @@ public class ControllerUtil {
      */
     @FXML
     private void salvarJSONaux(String dir, Squad squadButton, Region regionButton, int opcSave, int editar, int idSquadRemover, int idRegionRemover) throws IOException, GeneralSecurityException {
+       //NAO USA ISSO MAIS P PORRA NENHUMA
         /*
         try {
             gd.downloadFile("application/json", "region.json", System.getProperty("user.dir") + File.separator + "data" + File.separator);

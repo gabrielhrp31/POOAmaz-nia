@@ -1,4 +1,7 @@
+import DAO.RegionDAO;
 import DAO.SquadDAO;
+import com.google.cloud.firestore.QueryDocumentSnapshot;
+import models.Region;
 import models.Squad;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -21,7 +24,6 @@ import java.util.concurrent.ExecutionException;
 public class ControllerEditarDadosSquad extends ControllerUtil {
 
 
-
     @FXML
     private ComboBox<java.lang.String> comboBoxSquadEditar;
 
@@ -36,7 +38,6 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
 
     @FXML
     public void carregarCheckBoxRegion() throws IOException, ExecutionException, InterruptedException {
-
         SquadDAO squadDAO = new SquadDAO();
         ObservableList<String> olcomboBoxSquadResponsable = null;
         olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxRegion(ControllerAnalisesMain.firebase));
@@ -49,28 +50,12 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
      * @throws FileNotFoundException
      */
     @FXML
-    public void carregarCheckBoxSquad() throws FileNotFoundException {
-        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
-        Reader reader = new FileReader(dir);
-        Type listType = new TypeToken<ArrayList<Squad>>() {
-        }.getType();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Squad> listaSquads;
-        listaSquads = gson.fromJson(reader, listType);
-        ObservableList<java.lang.String> olcomboBoxSquadResponsable;
-        List<String> listaNomes = new ArrayList<>();
-        String nomeRegion = "", idText = "";
-        for (int i = 0; i < listaSquads.size(); i++) {
-            nomeRegion = listaSquads.get(i).getName();
-            nomeRegion = nomeRegion.concat("  -> id: ");
-            idText = Integer.toString(listaSquads.get(i).getId());
-            nomeRegion = nomeRegion.concat(idText);
-            listaNomes.add(nomeRegion);
-        }
-
-
-        olcomboBoxSquadResponsable = FXCollections.observableList(listaNomes);
+    public void carregarCheckBoxSquad() throws FileNotFoundException, ExecutionException, InterruptedException {
+        SquadDAO squadDAO = new SquadDAO();
+        ObservableList<String> olcomboBoxSquadResponsable = null;
+        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxSquadEditarDados(ControllerAnalisesMain.firebase));
         comboBoxSquadEditar.setItems(olcomboBoxSquadResponsable);
+
     }
 
     /**
@@ -79,30 +64,31 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
      * @throws FileNotFoundException
      */
     @FXML
-    public void atualizarCheckBoxSquad() throws FileNotFoundException {
-        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
-        Reader reader = new FileReader(dir);
-        Type listType = new TypeToken<ArrayList<Squad>>() {
-        }.getType();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Squad> listaSquads;
-        listaSquads = gson.fromJson(reader, listType);
-        ObservableList<java.lang.String> olcomboBoxSquadResponsable;
+    public void atualizarDadosCheckBoxSquad() throws FileNotFoundException, ExecutionException, InterruptedException {
 
-        List<java.lang.String> listaNomes = new ArrayList<>();
+        SquadDAO squadDAO = new SquadDAO();
+        List<Squad> listaSquads = null;
+        ObservableList<Squad> olcomboBoxSquadResponsable;
 
-        for (int i = 0; i < listaSquads.size(); i++) {
-            listaNomes.add(listaSquads.get(i).getName());
-        }
+        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxSquad(ControllerAnalisesMain.firebase));
+        String nomeSquad = " ", nomeSquadPuro = " ", sQuantityOfSoldiers;
+        String idText = " ";
+        int quantityOfSoldiers = 0;
 
-        olcomboBoxSquadResponsable = FXCollections.observableList(listaNomes);
-        comboBoxSquadEditar.setItems(olcomboBoxSquadResponsable);
+        for (int i = 0; i < olcomboBoxSquadResponsable.size(); i++) {
+            nomeSquad = String.valueOf(olcomboBoxSquadResponsable.get(i).getName());
+            nomeSquadPuro = String.valueOf(olcomboBoxSquadResponsable.get(i).getName());
+            nomeSquad = nomeSquad.concat("  -> id: ");
+            idText = Integer.toString(i);
+            nomeSquad = nomeSquad.concat(idText);
 
-        for (int i = 0; i < listaSquads.size(); i++) {
-            if (comboBoxSquadEditar.getValue().equals(listaSquads.get(i).getName())) {
-                java.lang.String quantify = Integer.toString(listaSquads.get(i).getQuantityOfSoldiers());
-                txtNomeEditarSquad.setText(listaSquads.get(i).getName());
-                txtNumeroEditarSquad.setText(quantify);
+
+            if (comboBoxSquadEditar.getValue().equals(nomeSquad)) {//se o olcomboBox get String name == ao comboBox, atribui os dados
+                // java.lang.String quantify = Integer.toString(listaSquads.get(i).getQuantityOfSoldiers());
+                txtNomeEditarSquad.setText(nomeSquadPuro);
+                quantityOfSoldiers = olcomboBoxSquadResponsable.get(i).getQuantityOfSoldiers();
+                sQuantityOfSoldiers = Integer.toString(quantityOfSoldiers);
+                txtNumeroEditarSquad.setText(sQuantityOfSoldiers);
             }
         }
 
@@ -115,39 +101,34 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
      * @throws IOException
      */
     @FXML
-    public void removerSquad() throws IOException, GeneralSecurityException {
+    public void removerSquad() throws IOException, GeneralSecurityException, ExecutionException, InterruptedException {
+
         SquadDAO squadDAO = new SquadDAO();
-        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
-        Reader reader = new FileReader(dir);
-        Type listType = new TypeToken<ArrayList<Squad>>() {
-        }.getType();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Squad> listaSquads;
-        listaSquads = gson.fromJson(reader, listType);
 
-        List<java.lang.String> listaNomes = new ArrayList<>();
+        ObservableList<Squad> olcomboBoxSquadResponsable;
 
-        for (int i = 0; i < listaSquads.size(); i++) {
-            listaNomes.add(listaSquads.get(i).getName());
-        }
-
-        for (int i = 0; i < listaSquads.size(); i++) {
-
-            if (comboBoxSquadEditar.getValue().equals(listaSquads.get(i).getName())) {
-                int id = listaSquads.get(i).getId();
-                Object[] options = {"Sim", "Nao"};
-                int w = JOptionPane.showOptionDialog(null, "Tem certeza que deseja remover este esquadrao?", "ATENCAO",
-                        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
-                        options, options[0]);
-                if (w == JOptionPane.YES_OPTION) {
-                    JOptionPane.showMessageDialog(null, "Ent");
-                    salvarJSON(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json", null, null, 2, 1, id, 0);
-                    JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
-                }
+        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxSquad(ControllerAnalisesMain.firebase));
 
 
+        String nomeSquad = " ", nomeSquadPuro = " ", sQuantityOfSoldiers, nomeSquadAux = " ";
+        String idText = " ", nomeRegion = " ", nomeRegionPuro = " ";
+        int quantityOfSoldiers = 0, t = 0, nomeSquadIntAux = 0;
+
+        for (int i = 0; i < olcomboBoxSquadResponsable.size(); i++) {
+            nomeSquad = String.valueOf(olcomboBoxSquadResponsable.get(i).getName());
+            nomeSquadPuro = String.valueOf(olcomboBoxSquadResponsable.get(i).getName());
+            nomeSquad = nomeSquad.concat("  -> id: ");
+            idText = Integer.toString(i);
+            nomeSquad = nomeSquad.concat(idText);
+
+
+            if (comboBoxSquadEditar.getValue().equals(nomeSquad)) {
+                nomeSquadIntAux = olcomboBoxSquadResponsable.get(i).getId();
+                nomeSquadAux = Integer.toString(nomeSquadIntAux);
+                ControllerAnalisesMain.firebase.remove("squads", nomeSquadAux);
+                JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
+                return;
             }
-
         }
 
 
@@ -160,43 +141,55 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
      * @throws IOException
      */
     @FXML
-    public void botaoSalvarSquad() throws IOException, GeneralSecurityException {
+    public void botaoSalvarSquad() throws IOException, GeneralSecurityException, ExecutionException, InterruptedException {
+
         SquadDAO squadDAO = new SquadDAO();
-        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
-        Reader reader = new FileReader(dir);
-        Type listType = new TypeToken<ArrayList<Squad>>() {
-        }.getType();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Squad> listaSquads;
-        listaSquads = gson.fromJson(reader, listType);
+        RegionDAO regionDAO = new RegionDAO();
+        ObservableList<Region> olcomboBoxRegionResponsable;
+        ObservableList<Squad> olcomboBoxSquadResponsable;
 
-        List<java.lang.String> listaNomes = new ArrayList<java.lang.String>();
+        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxSquad(ControllerAnalisesMain.firebase));
+        olcomboBoxRegionResponsable = FXCollections.observableList(regionDAO.carregarComboBoxRegionEditarDados(ControllerAnalisesMain.firebase));
 
-        for (int i = 0; i < listaSquads.size(); i++) {
-            listaNomes.add(listaSquads.get(i).getName());
-        }
 
-        for (int i = 0; i < listaSquads.size(); i++) {
-            if (comboBoxSquadEditar.getValue().equals(listaSquads.get(i).getName())) {//forem iguais
+        String nomeSquad = " ", nomeSquadPuro = " ", sQuantityOfSoldiers;
+        String idText = " ", nomeRegion = " ", nomeRegionPuro = " ";
+        int quantityOfSoldiers = 0, t = 0;
 
-                if (!isAlpha(txtNomeEditarSquad.getText())) {
-                    JOptionPane.showMessageDialog(null, "Insira apenas Letras no nome");
-                    return;
+        for (int i = 0; i < olcomboBoxSquadResponsable.size(); i++) {
+            nomeSquad = String.valueOf(olcomboBoxSquadResponsable.get(i).getName());
+            nomeSquadPuro = String.valueOf(olcomboBoxSquadResponsable.get(i).getName());
+            nomeSquad = nomeSquad.concat("  -> id: ");
+            idText = Integer.toString(i);
+            nomeSquad = nomeSquad.concat(idText);
+
+
+            if (comboBoxSquadEditar.getValue().equals(nomeSquad)) {//se o olcomboBox get String name == ao comboBox, atribui os dados
+                // java.lang.String quantify = Integer.toString(listaSquads.get(i).getQuantityOfSoldiers());
+                olcomboBoxSquadResponsable.get(i).setName(txtNomeEditarSquad.getText());
+                sQuantityOfSoldiers = txtNumeroEditarSquad.getText();
+                quantityOfSoldiers = Integer.parseInt(sQuantityOfSoldiers);
+                olcomboBoxSquadResponsable.get(i).setQuantityOfSoldiers(quantityOfSoldiers);
+
+                //p pegar a region responsable :
+                for (t = 0; t < olcomboBoxRegionResponsable.size(); t++) {
+                    nomeRegionPuro = String.valueOf(olcomboBoxRegionResponsable.get(t).getName());
+                    nomeRegion = String.valueOf(olcomboBoxRegionResponsable.get(t).getName());
+                    nomeRegion = nomeRegion.concat("  -> id: ");
+                    idText = Integer.toString(i);
+                    nomeRegion = nomeRegion.concat(idText);
+
+                    //concat com o id, p verificar e na hr de add só o nome normal o puro por isso
+
+                    if (checkBregiaoEditarSquad.getValue().equals(nomeRegion)) {
+                        olcomboBoxSquadResponsable.get(i).setRegionResponsable(nomeRegion);
+                    }
                 }
-                if (!soContemNumeros(txtNumeroEditarSquad.getText())) {
-                    JOptionPane.showMessageDialog(null, "Insira apenas Numeros na quantidade");
-                    return;
-                }
-                listaSquads.get(i).setName(txtNomeEditarSquad.getText());
-                int quantity = Integer.parseInt(txtNumeroEditarSquad.getText());
-                listaSquads.get(i).setQuantityOfSoldiers(quantity);
-                listaSquads.get(i).setRegionResponsable(checkBregiaoEditarSquad.getValue());
 
-                int id = listaSquads.get(i).getId();
-                salvarJSON(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json", listaSquads.get(i), null, 0, 1, id, 0);
-                JOptionPane.showMessageDialog(null, "Acao Concluidada", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
+                ControllerAnalisesMain.firebase.write(1, olcomboBoxSquadResponsable.get(i).getId(), olcomboBoxSquadResponsable.get(i).getName(), null, 0, olcomboBoxSquadResponsable.get(i).getQuantityOfSoldiers(), olcomboBoxSquadResponsable.get(i).getRegionResponsable());
+                JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
+                return;
             }
-
         }
 
 
