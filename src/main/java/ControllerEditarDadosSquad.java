@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import tools.Firebase;
 
 import javax.swing.*;
 import java.io.*;
@@ -15,6 +16,7 @@ import java.lang.reflect.Type;
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class ControllerEditarDadosSquad extends ControllerUtil {
 
@@ -33,15 +35,17 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
     private ComboBox<java.lang.String> checkBregiaoEditarSquad;
 
     @FXML
-    public void carregarCheckBoxRegion() throws FileNotFoundException {
+    public void carregarCheckBoxRegion() throws IOException, ExecutionException, InterruptedException {
+
         SquadDAO squadDAO = new SquadDAO();
         ObservableList<String> olcomboBoxSquadResponsable = null;
-        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxRegion());
+        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxRegion(ControllerAnalisesMain.firebase));
         checkBregiaoEditarSquad.setItems(olcomboBoxSquadResponsable);
     }
 
     /**
      * Carregar para a CheckBox Squad os dados dos Esquadrões
+     *
      * @throws FileNotFoundException
      */
     @FXML
@@ -71,6 +75,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
 
     /**
      * Atualiza os campos para que possam ser alterados
+     *
      * @throws FileNotFoundException
      */
     @FXML
@@ -106,6 +111,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
 
     /**
      * Remove um esquadrão
+     *
      * @throws IOException
      */
     @FXML
@@ -127,7 +133,8 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
 
         for (int i = 0; i < listaSquads.size(); i++) {
 
-            if (comboBoxSquadEditar.getValue().equals(listaSquads.get(i).getName())) {  int id = listaSquads.get(i).getId();
+            if (comboBoxSquadEditar.getValue().equals(listaSquads.get(i).getName())) {
+                int id = listaSquads.get(i).getId();
                 Object[] options = {"Sim", "Nao"};
                 int w = JOptionPane.showOptionDialog(null, "Tem certeza que deseja remover este esquadrao?", "ATENCAO",
                         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
@@ -149,6 +156,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
 
     /**
      * Salva as alterações feitas no Esquadrão
+     *
      * @throws IOException
      */
     @FXML

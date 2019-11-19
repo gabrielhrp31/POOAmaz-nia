@@ -14,44 +14,64 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosRegion$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosRegion$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosRegion$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosRegion$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosRegion$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosRegion$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosRegion.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosRegion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerAnalisesMain$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerAnalisesMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerAnalisesMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerCadastroMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerCadastroMain.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosSquad$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosSquad$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosSquad$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosSquad$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosSquad$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosSquad$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosSquad$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosSquad$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosSquad.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosSquad.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerIndex.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerIndex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerInformacoesRegion$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerInformacoesRegion$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerInformacoesRegion.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerInformacoesRegion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerInformacoesSquad.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerInformacoesSquad.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerManipularMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerManipularMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroRegion$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroRegion$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroRegion.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroRegion.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroSquad.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroSquad.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Models/Region.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Models/Region.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/analisesMain.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/analisesMain.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/cadastroMain.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/cadastroMain.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/registroRegion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/registroRegion.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/region.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/region.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/relatorio/pictures.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/relatorio/pictures.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/squad.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/squad.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DAO/ImageDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/DAO/ImageDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DAO/RegionDAO$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DAO/RegionDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/DAO/RegionDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DAO/SquadDAO$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DAO/SquadDAO$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DAO/SquadDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/DAO/SquadDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/analysis/Launcher.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/analysis/Launcher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/analysis/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/analysis/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/tools/GoogleDrive.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/tools/GsonTool$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/tools/GsonTool$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/tools/GsonTool$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/tools/GsonTool$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/tools/GsonTool.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/tools/GsonTool.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/tools/Image.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/tools/Image.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/credentials.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/credentials.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/squad.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControllerAnalisesMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerAnalisesMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControllerCadastroMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerCadastroMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosRegion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosSquad.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControllerIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerIndex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerInformacoesRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerInformacoesRegion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerInformacoesSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerInformacoesSquad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerManipularMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerManipularMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControllerRegistroRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerRegistroRegion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControllerRegistroSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerRegistroSquad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/ImageDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/ImageDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/RegionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/RegionDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DAO/SquadDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/SquadDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Region.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Region.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/analisesMain.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/analisesMain.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/cadastroMain.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cadastroMain.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/manipularMain.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/manipularMain.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/registroRegion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/registroRegion.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/registroSquad.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/registroSquad.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/telaEditarDadosRegion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/telaEditarDadosRegion.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/telaEditarDadosSquad.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/telaEditarDadosSquad.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tokens/StoredCredential" beforeDir="false" afterPath="$PROJECT_DIR$/tokens/StoredCredential" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/analysis/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/analysis/Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/analysis/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/analysis/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tools/GoogleDrive.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tools/GsonTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tools/GsonTool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tools/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tools/Image.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/credentials.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/credentials.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -160,6 +180,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="12.0.2" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="analysis.Main" />
+      <module name="POOAmazoniaAnalysis.main" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="analysis.*" />
@@ -183,9 +204,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Launcher" />
         <item itemvalue="JAR Application.AmazoniaAnalysis-1.0.jar" />
-        <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.ControllerIndex" />
         <item itemvalue="Application.HelloFX" />
       </list>
@@ -225,6 +246,10 @@
       <workItem from="1573839113551" duration="403000" />
       <workItem from="1573853863160" duration="1735000" />
       <workItem from="1573860170639" duration="22528000" />
+      <workItem from="1573952694354" duration="112000" />
+      <workItem from="1574035813411" duration="362000" />
+      <workItem from="1574096968484" duration="85000" />
+      <workItem from="1574116460099" duration="20967000" />
     </task>
     <task id="LOCAL-00001" summary="enviando as coisa de volta">
       <created>1571274602610</created>
@@ -259,16 +284,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ControllerInformacoesRegion.java</url>
-          <line>85</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ControllerInformacoesRegion.java</url>
-          <line>73</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/ControllerEditarDadosRegion.java</url>
           <line>66</line>
@@ -277,8 +292,26 @@
           </properties>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/ControllerRegistroRegion.java</url>
+          <line>114</line>
+          <properties class="ControllerRegistroRegion" method="telaInformacoesRegion">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/DAO/SquadDAO.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Remote">
+        <watch expression="documents.get(0)" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="simpleUML.UMLToolWindowPlugin">
     <General>

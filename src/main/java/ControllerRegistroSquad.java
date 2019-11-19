@@ -1,5 +1,6 @@
 import DAO.RegionDAO;
 import DAO.SquadDAO;
+import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -10,6 +11,7 @@ import models.Squad;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import tools.Firebase;
 
 import javax.swing.*;
 import java.io.*;
@@ -17,6 +19,7 @@ import java.lang.reflect.Type;
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class ControllerRegistroSquad extends ControllerUtil {
 
@@ -32,23 +35,33 @@ public class ControllerRegistroSquad extends ControllerUtil {
     private ComboBox<String> comboBoxSquad;
 
 
+    SquadDAO squadDAO;
+
     /**
      * Cadastra um novo Esquadrão
+     *
      * @throws IOException
      */
     @FXML
-    void botaoEnviarRegistroSquad() throws IOException, GeneralSecurityException {
-        Squad squadButton = new Squad();
+    void botaoEnviarRegistroSquad() throws IOException, GeneralSecurityException, ExecutionException, InterruptedException {
 
         if (!(isAlpha(textRegistrationSquadName.getText()))) {
-            JOptionPane.showMessageDialog(null,"Insira apenas Letras no nome");
+            JOptionPane.showMessageDialog(null, "Insira apenas Letras no nome");
             return;
         }
-        if(!soContemNumeros(textRegistrationSquadQuantitySoldiers.getText())){
-            JOptionPane.showMessageDialog(null,"Insira apenas Numeros na quantidade");
+        if (!soContemNumeros(textRegistrationSquadQuantitySoldiers.getText())) {
+            JOptionPane.showMessageDialog(null, "Insira apenas Numeros na quantidade");
             return;
         }
 
+        Squad squadButton = new Squad();
+        List<QueryDocumentSnapshot> documents = ControllerAnalisesMain.firebase.read(1);
+
+        //id é a qntd de itens
+        if (documents != null) {
+            documents.size();
+            squadButton.setId((documents.size()));
+        }
 
         //ATRIBUI OS VALORES AO OBJETO
         java.lang.String nomeSquad = textRegistrationSquadName.getText();
@@ -58,17 +71,20 @@ public class ControllerRegistroSquad extends ControllerUtil {
         squadButton.setName(nomeSquad);
         squadButton.setQuantityOfSoldiers(numberSquadInt);
         squadButton.setRegionResponsable(region);
-        salvarJSON(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json", squadButton, null, 0, 0, 0, 0);
+
+        ControllerAnalisesMain.firebase.write(1, squadButton.getId(), squadButton.getName(), null, 0, squadButton.getQuantityOfSoldiers(), squadButton.getRegionResponsable());
         JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
     }
 
 
     @FXML
-    public void carregarCheckBoxRegion() throws FileNotFoundException {
-        SquadDAO squadDAO = new SquadDAO();
+    public void carregarCheckBoxRegion() throws IOException, ExecutionException, InterruptedException {
+
+        squadDAO = new SquadDAO();
         ObservableList<String> olcomboBoxSquadResponsable = null;
-        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxRegion());
+        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxRegion(ControllerAnalisesMain.firebase));
         comboBoxSquad.setItems(olcomboBoxSquadResponsable);
+
     }
 
 

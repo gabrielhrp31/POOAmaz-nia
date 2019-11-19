@@ -1,4 +1,5 @@
 import DAO.SquadDAO;
+import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -13,17 +14,17 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import models.Region;
 
+
 import javax.swing.*;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.Reader;
+import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 
-public class ControllerInformacoesRegion extends ControllerUtil{
+public class ControllerInformacoesRegion extends ControllerUtil {
+
 
     @FXML
     private ComboBox<String> comboBoxSquadResponsable = new ComboBox<>();
@@ -59,8 +60,6 @@ public class ControllerInformacoesRegion extends ControllerUtil{
      */
     @FXML
     public void atualizarTabbleViewRegion() throws FileNotFoundException {
-
-
         //Lê do arquivo e adiciona no comboBox
         File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "region.json");
         Reader reader = new FileReader(dir);
@@ -74,17 +73,16 @@ public class ControllerInformacoesRegion extends ControllerUtil{
         olcomboBoxRegionResponsable = FXCollections.observableList(listaRegions);
         tabbleViewRegion.setEditable(true);
         tabbleColumnRegionNOME.setEditable(true);
-        //AQUI ELE PEGA TODOS OS CAMPOS QUE EXISTEM NO GET, E LÁ EM BAIXO ADICIONA EM ORDEM NA TABBLE VIEW
         tabbleColumnRegionID.setCellValueFactory(new PropertyValueFactory<Region, String>("id"));
         tabbleColumnRegionNOME.setCellValueFactory(new PropertyValueFactory<Region, String>("name"));
-        tabbleColumnRegionSQUADRESPONSABLE.setCellValueFactory(new PropertyValueFactory<Region,String>("squadResponsable"));
+        tabbleColumnRegionSQUADRESPONSABLE.setCellValueFactory(new PropertyValueFactory<Region, String>("squadResponsable"));
 
-        tabbleColumnRegionPROTECTEDAREA.setCellValueFactory(new PropertyValueFactory<Region,String>("protectedArea"));
+        tabbleColumnRegionPROTECTEDAREA.setCellValueFactory(new PropertyValueFactory<Region, String>("protectedArea"));
 
 
         tabbleViewRegion.getColumns().clear();
         tabbleViewRegion.setItems(olcomboBoxRegionResponsable);
-        tabbleViewRegion.getColumns().addAll(tabbleColumnRegionID, tabbleColumnRegionNOME, tabbleColumnRegionSQUADRESPONSABLE,tabbleColumnRegionPROTECTEDAREA);
+        tabbleViewRegion.getColumns().addAll(tabbleColumnRegionID, tabbleColumnRegionNOME, tabbleColumnRegionSQUADRESPONSABLE, tabbleColumnRegionPROTECTEDAREA);
         tabbleViewRegion.setEditable(true);
         tabbleColumnRegionNOME.setEditable(true);
 
@@ -92,23 +90,19 @@ public class ControllerInformacoesRegion extends ControllerUtil{
 
 
     @FXML
-    private void telaRegistrationRegion() throws FileNotFoundException {
-        File file = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
-        if (file.exists()) {
-            SquadDAO squadDAO = new SquadDAO();
-            ObservableList<String> olcomboBoxSquadResponsable;
-            olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxSquad());
-            comboBoxSquadResponsable.setItems(olcomboBoxSquadResponsable);
+    private void telaRegistrationRegion() throws IOException, ExecutionException, InterruptedException {
+          //firebase;
+        List<QueryDocumentSnapshot> documents = ControllerAnalisesMain.firebase.read(1);
+        if (documents != null) {
             creatUI("registroRegion");
-        } else {
+            } else {
             JOptionPane.showMessageDialog(null, "Primeiro registre um Esquadrao");
         }
 
     }
 
     @FXML
-    private void telaEditarRegion(){
-
+    private void telaEditarRegion() {
         File file = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "region.json");
         if (file.exists()) {
             creatUI("telaEditarDadosRegion");

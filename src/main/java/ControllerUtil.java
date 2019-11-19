@@ -10,7 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Control;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import tools.GoogleDrive;
+
 
 import java.io.*;
 import java.lang.reflect.Type;
@@ -22,10 +22,8 @@ import java.util.logging.Logger;
 
 public class ControllerUtil {
 
-
     @FXML
     private BorderPane borderPanel;
-
 
 
     /**
@@ -108,22 +106,7 @@ public class ControllerUtil {
      */
     @FXML
     private void salvarJSONaux(String dir, Squad squadButton, Region regionButton, int opcSave, int editar, int idSquadRemover, int idRegionRemover) throws IOException, GeneralSecurityException {
-        //AQUI É ONDE GERA O ARQUIVO
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        GoogleDrive gd = new GoogleDrive();
-        List<Squad> listaSquad = new ArrayList<Squad>();
-        List<Region> listaRegion = new ArrayList<Region>();
-        java.lang.String gsonString = "";
-
-        /*PRIMEIRO VERIFICA SE O ARQUIVO JÁ  EXISTE, E DPS SE VAI SALVAR UM SQUAD OU UMA REGION*/
-
         /*
-         * OPC= 0 - SALVAR SQUAD
-         * OPC= 1 - SALVAR REGION
-         * EDITAR= 0 -NAO EDITA
-         * EDITAR= 1 - EDITA
-         */
-
         try {
             gd.downloadFile("application/json", "region.json", System.getProperty("user.dir") + File.separator + "data" + File.separator);
         } catch (IOException e) {
@@ -226,8 +209,7 @@ public class ControllerUtil {
                 Exception e) {
             e.printStackTrace();
         }
-
-
+        */
     }
 
     /**

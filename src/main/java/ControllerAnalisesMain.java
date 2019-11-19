@@ -1,4 +1,3 @@
-import analysis.Main;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import models.Image;
@@ -6,7 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import javafx.fxml.FXML;
-import tools.GoogleDrive;
+import tools.Firebase;
 
 import javax.swing.*;
 import java.io.*;
@@ -17,6 +16,17 @@ import java.util.List;
 import java.util.Optional;
 
 public class ControllerAnalisesMain extends ControllerUtil {
+
+    public static Firebase firebase;
+
+    static {
+        try {
+            firebase = new Firebase();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     /**
      * Carrega a tela do Cadastro analysis.Main
@@ -44,6 +54,8 @@ public class ControllerAnalisesMain extends ControllerUtil {
      */
     @FXML
     private void gerarRelatorio() throws IOException, GeneralSecurityException {
+
+        /*
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmacao");
         alert.setHeaderText("Tem certeza que deseja gerar o relatorio?");
@@ -215,5 +227,7 @@ public class ControllerAnalisesMain extends ControllerUtil {
         }
 
 
+    }
+    */
     }
 }

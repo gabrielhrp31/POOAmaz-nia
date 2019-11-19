@@ -55,7 +55,6 @@ public class ControllerInformacoesSquad extends ControllerUtil {
         olcomboBoxSquadResponsable = FXCollections.observableList(listaSquads);
         tabbleViewSquad.setEditable(true);
         tabbleColumnSquadNOME.setEditable(true);
-        //AQUI ELE PEGA TODOS OS CAMPOS QUE EXISTEM NO GET, E LÁ EM BAIXO ADICIONA EM ORDEM NA TABBLE VIEW
         tabbleColumnSquadID.setCellValueFactory(new PropertyValueFactory<Squad, String>("id"));
         tabbleColumnSquadNOME.setCellValueFactory(new PropertyValueFactory<Squad, String>("name"));
         tabbleColumnSquadREGIONRESPONSABLE.setCellValueFactory(new PropertyValueFactory<Squad, String>("regionResponsable"));

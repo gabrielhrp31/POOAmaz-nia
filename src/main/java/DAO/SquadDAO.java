@@ -1,5 +1,6 @@
 package DAO;
 
+import com.google.cloud.firestore.QueryDocumentSnapshot;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -8,17 +9,16 @@ import models.Squad;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import tools.Firebase;
 
 import javax.swing.*;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.Reader;
+import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
-public class SquadDAO {
+public class SquadDAO{
 
     /**
      * Carregar os dados dos esquadrões para a comboBox
@@ -26,26 +26,18 @@ public class SquadDAO {
      * @return
      * @throws FileNotFoundException
      */
-    public List<String> carregarComboBoxSquad() throws FileNotFoundException {
-        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
-        Reader reader = new FileReader(dir);
-        Type listType = new TypeToken<ArrayList<Squad>>() {
-        }.getType();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Squad> listaSquads = new ArrayList<Squad>();
-        listaSquads = gson.fromJson(reader, listType);
+    public List<String> carregarComboBoxSquad(Firebase firebase) throws IOException, ExecutionException, InterruptedException {
+
+        List<QueryDocumentSnapshot> listaSquads = firebase.read(1);
+
 
         List<String> listaNomes = new ArrayList<>();
-        String nomeSquad = "", quantidadeSoldados = "", idText = "";
+        String nomeSquad = "", idText = "";
         for (int i = 0; i < listaSquads.size(); i++) {
-            nomeSquad = listaSquads.get(i).getName();
-            quantidadeSoldados = Integer.toString(listaSquads.get(i).getQuantityOfSoldiers());
-            nomeSquad = nomeSquad.concat(" : Quantidade de Soldados: ");
-            nomeSquad = nomeSquad.concat(quantidadeSoldados);
+            nomeSquad = listaSquads.get(i).getString("name");
             nomeSquad = nomeSquad.concat("  -> id: ");
-            idText = Integer.toString(listaSquads.get(i).getId());
+            idText = Integer.toString(i);
             nomeSquad = nomeSquad.concat(idText);
-
             listaNomes.add(nomeSquad);
         }
 
@@ -54,20 +46,19 @@ public class SquadDAO {
     }
 
 
-    public List<String> carregarComboBoxRegion() throws FileNotFoundException {
-        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "region.json");
-        Reader reader = new FileReader(dir);
-        Type listType = new TypeToken<ArrayList<Region>>() {
-        }.getType();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Region> listaRegions = new ArrayList<Region>();
-        listaRegions = gson.fromJson(reader, listType);
-        List<String> listaNomes = new ArrayList<String>();
+    public List<String> carregarComboBoxRegion(Firebase firebase) throws FileNotFoundException, ExecutionException, InterruptedException {
+
+        List<QueryDocumentSnapshot> listaRegions = firebase.read(0);
+
+
+        List<String> listaNomes = new ArrayList<>();
+
         String nomeRegion = "", idText = "";
+
         for (int i = 0; i < listaRegions.size(); i++) {
-            nomeRegion = listaRegions.get(i).getName();
+            nomeRegion = listaRegions.get(i).getString("name");
             nomeRegion = nomeRegion.concat("  -> id: ");
-            idText = Integer.toString(listaRegions.get(i).getId());
+            idText = Integer.toString(i);
             nomeRegion = nomeRegion.concat(idText);
             listaNomes.add(nomeRegion);
         }

@@ -8,7 +8,7 @@ import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 
 public class ImageDAO {
-    private static ArrayList<Object> images;
+    private static ArrayList<Image> images;
 
     public ImageDAO() {
         images = new ArrayList<>();

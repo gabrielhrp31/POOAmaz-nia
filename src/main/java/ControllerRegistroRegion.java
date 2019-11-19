@@ -1,4 +1,6 @@
 import DAO.RegionDAO;
+import DAO.SquadDAO;
+import com.google.cloud.firestore.QueryDocumentSnapshot;
 import models.Region;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -8,6 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import tools.Firebase;
 
 import javax.swing.*;
 import java.io.*;
@@ -15,6 +18,7 @@ import java.lang.reflect.Type;
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class ControllerRegistroRegion extends ControllerUtil {
 
@@ -37,8 +41,14 @@ public class ControllerRegistroRegion extends ControllerUtil {
      * @throws IOException
      */
     @FXML
-    void botaoEnviarRegistroRegion() throws IOException, GeneralSecurityException {
+    void botaoEnviarRegistroRegion() throws IOException, GeneralSecurityException, ExecutionException, InterruptedException {
         Region regionButton = new Region();
+
+
+        List<QueryDocumentSnapshot> documentsSquads = ControllerAnalisesMain.firebase.read(1);
+
+        //vou ter aqui a lista de esquadroes
+        //lógica vai ser bem parecida, mas na minha lista region vai ter é os nomes dos squads do firebase
 
         File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
         Reader reader = new FileReader(dir);
@@ -65,7 +75,23 @@ public class ControllerRegistroRegion extends ControllerUtil {
         }
 
 
-        salvarJSON(System.getProperty("user.dir") + File.separator + "data" + File.separator + "region.json", null, regionButton, 1, 0, 0, 0);
+
+
+        // vou precisar de duas leituras, essa do setSquadResonsable por exemplo
+        //n posso pegar da minha lista de squads locais
+
+        //id é a qntd de itens
+
+
+        //para o ID da region
+        List<QueryDocumentSnapshot> documents = ControllerAnalisesMain.firebase.read(0);
+        if (documents != null) {
+            documents.size();
+            regionButton.setId((documents.size()));
+        }
+
+
+        ControllerAnalisesMain.firebase.write(0,regionButton.getId(),regionButton.getName(),regionButton.getProtectedArea(),regionButton.getSquadResponsable(),0," ");
         JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -75,11 +101,13 @@ public class ControllerRegistroRegion extends ControllerUtil {
      * @throws FileNotFoundException
      */
     @FXML
-    void carregarDadosCheckBox() throws FileNotFoundException {
+    void carregarDadosCheckBox() throws IOException, ExecutionException, InterruptedException {
         RegionDAO regionDAO = new RegionDAO();
         ObservableList<String> olcomboBoxSquadResponsable = null;
-        olcomboBoxSquadResponsable = FXCollections.observableList(regionDAO.carregarComboBoxRegion());
+        olcomboBoxSquadResponsable = FXCollections.observableList(regionDAO.carregarComboBoxRegion(ControllerAnalisesMain.firebase));
+
         comboBoxSquadResponsable.setItems(olcomboBoxSquadResponsable);
+        //OBS: O PUBLIC STATIC PARA A FIREBASE PARECE TER FUNCO
     }
 
 

@@ -1,9 +1,12 @@
 package DAO;
 
+import com.google.cloud.firestore.QueryDocumentSnapshot;
+import models.Image;
 import models.Region;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import tools.Firebase;
 import tools.GsonTool;
 
 import java.io.*;
@@ -11,8 +14,11 @@ import java.lang.reflect.Type;
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class RegionDAO {
+
+    private List<String> listaNomes;
 
     /**
      * Carrega todos os dados dos esquadrões para o comboBox usado no region
@@ -20,20 +26,20 @@ public class RegionDAO {
      * @return
      * @throws FileNotFoundException
      */
-    public List<String> carregarComboBoxRegion() throws FileNotFoundException {
-        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
-        Reader reader = new FileReader(dir);
-        Type listType = new TypeToken<ArrayList<Region>>() {
-        }.getType();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Region> listaRegions = new ArrayList<Region>();
-        listaRegions = gson.fromJson(reader, listType);
-        List<String> listaNomes = new ArrayList<String>();
+
+    public List<String> carregarComboBoxRegion(Firebase firebase) throws FileNotFoundException, ExecutionException, InterruptedException {
+
+        List<QueryDocumentSnapshot> listaRegions = firebase.read(1);
+
+
+        List<String> listaNomes = new ArrayList<>();
+
         String nomeRegion = "", idText = "";
+
         for (int i = 0; i < listaRegions.size(); i++) {
-            nomeRegion = listaRegions.get(i).getName();
+            nomeRegion = listaRegions.get(i).getString("name");
             nomeRegion = nomeRegion.concat("  -> id: ");
-            idText = Integer.toString(listaRegions.get(i).getId());
+            idText = Integer.toString(i);
             nomeRegion = nomeRegion.concat(idText);
             listaNomes.add(nomeRegion);
         }
@@ -42,7 +48,7 @@ public class RegionDAO {
     }
 
 
-    private static ArrayList<Object> regions;
+    private static ArrayList<Image> regions;
 
     public RegionDAO() {
         regions = new ArrayList<>();
@@ -56,7 +62,7 @@ public class RegionDAO {
      * @throws IOException
      * @throws GeneralSecurityException
      */
-    public static void addRegion(Region region) throws IOException, GeneralSecurityException {
+    public static void addRegion(Image region) throws IOException, GeneralSecurityException {
         GsonTool.read("region.json", 1);
         RegionDAO.regions.add(region);
         GsonTool.write("regions.json", regions);

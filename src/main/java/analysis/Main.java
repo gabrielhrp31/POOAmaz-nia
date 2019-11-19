@@ -6,13 +6,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import tools.GoogleDrive;
+import tools.Firebase;
 
 import java.io.File;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 
 public class Main extends Application {
+
+
 
     @Override
     public void  start(Stage stage) throws Exception {
@@ -34,6 +36,7 @@ public class Main extends Application {
      */
     @FXML
     public static void downloadDadosGerais() throws IOException, GeneralSecurityException {
+        /*
         GoogleDrive gd=new GoogleDrive();
         try {
             gd.downloadFile("application/json", "region.json", System.getProperty("user.dir") + File.separator + "data" + File.separator);
@@ -53,9 +56,12 @@ public class Main extends Application {
             return;
         }
 
+
+        */
     }
 
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws IOException {
         launch(args);
     }
 }

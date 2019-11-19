@@ -10,44 +10,28 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
 import java.lang.reflect.Type;
-import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 
+/**
+ * Classe que realiza operações com json utilizando a biblioteca GSON do google
+ */
 public class GsonTool {
 
     private static final String JSON_PATH = "data"+File.separator+"json"+File.separator;
 
-    /*
-    @param int type (1 IMAGE, 2 REGION);
+    /**
+     * carrega os dados json do drive e coloca em uma lista de imagens ou regiões
+     * @param name nome do arquivo
+     * @param type type (1 IMAGE, 2 REGION);
      */
-    public static String read(String name, int type) throws IOException, GeneralSecurityException {
-    GoogleDrive gd=new GoogleDrive();
+    public static void read(String name, int type){
+
         File dirDataFile = new File(System.getProperty("user.dir") + File.separator + JSON_PATH);
-
-        if(!dirDataFile.exists()) {
-
-            switch (type) {
-                case 1:
-                    try {
-                       gd.downloadFile("application/json", "pictures.json", JSON_PATH);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                case 2:
-                    try {
-                        gd.downloadFile("application/json", "regions.json", JSON_PATH);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    break;
-            }
-        }
+        dirDataFile.mkdirs();
 
         Gson gson =  new GsonBuilder().setPrettyPrinting().create();
         try {
             Reader reader= new FileReader(JSON_PATH+name);
-
-
 
             Type listType;
             switch (type){
@@ -62,14 +46,16 @@ public class GsonTool {
                     RegionDAO.setRegions(listRegions);
                     break;
             }
-            return reader.toString();
         } catch (IOException e) {
-            e.printStackTrace();
-            return null;
+            return;
         }
     }
 
-    public static boolean write(String name, ArrayList<Object> list){
+    /**
+     * @param name nome do arquivo
+     * @param list lista a ser salva
+     */
+    public static void write(String name, ArrayList<Image> list){
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
         File dirDataFile = new File(System.getProperty("user.dir") + File.separator + JSON_PATH);
@@ -81,12 +67,10 @@ public class GsonTool {
         try {
             Writer writer = new FileWriter(JSON_PATH+name);
             gson.toJson(list, writer);
-            writer.flush(); //flush data to file   <---
-            writer.close(); //close write          <
-            return  true;
+            writer.flush();
+            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
-            return false;
         }
     }
 }
