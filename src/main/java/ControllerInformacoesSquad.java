@@ -1,3 +1,5 @@
+import DAO.RegionDAO;
+import DAO.SquadDAO;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -7,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import models.Region;
 import models.Squad;
 
 import javax.swing.*;
@@ -17,6 +20,7 @@ import java.io.Reader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class ControllerInformacoesSquad extends ControllerUtil {
 
@@ -40,19 +44,17 @@ public class ControllerInformacoesSquad extends ControllerUtil {
         creatUI("registroSquad");
     }
 
+
     @FXML
-    public void atualizarTabbleViewSquad() throws FileNotFoundException {
+    public void atualizarTabbleViewSquad() throws FileNotFoundException, ExecutionException, InterruptedException {
         //Lê do arquivo e adiciona no comboBox
-        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
-        Reader reader = new FileReader(dir);
-        Type listType = new TypeToken<ArrayList<Squad>>() {
-        }.getType();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Squad> listaSquads;
-        listaSquads = gson.fromJson(reader, listType);
+
+        SquadDAO squadDAO = new SquadDAO();
 
         ObservableList<Squad> olcomboBoxSquadResponsable;
-        olcomboBoxSquadResponsable = FXCollections.observableList(listaSquads);
+        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarTabbleViewSquad(ControllerAnalisesMain.firebase));;
+
+
         tabbleViewSquad.setEditable(true);
         tabbleColumnSquadNOME.setEditable(true);
         tabbleColumnSquadID.setCellValueFactory(new PropertyValueFactory<Squad, String>("id"));

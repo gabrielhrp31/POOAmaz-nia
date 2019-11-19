@@ -69,4 +69,36 @@ public class SquadDAO {
     }
 
 
+    public List<Squad> carregarTabbleViewSquad(Firebase firebase) throws FileNotFoundException, ExecutionException, InterruptedException {
+
+        List<QueryDocumentSnapshot> listaRegions = firebase.read(1);
+
+        List<Squad> lista = new ArrayList<>();
+
+        String id = "", name = "", sRegionResponsavel = "", sQuantityOfSoldiers = " ";
+
+        int quantityOfSoldiers = 0;
+        Squad squadMod;
+
+        for (int i = 0; i < listaRegions.size(); i++) {
+            squadMod = new Squad();
+            squadMod.setId(i);
+            squadMod.setName(listaRegions.get(i).getString("name"));
+            sRegionResponsavel = listaRegions.get(i).getString("regionResponsable");//tem q arrumar isso, ta convertendo errado
+            sQuantityOfSoldiers = String.valueOf(listaRegions.get(i).get("quantityOfSoldiers"));
+
+            quantityOfSoldiers = Integer.parseInt(sQuantityOfSoldiers);//erro aqui n era p subir o nome no squadresponsavel
+
+            squadMod.setRegionResponsable(sRegionResponsavel);
+
+            squadMod.setQuantityOfSoldiers(quantityOfSoldiers);
+
+
+            lista.add(squadMod);
+        }
+//arrumar a função p carregar a tabble view (atualizar), se retornar uma lista direito do outro lado já trata
+        return lista;
+    }
+
+
 }
