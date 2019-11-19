@@ -1,3 +1,4 @@
+import DAO.RegionDAO;
 import DAO.SquadDAO;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.gson.Gson;
@@ -59,18 +60,14 @@ public class ControllerInformacoesRegion extends ControllerUtil {
      * @throws FileNotFoundException
      */
     @FXML
-    public void atualizarTabbleViewRegion() throws FileNotFoundException {
+    public void atualizarTabbleViewRegion() throws FileNotFoundException, ExecutionException, InterruptedException {
         //Lê do arquivo e adiciona no comboBox
-        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "region.json");
-        Reader reader = new FileReader(dir);
-        Type listType = new TypeToken<ArrayList<Region>>() {
-        }.getType();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Region> listaRegions;
-        listaRegions = gson.fromJson(reader, listType);
+
+        RegionDAO regionDAO = new RegionDAO();
 
         ObservableList<Region> olcomboBoxRegionResponsable;
-        olcomboBoxRegionResponsable = FXCollections.observableList(listaRegions);
+        olcomboBoxRegionResponsable = FXCollections.observableList(regionDAO.carregarTabbleViewRegion(ControllerAnalisesMain.firebase));;
+        //aqui pega dos campos dentro do observableList
         tabbleViewRegion.setEditable(true);
         tabbleColumnRegionNOME.setEditable(true);
         tabbleColumnRegionID.setCellValueFactory(new PropertyValueFactory<Region, String>("id"));

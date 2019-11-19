@@ -9,6 +9,7 @@ import com.google.gson.reflect.TypeToken;
 import tools.Firebase;
 import tools.GsonTool;
 
+import javax.swing.*;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.security.GeneralSecurityException;
@@ -45,6 +46,36 @@ public class RegionDAO {
         }
 
         return listaNomes;
+    }
+
+
+    public List<Region> carregarTabbleViewRegion(Firebase firebase) throws FileNotFoundException, ExecutionException, InterruptedException {
+
+        List<QueryDocumentSnapshot> listaRegions = firebase.read(0);
+
+        List<Region> lista = new ArrayList<>();
+
+        String id = "", name = "", sSquadResponsavel = "";
+        Boolean protegido = false;
+        int squadResponsavel = 0;
+        Region regionMod;
+
+        for (int i = 0; i < listaRegions.size(); i++) {
+            regionMod = new Region();
+            regionMod.setId(i);
+            regionMod.setName(listaRegions.get(i).getString("name"));
+            sSquadResponsavel = String.valueOf(listaRegions.get(i).get("squadResponsable"));//tem q arrumar isso, ta convertendo errado
+            squadResponsavel = Integer.parseInt(sSquadResponsavel);//erro aqui n era p subir o nome no squadresponsavel
+
+            regionMod.setSquadResponsable(squadResponsavel);
+            protegido = listaRegions.get(i).getBoolean("protectedArea");
+            regionMod.setProtectedArea(protegido);
+
+
+            lista.add(regionMod);
+        }
+//arrumar a função p carregar a tabble view (atualizar), se retornar uma lista direito do outro lado já trata
+        return lista;
     }
 
 

@@ -10,6 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import models.Squad;
 import tools.Firebase;
 
 import javax.swing.*;
@@ -43,21 +44,15 @@ public class ControllerRegistroRegion extends ControllerUtil {
     @FXML
     void botaoEnviarRegistroRegion() throws IOException, GeneralSecurityException, ExecutionException, InterruptedException {
         Region regionButton = new Region();
-
+        SquadDAO squadButton= new SquadDAO();
 
         List<QueryDocumentSnapshot> documentsSquads = ControllerAnalisesMain.firebase.read(1);
 
         //vou ter aqui a lista de esquadroes
         //lógica vai ser bem parecida, mas na minha lista region vai ter é os nomes dos squads do firebase
 
-        File dir = new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "squad.json");
-        Reader reader = new FileReader(dir);
-        Type listType = new TypeToken<ArrayList<Region>>() {
-        }.getType();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Region> listaRegion;
-        listaRegion = gson.fromJson(reader, listType);
-
+        List<Squad> listaSquad = squadButton.carregarComboBoxSquad(ControllerAnalisesMain.firebase);
+       
 
         String nomeRegion = comboBoxRegion.getValue();
         regionButton.setName(nomeRegion);
@@ -68,9 +63,9 @@ public class ControllerRegistroRegion extends ControllerUtil {
         }
 
 
-        for (int i = 0; i < listaRegion.size(); i++) {
-            if (listaRegion.get(i).getName().equals(comboBoxSquadResponsable.getValue())) {
-                regionButton.setSquadResponsable(listaRegion.get(i).getId());
+        for (int i = 0; i < listaSquad.size(); i++) {
+            if (listaSquad.get(i).getName().equals(comboBoxSquadResponsable.getValue())) {
+                regionButton.setSquadResponsable(listaSquad.get(i).getId());
             }
         }
 

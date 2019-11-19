@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class SquadDAO{
+public class SquadDAO {
 
     /**
      * Carregar os dados dos esquadrões para a comboBox
@@ -26,24 +26,6 @@ public class SquadDAO{
      * @return
      * @throws FileNotFoundException
      */
-    public List<String> carregarComboBoxSquad(Firebase firebase) throws IOException, ExecutionException, InterruptedException {
-
-        List<QueryDocumentSnapshot> listaSquads = firebase.read(1);
-
-
-        List<String> listaNomes = new ArrayList<>();
-        String nomeSquad = "", idText = "";
-        for (int i = 0; i < listaSquads.size(); i++) {
-            nomeSquad = listaSquads.get(i).getString("name");
-            nomeSquad = nomeSquad.concat("  -> id: ");
-            idText = Integer.toString(i);
-            nomeSquad = nomeSquad.concat(idText);
-            listaNomes.add(nomeSquad);
-        }
-
-
-        return listaNomes;
-    }
 
 
     public List<String> carregarComboBoxRegion(Firebase firebase) throws FileNotFoundException, ExecutionException, InterruptedException {
@@ -64,6 +46,26 @@ public class SquadDAO{
         }
 
         return listaNomes;
+    }
+
+
+    public List<Squad> carregarComboBoxSquad(Firebase firebase) throws ExecutionException, InterruptedException {
+
+        List<QueryDocumentSnapshot> listaSquads = firebase.read(1);
+
+        List<Squad> lista = new ArrayList<>();
+        Squad squad;
+        String nomeSquad = "", idText = "";
+
+        for (int i = 0; i < listaSquads.size(); i++) {
+            squad = new Squad();
+            nomeSquad = listaSquads.get(i).getString("name");
+            squad.setId(i);
+            squad.setName(nomeSquad);
+            lista.add(squad);
+        }
+
+        return lista;
     }
 
 
