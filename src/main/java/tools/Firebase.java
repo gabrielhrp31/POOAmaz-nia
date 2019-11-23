@@ -6,12 +6,7 @@ import com.google.cloud.firestore.*;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
-import com.google.firebase.database.*;
-import models.Region;
-import models.Squad;
 
-import javax.swing.*;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -24,6 +19,11 @@ public class Firebase {
     private FirebaseOptions options;
     private Firestore db;
 
+    /**
+     * Construtor para iniciar a conexão com o FireBase
+     *
+     * @throws IOException
+     */
     public Firebase() throws IOException {
         InputStream serviceAccount = getClass().getClassLoader().getResourceAsStream("credentials.json");
         this.credentials = GoogleCredentials.fromStream(serviceAccount);
@@ -37,6 +37,17 @@ public class Firebase {
     }
 
 
+    /**
+     * Método para salvar os arquivos no FireBase
+     *
+     * @param qualSalvar define se vai salvar um squad ou uma regiao
+     * @param id o id do arquivo
+     * @param name o nome do arquivo
+     * @param protectedArea se a area é protegida
+     * @param squadResponsable o esquadrão responsável
+     * @param quantityOfSoldiers a quantidade de soldados
+     * @param regionResponsable o responsável pela região
+     */
     public void write(int qualSalvar, int id, String name, Boolean protectedArea, int squadResponsable, int quantityOfSoldiers, String regionResponsable) {
         DocumentReference docRef = null;
         Map<String, Object> data = new HashMap<>();
@@ -76,6 +87,14 @@ public class Firebase {
 
     }
 
+    /**
+     * Função para baixar os arquivos do FireBase
+     *
+     * @param qualLer se vai ler dos Squads ou dos Regions
+     * @return
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
     public List<QueryDocumentSnapshot> read(int qualLer) throws ExecutionException, InterruptedException {
         ApiFuture<QuerySnapshot> query=null;
         if(qualLer==0){
@@ -94,6 +113,14 @@ public class Firebase {
     return documents;
     }
 
+    /**
+     * Método para remover algo do Firebase
+     *
+     * @param tabela De qual Tabela vai deletar
+     * @param coluna A coluna que será deletada
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
     public void remove(String tabela,String coluna) throws ExecutionException, InterruptedException {
         // asynchronously delete a document
         ApiFuture<WriteResult> writeResult = db.collection(tabela).document(coluna).delete();

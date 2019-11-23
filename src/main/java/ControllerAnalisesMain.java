@@ -1,19 +1,9 @@
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import models.Image;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 import javafx.fxml.FXML;
 import tools.Firebase;
 
 import javax.swing.*;
-import java.io.*;
-import java.lang.reflect.Type;
+import java.io.IOException;
 import java.security.GeneralSecurityException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 public class ControllerAnalisesMain extends ControllerUtil {
 

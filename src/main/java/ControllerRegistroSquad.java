@@ -1,23 +1,15 @@
-import DAO.RegionDAO;
 import DAO.SquadDAO;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import models.Region;
-import models.Squad;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import tools.Firebase;
+import models.Squad;
 
 import javax.swing.*;
-import java.io.*;
-import java.lang.reflect.Type;
+import java.io.IOException;
 import java.security.GeneralSecurityException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -77,6 +69,13 @@ public class ControllerRegistroSquad extends ControllerUtil {
     }
 
 
+    /**
+     * Carrega os dados das Regions para o CheckBox
+     *
+     * @throws IOException
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
     @FXML
     public void carregarCheckBoxRegion() throws IOException, ExecutionException, InterruptedException {
 

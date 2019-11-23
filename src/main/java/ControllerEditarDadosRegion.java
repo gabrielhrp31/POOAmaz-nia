@@ -107,6 +107,14 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
     }
 
 
+    /**
+     * Remove uma regiaõ
+     *
+     * @param actionEvent chama o evento para remover
+     * @throws FileNotFoundException
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
     public void removerRegion(ActionEvent actionEvent) throws FileNotFoundException, ExecutionException, InterruptedException {
         RegionDAO regionDAO = new RegionDAO();
 
@@ -115,13 +123,12 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
         olcomboBoxRegionResponsable = FXCollections.observableList(regionDAO.carregarComboBoxRegionEditarDados(ControllerAnalisesMain.firebase));
 
 
-        String nomeRegion = " ", nomeSquadPuro = " ", sQuantityOfSoldiers, nomeRegionAux = " ";
-        String idText = " ", nomeRegionPuro = " ";
-        int quantityOfSoldiers = 0, t = 0, nomeRegionIntAux = 0;
+        String nomeRegion = " ", nomeRegionAux = " ";
+        String idText = " ";
+        int t = 0, nomeRegionIntAux = 0;
 
         for (int i = 0; i < olcomboBoxRegionResponsable.size(); i++) {
             nomeRegion = String.valueOf(olcomboBoxRegionResponsable.get(i).getName());
-            nomeSquadPuro = String.valueOf(olcomboBoxRegionResponsable.get(i).getName());
             nomeRegion = nomeRegion.concat("  -> id: ");
             idText = Integer.toString(i);
             nomeRegion = nomeRegion.concat(idText);

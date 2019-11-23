@@ -10,6 +10,9 @@ import java.util.ArrayList;
 public class ImageDAO {
     private static ArrayList<Image> images;
 
+    /**
+     * Construtor da Classe
+     */
     public ImageDAO() {
         images = new ArrayList<>();
     }
@@ -26,6 +29,10 @@ public class ImageDAO {
         GsonTool.write("pictures.json",images);
     }
 
+    /**
+     * Seta a imagem
+     * @param list
+     */
     public static void setImages(ArrayList<Image> list) {
         ImageDAO.images = images;
     }

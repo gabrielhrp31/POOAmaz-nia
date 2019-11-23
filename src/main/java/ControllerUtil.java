@@ -29,7 +29,7 @@ public class ControllerUtil {
     /**
      * Cria uma nova tela do FXML
      *
-     * @param ui
+     * @param ui é o nome do arquivo .fxml
      */
     @FXML
     void creatUI(java.lang.String ui) {
@@ -50,7 +50,7 @@ public class ControllerUtil {
     /**
      * Carrega uma nova tela do FXML
      *
-     * @param ui
+     * @param ui é o nome do arquivo .fxml
      */
     @FXML
     void loadUI(java.lang.String ui) {
@@ -68,7 +68,7 @@ public class ControllerUtil {
     /**
      * Verifica se contém letras no input
      *
-     * @param name
+     * @param name nome do esquadrao para ver e tem numerais
      * @return
      */
     public boolean isAlpha(String name) {
@@ -79,7 +79,7 @@ public class ControllerUtil {
     /**
      * Verifica se só contém numeros no input
      *
-     * @param texto
+     * @param texto o texto para verificar se nele só contém números
      * @return
      */
     public static boolean soContemNumeros(String texto) {
@@ -95,13 +95,13 @@ public class ControllerUtil {
     /**
      * Funçaõ para o salvamento de todos os arquivos Json
      *
-     * @param dir
-     * @param squadButton
-     * @param regionButton
-     * @param opcSave
-     * @param editar
-     * @param idSquadRemover
-     * @param idRegionRemover
+     * @param dir diretorio onde vai salvar
+     * @param squadButton objeto do squad
+     * @param regionButton objeto do region
+     * @param opcSave opção para onde vai salvar, se é uma region , squad
+     * @param editar se vai editar o arquivo
+     * @param idSquadRemover id do Squad para remover
+     * @param idRegionRemover id do Region para remover
      * @throws IOException
      */
     @FXML
@@ -216,13 +216,13 @@ public class ControllerUtil {
     /**
      * Chama a função para salvar apenas verifica antes se precisa criar uma nova pasta ou não
      *
-     * @param dir
-     * @param squadButton
-     * @param regionButton
-     * @param opcSave
-     * @param editar
-     * @param idSquadRemover
-     * @param idRegionRemover
+     * @param dir diretorio onde vai salvar
+     * @param squadButton objeto do squad
+     * @param regionButton objeto do region
+     * @param opcSave opção onde vai salvar
+     * @param editar se vai editar
+     * @param idSquadRemover id do squad se for remover
+     * @param idRegionRemover id do region se for remover
      * @throws IOException
      */
     @FXML

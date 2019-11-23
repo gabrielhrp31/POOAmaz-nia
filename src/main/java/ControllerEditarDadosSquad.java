@@ -36,6 +36,13 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
     @FXML
     private ComboBox<java.lang.String> checkBregiaoEditarSquad;
 
+    /**
+     * Carrega os dados das Regions para o CheckBox
+     *
+     * @throws IOException
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
     @FXML
     public void carregarCheckBoxRegion() throws IOException, ExecutionException, InterruptedException {
         SquadDAO squadDAO = new SquadDAO();

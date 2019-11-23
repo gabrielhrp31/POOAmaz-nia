@@ -20,15 +20,16 @@ import java.util.concurrent.ExecutionException;
 
 public class RegionDAO {
 
-    private List<String> listaNomes;
 
     /**
-     * Carrega todos os dados dos esquadrões para o comboBox usado no region
+     * Carrega os dados para a ComboBox da Region
      *
+     * @param firebase Recebe um ojbeto do Firebase para poder conectar com o Firebase para baixar os dados
      * @return
      * @throws FileNotFoundException
+     * @throws ExecutionException
+     * @throws InterruptedException
      */
-
     public List<String> carregarComboBoxRegion(Firebase firebase) throws FileNotFoundException, ExecutionException, InterruptedException {
 
         List<QueryDocumentSnapshot> listaRegions = firebase.read(1);
@@ -50,6 +51,16 @@ public class RegionDAO {
     }
 
 
+    /**
+     * Carrega o comboBoxRegion com os dados necessários para a region
+     * na aba de editar dados da Region
+     *
+     * @param firebase Recebe um ojbeto do Firebase para poder conectar com o Firebase para baixar os dados
+     * @return
+     * @throws FileNotFoundException
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
     public List<Region> carregarComboBoxRegionEditarDados(Firebase firebase) throws FileNotFoundException, ExecutionException, InterruptedException {
 
         List<QueryDocumentSnapshot> listaRegions = firebase.read(0);
@@ -72,6 +83,15 @@ public class RegionDAO {
     }
 
 
+    /**
+     * Carrega os daados das Regions para a TabbleView para exibir
+     *
+     * @param firebase Recebe um ojbeto do Firebase para poder conectar com o Firebase para baixar os dados
+     * @return
+     * @throws FileNotFoundException
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
     public List<Region> carregarTabbleViewRegion(Firebase firebase) throws FileNotFoundException, ExecutionException, InterruptedException {
 
         List<QueryDocumentSnapshot> listaRegions = firebase.read(0);
@@ -87,8 +107,8 @@ public class RegionDAO {
             regionMod = new Region();
             regionMod.setId(i);
             regionMod.setName(listaRegions.get(i).getString("name"));
-            sSquadResponsavel = String.valueOf(listaRegions.get(i).get("squadResponsable"));//tem q arrumar isso, ta convertendo errado
-            squadResponsavel = Integer.parseInt(sSquadResponsavel);//erro aqui n era p subir o nome no squadresponsavel
+            sSquadResponsavel = String.valueOf(listaRegions.get(i).get("squadResponsable"));
+            squadResponsavel = Integer.parseInt(sSquadResponsavel);
 
             regionMod.setSquadResponsable(squadResponsavel);
             protegido = listaRegions.get(i).getBoolean("protectedArea");
@@ -97,31 +117,24 @@ public class RegionDAO {
 
             lista.add(regionMod);
         }
-//arrumar a função p carregar a tabble view (atualizar), se retornar uma lista direito do outro lado já trata
         return lista;
     }
 
 
     private static ArrayList<Image> regions;
 
+    /**
+     * Construtor da classe
+     */
     public RegionDAO() {
         regions = new ArrayList<>();
     }
 
 
     /**
-     * Adiciona uma nova region no region.json
-     *
-     * @param region
-     * @throws IOException
-     * @throws GeneralSecurityException
+     * Seta a regiao
+     * @param list recebe uma lista de regions para adicionar
      */
-    public static void addRegion(Image region) throws IOException, GeneralSecurityException {
-        GsonTool.read("region.json", 1);
-        RegionDAO.regions.add(region);
-        GsonTool.write("regions.json", regions);
-    }
-
     public static void setRegions(ArrayList<Region> list) {
         RegionDAO.regions = regions;
     }

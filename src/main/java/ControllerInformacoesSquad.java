@@ -1,25 +1,13 @@
-import DAO.RegionDAO;
 import DAO.SquadDAO;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import models.Region;
 import models.Squad;
 
-import javax.swing.*;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.Reader;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class ControllerInformacoesSquad extends ControllerUtil {
@@ -39,12 +27,22 @@ public class ControllerInformacoesSquad extends ControllerUtil {
     @FXML
     private TableColumn<Squad, String> tabbleColumnSquadQUANTIDADEDESOLDADOS;
 
+    /**
+     * Cria a tela para Registrar um Squad
+     */
     @FXML
     private void telaRegistrationSquad() {
         creatUI("registroSquad");
     }
 
 
+    /**
+     * Carrega os dados dos Squads para a TabbleView dos Squads
+     *
+     * @throws FileNotFoundException
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
     @FXML
     public void atualizarTabbleViewSquad() throws FileNotFoundException, ExecutionException, InterruptedException {
         //Lê do arquivo e adiciona no comboBox
@@ -72,6 +70,10 @@ public class ControllerInformacoesSquad extends ControllerUtil {
     }
 
 
+    /**
+     * Abre a tela de Editar Squad
+     *
+     */
     @FXML
     private void telaEditarSquad() {
         creatUI("telaEditarDadosSquad");

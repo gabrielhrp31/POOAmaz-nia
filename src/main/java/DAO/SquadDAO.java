@@ -1,33 +1,25 @@
 package DAO;
 
 import com.google.cloud.firestore.QueryDocumentSnapshot;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
-import models.Region;
 import models.Squad;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 import tools.Firebase;
 
-import javax.swing.*;
-import java.io.*;
-import java.lang.reflect.Type;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class SquadDAO {
 
+
     /**
-     * Carregar os dados dos esquadrões para a comboBox
-     *
+     * Carrega os dados para a ComboBoxRegion
+     * @param firebase Recebe um ojbeto do Firebase para poder conectar com o Firebase para baixar os dados
      * @return
      * @throws FileNotFoundException
+     * @throws ExecutionException
+     * @throws InterruptedException
      */
-
-
     public List<String> carregarComboBoxRegion(Firebase firebase) throws FileNotFoundException, ExecutionException, InterruptedException {
 
         List<QueryDocumentSnapshot> listaRegions = firebase.read(0);
@@ -49,6 +41,13 @@ public class SquadDAO {
     }
 
 
+    /**
+     * Carrega os dados para a ComboBoxSquad
+     * @param firebase Recebe um ojbeto do Firebase para poder conectar com o Firebase para baixar os dados
+     * @return
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
     public List<Squad> carregarComboBoxSquad(Firebase firebase) throws ExecutionException, InterruptedException {
 
         List<QueryDocumentSnapshot> listaSquads = firebase.read(1);
@@ -71,6 +70,14 @@ public class SquadDAO {
         return lista;
     }
 
+    /**
+     * Carrega os dados para a ComboBoxSquad do EditarDados da Squad
+     *
+     * @param firebase Recebe um ojbeto do Firebase para poder conectar com o Firebase para baixar os dados
+     * @return
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
     public List<String> carregarComboBoxSquadEditarDados(Firebase firebase) throws ExecutionException, InterruptedException {
 
         List<QueryDocumentSnapshot> listaSquads = firebase.read(1);
@@ -91,6 +98,15 @@ public class SquadDAO {
     }
 
 
+    /**
+     * Carrega os dados dos Squads para a TabbleView para exibir
+     *
+     * @param firebase Recebe um ojbeto do Firebase para poder conectar com o Firebase para baixar os dados
+     * @return
+     * @throws FileNotFoundException
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
     public List<Squad> carregarTabbleViewSquad(Firebase firebase) throws FileNotFoundException, ExecutionException, InterruptedException {
 
         List<QueryDocumentSnapshot> listaRegions = firebase.read(1);

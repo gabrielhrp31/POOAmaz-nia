@@ -71,14 +71,6 @@ public class ControllerRegistroRegion extends ControllerUtil {
 
 
 
-
-        // vou precisar de duas leituras, essa do setSquadResonsable por exemplo
-        //n posso pegar da minha lista de squads locais
-
-        //id é a qntd de itens
-
-
-        //para o ID da region
         List<QueryDocumentSnapshot> documents = ControllerAnalisesMain.firebase.read(0);
         if (documents != null) {
             documents.size();
@@ -106,6 +98,9 @@ public class ControllerRegistroRegion extends ControllerUtil {
     }
 
 
+    /**
+     * Abrea a tela de informacoesRegion
+     */
     @FXML
     void telaInformacoesRegion(){
         creatUI("informacoesRegion");

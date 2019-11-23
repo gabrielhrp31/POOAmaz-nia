@@ -1,10 +1,5 @@
 import DAO.RegionDAO;
-import DAO.SquadDAO;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -15,11 +10,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import models.Region;
 
-
 import javax.swing.*;
-import java.io.*;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -86,6 +79,12 @@ public class ControllerInformacoesRegion extends ControllerUtil {
     }
 
 
+    /**
+     * Abre a tela para Registrar Regions
+     * @throws IOException
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
     @FXML
     private void telaRegistrationRegion() throws IOException, ExecutionException, InterruptedException {
           //firebase;
@@ -98,6 +97,9 @@ public class ControllerInformacoesRegion extends ControllerUtil {
 
     }
 
+    /**
+     * Abre a tela de Editar Regions
+     */
     @FXML
     private void telaEditarRegion() {
             creatUI("telaEditarDadosRegion");
