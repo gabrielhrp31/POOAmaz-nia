@@ -42,9 +42,11 @@ public class ControllerInformacoesRegion extends ControllerUtil {
     private TableColumn<Region, String> tabbleColumnRegionPROTECTEDAREA;
 
 
-    public void teste() {
-        JOptionPane.showMessageDialog(null, "TESTE");
-    }
+    @FXML
+    private TableColumn<Region, String> tabbleColumnRegionPROTECAOAMBIENTE;
+
+    @FXML
+    private TableColumn<Region, String> tabbleColumnRegionREGIOESURBANA;
 
 
     /**
@@ -55,43 +57,47 @@ public class ControllerInformacoesRegion extends ControllerUtil {
     @FXML
     public void atualizarTabbleViewRegion() throws FileNotFoundException, ExecutionException, InterruptedException {
         //Lê do arquivo e adiciona no comboBox
+        new Thread(ControllerUtil.t1).start();
 
         RegionDAO regionDAO = new RegionDAO();
 
         ObservableList<Region> olcomboBoxRegionResponsable;
-        olcomboBoxRegionResponsable = FXCollections.observableList(regionDAO.carregarTabbleViewRegion(ControllerAnalisesMain.firebase));;
+        olcomboBoxRegionResponsable = FXCollections.observableList(regionDAO.carregarTabbleViewRegion(ControllerAnalisesMain.firebase));
+        ;
         //aqui pega dos campos dentro do observableList
         tabbleViewRegion.setEditable(true);
         tabbleColumnRegionNOME.setEditable(true);
         tabbleColumnRegionID.setCellValueFactory(new PropertyValueFactory<Region, String>("id"));
         tabbleColumnRegionNOME.setCellValueFactory(new PropertyValueFactory<Region, String>("name"));
         tabbleColumnRegionSQUADRESPONSABLE.setCellValueFactory(new PropertyValueFactory<Region, String>("squadResponsable"));
-
         tabbleColumnRegionPROTECTEDAREA.setCellValueFactory(new PropertyValueFactory<Region, String>("protectedArea"));
-
+        tabbleColumnRegionPROTECAOAMBIENTE.setCellValueFactory(new PropertyValueFactory<Region, String>("protecaoAmbiente"));
+        tabbleColumnRegionREGIOESURBANA.setCellValueFactory(new PropertyValueFactory<Region, String>("regioesUrbana"));
 
         tabbleViewRegion.getColumns().clear();
         tabbleViewRegion.setItems(olcomboBoxRegionResponsable);
-        tabbleViewRegion.getColumns().addAll(tabbleColumnRegionID, tabbleColumnRegionNOME, tabbleColumnRegionSQUADRESPONSABLE, tabbleColumnRegionPROTECTEDAREA);
+        tabbleViewRegion.getColumns().addAll(tabbleColumnRegionID, tabbleColumnRegionNOME, tabbleColumnRegionSQUADRESPONSABLE, tabbleColumnRegionPROTECTEDAREA,tabbleColumnRegionPROTECAOAMBIENTE,tabbleColumnRegionREGIOESURBANA);
         tabbleViewRegion.setEditable(true);
         tabbleColumnRegionNOME.setEditable(true);
+
 
     }
 
 
     /**
      * Abre a tela para Registrar Regions
+     *
      * @throws IOException
      * @throws ExecutionException
      * @throws InterruptedException
      */
     @FXML
     private void telaRegistrationRegion() throws IOException, ExecutionException, InterruptedException {
-          //firebase;
+        //firebase;
         List<QueryDocumentSnapshot> documents = ControllerAnalisesMain.firebase.read(1);
         if (documents != null) {
             creatUI("registroRegion");
-            } else {
+        } else {
             JOptionPane.showMessageDialog(null, "Primeiro registre um Esquadrao");
         }
 
@@ -102,7 +108,7 @@ public class ControllerInformacoesRegion extends ControllerUtil {
      */
     @FXML
     private void telaEditarRegion() {
-            creatUI("telaEditarDadosRegion");
+        creatUI("telaEditarDadosRegion");
     }
 
 

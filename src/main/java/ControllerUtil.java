@@ -12,6 +12,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 
+import javax.swing.*;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.security.GeneralSecurityException;
@@ -24,6 +25,16 @@ public class ControllerUtil {
 
     @FXML
     private BorderPane borderPanel;
+
+
+    /**
+     * Cria uma nova Thread para exibir uma mensagem de carregando
+     */
+    public static Runnable t1 = new Runnable() {
+        public void run() {
+            JOptionPane.showMessageDialog(null, "CARREGANDO");
+        }
+    };
 
 
     /**

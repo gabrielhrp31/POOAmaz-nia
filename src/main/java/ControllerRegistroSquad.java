@@ -64,7 +64,7 @@ public class ControllerRegistroSquad extends ControllerUtil {
         squadButton.setQuantityOfSoldiers(numberSquadInt);
         squadButton.setRegionResponsable(region);
 
-        ControllerAnalisesMain.firebase.write(1, squadButton.getId(), squadButton.getName(), null, 0, squadButton.getQuantityOfSoldiers(), squadButton.getRegionResponsable());
+        ControllerAnalisesMain.firebase.write(1, squadButton.getId(), squadButton.getName(), null, 0, " ", " ", squadButton.getQuantityOfSoldiers(), squadButton.getRegionResponsable());
         JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
     }
 

@@ -6,19 +6,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane fx:id="borderPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="543.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerInformacoesRegion">
+<BorderPane fx:id="borderPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="451.0" prefWidth="711.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerInformacoesRegion">
    <left>
-      <TableView fx:id="tabbleViewRegion" onSort="#atualizarTabbleViewRegion" prefHeight="396.0" prefWidth="428.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tabbleViewRegion" onSort="#atualizarTabbleViewRegion" prefHeight="451.0" prefWidth="599.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn fx:id="tabbleColumnRegionID" editable="false" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="tabbleColumnRegionNOME" editable="false" prefWidth="75.0" text="NOME" />
-            <TableColumn fx:id="tabbleColumnRegionSQUADRESPONSABLE" editable="false" prefWidth="160.0" text="SQUAD RESPONSABLE" />
-            <TableColumn fx:id="tabbleColumnRegionPROTECTEDAREA" editable="false" minWidth="0.0" prefWidth="117.0" text="PROTECTED AREA" />
+          <TableColumn fx:id="tabbleColumnRegionID" editable="false" prefWidth="36.0" text="ID" />
+          <TableColumn fx:id="tabbleColumnRegionNOME" editable="false" prefWidth="49.0" text="NOME" />
+            <TableColumn fx:id="tabbleColumnRegionSQUADRESPONSABLE" editable="false" prefWidth="135.0" text="SQUAD RESPONSABLE" />
+            <TableColumn fx:id="tabbleColumnRegionPROTECTEDAREA" editable="false" minWidth="0.0" prefWidth="115.0" text="PROTECTED AREA" />
+            <TableColumn fx:id="tabbleColumnRegionPROTECAOAMBIENTE" editable="false" minWidth="0.0" prefWidth="151.0" text="PROTECAO AMBIENTAL" />
+            <TableColumn fx:id="tabbleColumnRegionREGIOESURBANA" editable="false" minWidth="0.0" prefWidth="110.0" text="REGIOES URBANA" />
         </columns>
       </TableView>
    </left>
    <right>
-      <AnchorPane prefHeight="400.0" prefWidth="120.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="451.0" prefWidth="270.0" BorderPane.alignment="CENTER">
          <children>
             <Button layoutX="20.0" layoutY="261.0" mnemonicParsing="false" onAction="#telaRegistrationRegion" prefHeight="31.0" prefWidth="76.0" style="-fx-background-color: #b0db4d; -fx-font-size: 15;" text="NOVO" />
             <Button layoutX="8.0" layoutY="97.0" mnemonicParsing="false" onAction="#atualizarTabbleViewRegion" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #b0db4d; -fx-font-size: 15;" text="ATUALIZAR" />

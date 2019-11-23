@@ -46,7 +46,7 @@ public class ControllerInformacoesSquad extends ControllerUtil {
     @FXML
     public void atualizarTabbleViewSquad() throws FileNotFoundException, ExecutionException, InterruptedException {
         //Lê do arquivo e adiciona no comboBox
-
+        new Thread(ControllerUtil.t1).start();
         SquadDAO squadDAO = new SquadDAO();
 
         ObservableList<Squad> olcomboBoxSquadResponsable;

@@ -99,7 +99,7 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
                     }
                 }
 
-                ControllerAnalisesMain.firebase.write(0, olcomboBoxRegionResponsable.get(i).getId(), olcomboBoxRegionResponsable.get(i).getName(), olcomboBoxRegionResponsable.get(i).getProtectedArea(), olcomboBoxRegionResponsable.get(i).getSquadResponsable(), 0, null);
+                ControllerAnalisesMain.firebase.write(0, olcomboBoxRegionResponsable.get(i).getId(), olcomboBoxRegionResponsable.get(i).getName(), olcomboBoxRegionResponsable.get(i).getProtectedArea(), olcomboBoxRegionResponsable.get(i).getSquadResponsable(),olcomboBoxRegionResponsable.get(i).getProtecaoAmbiente(),olcomboBoxRegionResponsable.get(i).getRegioesUrbana(),0, null);
                 JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
                 return;
             }

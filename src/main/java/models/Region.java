@@ -5,6 +5,8 @@ public class Region {
     private String name;
     private boolean protectedArea;
     private int squadResponsable;
+    private String protecaoAmbiente;
+    private String regioesUrbana;
 
 
     /**
@@ -14,6 +16,7 @@ public class Region {
     public Region() {
     }
 
+
     /**
      * Construtor da Classe sem parâmetros
      *
@@ -21,12 +24,16 @@ public class Region {
      * @param name nome da regiao
      * @param protectedArea se a área é protegida ou nao
      * @param squadResponsable o esquadrão responsável pela região
+     * @param protecaoAmbiente se é uma area de protecaoAmbiental
+     * @param regioesUrbana se é uma região urbana
      */
-    public Region(int id, String name, boolean protectedArea, int squadResponsable) {
+    public Region(int id, String name, boolean protectedArea, int squadResponsable, String protecaoAmbiente, String regioesUrbana) {
         this.id = id;
         this.name = name;
         this.protectedArea = protectedArea;
         this.squadResponsable = squadResponsable;
+        this.protecaoAmbiente = protecaoAmbiente;
+        this.regioesUrbana = regioesUrbana;
     }
 
     /**
@@ -101,5 +108,51 @@ public class Region {
      */
     public void setSquadResponsable(int squadResponsable) {
         this.squadResponsable = squadResponsable;
+    }
+
+
+    /**
+     * Getter do protectedArea
+     *
+     * @return
+     */
+    public boolean isProtectedArea() {
+        return protectedArea;
+    }
+
+    /**
+     * Getter protecaoAmbiente
+     *
+     * @return
+     */
+    public String getProtecaoAmbiente() {
+        return protecaoAmbiente;
+    }
+
+    /**
+     * Setter protecaoAmbiente
+     *
+     * @param protecaoAmbiente
+     */
+    public void setProtecaoAmbiente(String protecaoAmbiente) {
+        this.protecaoAmbiente = protecaoAmbiente;
+    }
+
+    /**
+     * Getter regioesUrbana
+     *
+     * @return
+     */
+    public String getRegioesUrbana() {
+        return regioesUrbana;
+    }
+
+    /**
+     * Setter regioesUrbana
+     *
+     * @param regioesUrbana
+     */
+    public void setRegioesUrbana(String regioesUrbana) {
+        this.regioesUrbana = regioesUrbana;
     }
 }

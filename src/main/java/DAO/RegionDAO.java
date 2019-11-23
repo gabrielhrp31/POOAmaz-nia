@@ -99,6 +99,7 @@ public class RegionDAO {
         List<Region> lista = new ArrayList<>();
 
         String id = "", name = "", sSquadResponsavel = "";
+        String protecaoAmbiente=" ",regioesUrbanas=" ";
         Boolean protegido = false;
         int squadResponsavel = 0;
         Region regionMod;
@@ -109,12 +110,11 @@ public class RegionDAO {
             regionMod.setName(listaRegions.get(i).getString("name"));
             sSquadResponsavel = String.valueOf(listaRegions.get(i).get("squadResponsable"));
             squadResponsavel = Integer.parseInt(sSquadResponsavel);
-
             regionMod.setSquadResponsable(squadResponsavel);
             protegido = listaRegions.get(i).getBoolean("protectedArea");
             regionMod.setProtectedArea(protegido);
-
-
+            regionMod.setRegioesUrbana(listaRegions.get(i).getString("regioesUrbana"));
+            regionMod.setProtecaoAmbiente(listaRegions.get(i).getString("protecaoAmbiente"));
             lista.add(regionMod);
         }
         return lista;

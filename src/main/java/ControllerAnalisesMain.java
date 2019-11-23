@@ -19,21 +19,13 @@ public class ControllerAnalisesMain extends ControllerUtil {
 
 
     /**
-     * Carrega a tela do Cadastro analysis.Main
+     * Carrega a tela do gerir analysis.Main
      */
     @FXML
-    private void telaCadastroMain() {
-        loadUI("cadastroMain");
+    private void telaGerirMain() {
+        loadUI("gerirMain");
     }
 
-
-    /**
-     * Carrega a tela do Manipular analysis.Main
-     */
-    @FXML
-    private void telaManipularMain() {
-        loadUI("manipularMain");
-    }
 
 
     /**

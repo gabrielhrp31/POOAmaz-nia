@@ -40,15 +40,16 @@ public class Firebase {
     /**
      * Método para salvar os arquivos no FireBase
      *
-     * @param qualSalvar define se vai salvar um squad ou uma regiao
-     * @param id o id do arquivo
-     * @param name o nome do arquivo
-     * @param protectedArea se a area é protegida
-     * @param squadResponsable o esquadrão responsável
+     * @param qualSalvar         define se vai salvar um squad ou uma regiao
+     * @param id                 o id do arquivo
+     * @param name               o nome do arquivo
+     * @param protectedArea      se a area é protegida
+     * @param squadResponsable   o esquadrão responsável
      * @param quantityOfSoldiers a quantidade de soldados
-     * @param regionResponsable o responsável pela região
+     * @param regionResponsable  o responsável pela região
      */
-    public void write(int qualSalvar, int id, String name, Boolean protectedArea, int squadResponsable, int quantityOfSoldiers, String regionResponsable) {
+    public void write(int qualSalvar, int id, String name, Boolean protectedArea, int squadResponsable, String protecaoAmbiente, String regioesUrbana, int quantityOfSoldiers, String regionResponsable) {
+
         DocumentReference docRef = null;
         Map<String, Object> data = new HashMap<>();
         String idString = " ";
@@ -61,6 +62,8 @@ public class Firebase {
             data.put("name", name);
             data.put("protectedArea", protectedArea);
             data.put("squadResponsable", squadResponsable);
+            data.put("protecaoAmbiente", protecaoAmbiente);
+            data.put("regioesUrbana", regioesUrbana);
         }
 
         if (qualSalvar == 1) {//SQUAD
@@ -96,11 +99,11 @@ public class Firebase {
      * @throws InterruptedException
      */
     public List<QueryDocumentSnapshot> read(int qualLer) throws ExecutionException, InterruptedException {
-        ApiFuture<QuerySnapshot> query=null;
-        if(qualLer==0){
+        ApiFuture<QuerySnapshot> query = null;
+        if (qualLer == 0) {
             query = db.collection("regions").get();
         }
-        if(qualLer==1){
+        if (qualLer == 1) {
             query = db.collection("squads").get();
         }
 
@@ -110,7 +113,7 @@ public class Firebase {
         QuerySnapshot querySnapshot = query.get();
         List<QueryDocumentSnapshot> documents = querySnapshot.getDocuments();//documents esta com os dados
 
-    return documents;
+        return documents;
     }
 
     /**
@@ -121,7 +124,7 @@ public class Firebase {
      * @throws ExecutionException
      * @throws InterruptedException
      */
-    public void remove(String tabela,String coluna) throws ExecutionException, InterruptedException {
+    public void remove(String tabela, String coluna) throws ExecutionException, InterruptedException {
         // asynchronously delete a document
         ApiFuture<WriteResult> writeResult = db.collection(tabela).document(coluna).delete();
 // ...

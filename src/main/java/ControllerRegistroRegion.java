@@ -1,6 +1,7 @@
 import DAO.RegionDAO;
 import DAO.SquadDAO;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
+import javafx.scene.control.TextField;
 import models.Region;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -37,6 +38,21 @@ public class ControllerRegistroRegion extends ControllerUtil {
     public ComboBox<String> comboBoxSquadResponsable;
 
 
+    @FXML
+    private CheckBox checkBoxProtecaoAmbiental;
+
+    @FXML
+    private TextField textBoxProtecaoAmbiental;
+
+
+    @FXML
+    private CheckBox checkboxRegiaoUrbana;
+
+    @FXML
+    private TextField textBoxRegiaoUrbana;
+
+
+
     /**
      * Cadastra uma nova Region
      * @throws IOException
@@ -48,8 +64,6 @@ public class ControllerRegistroRegion extends ControllerUtil {
 
         List<QueryDocumentSnapshot> documentsSquads = ControllerAnalisesMain.firebase.read(1);
 
-        //vou ter aqui a lista de esquadroes
-        //lógica vai ser bem parecida, mas na minha lista region vai ter é os nomes dos squads do firebase
 
         List<Squad> listaSquad = squadButton.carregarComboBoxSquad(ControllerAnalisesMain.firebase);
        
@@ -60,6 +74,21 @@ public class ControllerRegistroRegion extends ControllerUtil {
             regionButton.setProtectedArea(true);
         } else {
             regionButton.setProtectedArea(false);
+        }
+
+        if(checkBoxProtecaoAmbiental.isSelected()){
+            regionButton.setProtecaoAmbiente(textBoxProtecaoAmbiental.getText());
+        }
+        else{
+        regionButton.setProtecaoAmbiente("Nao e uma area de Protecao Ambiental");
+        }
+
+
+        if(checkboxRegiaoUrbana.isSelected()){
+            regionButton.setRegioesUrbana(textBoxRegiaoUrbana.getText());
+        }
+        else{
+            regionButton.setRegioesUrbana("Nao e uma regiao Urbana");
         }
 
 
@@ -78,7 +107,7 @@ public class ControllerRegistroRegion extends ControllerUtil {
         }
 
 
-        ControllerAnalisesMain.firebase.write(0,regionButton.getId(),regionButton.getName(),regionButton.getProtectedArea(),regionButton.getSquadResponsable(),0," ");
+        ControllerAnalisesMain.firebase.write(0,regionButton.getId(),regionButton.getName(),regionButton.getProtectedArea(),regionButton.getSquadResponsable(),regionButton.getProtecaoAmbiente(),regionButton.getRegioesUrbana(),0," ");
         JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
     }
 

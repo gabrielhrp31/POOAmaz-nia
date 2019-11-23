@@ -10,21 +10,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
-public class ControllerCadastroMain extends ControllerUtil {
+public class ControllerGerirMain extends ControllerUtil {
 
 
     @FXML
     private ComboBox<String> comboBoxSquadResponsable = new ComboBox<>();
 
 
-
-    /**
-     * Carrega a tela do registroSquad
-     */
-    @FXML
-    private void telaRegistrationSquad() {
-        creatUI("registroSquad");
-    }
 
     @FXML
     void telaInformacoesRegion() throws FileNotFoundException {

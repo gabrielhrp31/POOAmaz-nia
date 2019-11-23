@@ -16,7 +16,7 @@
    <left>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ComboBox fx:id="comboBoxRegion" layoutX="25.0" layoutY="93.0" prefWidth="150.0">
+            <ComboBox fx:id="comboBoxRegion" layoutX="25.0" layoutY="84.0" prefWidth="150.0">
                <items>
                   <FXCollections fx:factory="observableArrayList">
                      <String fx:value="Norte" />
@@ -31,8 +31,12 @@
 
             </ComboBox>
             <Text layoutX="25.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione a Região:" />
-            <CheckBox fx:id="checkBoxProtegida" layoutX="46.0" layoutY="229.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="39.0" text="Yes" />
-            <Text layoutX="46.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Área Protegida:" />
+            <CheckBox fx:id="checkBoxProtegida" layoutX="33.0" layoutY="155.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="39.0" text="Yes" />
+            <Text layoutX="33.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Área Protegida:" />
+            <Text layoutX="25.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Região Urbana:" />
+            <CheckBox fx:id="checkboxRegiaoUrbana" layoutX="29.0" layoutY="240.0" mnemonicParsing="false" text="Yes" />
+            <TextField fx:id="textBoxRegiaoUrbana" layoutX="25.0" layoutY="290.0" />
+            <Text layoutX="25.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informe o nome da cidade mais populosa:" />
          </children>
       </AnchorPane>
    </left>
@@ -49,9 +53,9 @@
       </AnchorPane>
    </top>
    <right>
-      <AnchorPane prefHeight="348.0" prefWidth="254.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="351.0" prefWidth="285.0" BorderPane.alignment="CENTER">
          <children>
-            <ComboBox fx:id="comboBoxSquadResponsable" layoutX="52.0" layoutY="88.0" onAction="#carregarDadosCheckBox" onShowing="#carregarDadosCheckBox" onShown="#carregarDadosCheckBox" prefWidth="150.0">
+            <ComboBox fx:id="comboBoxSquadResponsable" layoutX="52.0" layoutY="87.0" onAction="#carregarDadosCheckBox" onShowing="#carregarDadosCheckBox" onShown="#carregarDadosCheckBox" prefHeight="26.0" prefWidth="150.0">
                <items>
 
                </items>
@@ -59,14 +63,18 @@
                   <String fx:value="Selecione" />
                </value>
             </ComboBox>
-            <Text layoutX="14.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione o Esquadrão Responsável:" wrappingWidth="226.24607849121094" />
+            <Text layoutX="53.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione o Esquadrão Responsável:" wrappingWidth="226.24607849121094" />
+            <Text layoutX="53.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Proteção Ambiental:" />
+            <CheckBox fx:id="checkBoxProtecaoAmbiental" layoutX="53.0" layoutY="219.0" mnemonicParsing="false" text="Yes" />
+            <TextField fx:id="textBoxProtecaoAmbiental" layoutX="53.0" layoutY="278.0" />
+            <Text layoutX="53.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informe o nome da Lei:" />
          </children></AnchorPane>
    </right>
    <bottom>
-      <AnchorPane prefHeight="151.0" prefWidth="636.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="69.0" prefWidth="636.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="205.0" layoutY="85.0" mnemonicParsing="false" onAction="#botaoEnviarRegistroRegion" style="-fx-background-color: #b0db4d; -fx-font-size: 15;" text="ENVIAR" />
-            <Button layoutX="318.0" layoutY="85.0" mnemonicParsing="false" onAction="#telaInformacoesRegion" prefHeight="32.0" prefWidth="79.0" style="-fx-background-color: #b0db4d; -fx-font-size: 15;" text="EXIBIR" />
+            <Button layoutX="197.0" layoutY="14.0" mnemonicParsing="false" onAction="#botaoEnviarRegistroRegion" style="-fx-background-color: #b0db4d; -fx-font-size: 15;" text="ENVIAR" />
+            <Button layoutX="318.0" layoutY="14.0" mnemonicParsing="false" onAction="#telaInformacoesRegion" prefHeight="32.0" prefWidth="79.0" style="-fx-background-color: #b0db4d; -fx-font-size: 15;" text="EXIBIR" />
          </children>
       </AnchorPane>
    </bottom>

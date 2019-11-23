@@ -193,7 +193,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
                     }
                 }
 
-                ControllerAnalisesMain.firebase.write(1, olcomboBoxSquadResponsable.get(i).getId(), olcomboBoxSquadResponsable.get(i).getName(), null, 0, olcomboBoxSquadResponsable.get(i).getQuantityOfSoldiers(), olcomboBoxSquadResponsable.get(i).getRegionResponsable());
+                ControllerAnalisesMain.firebase.write(1, olcomboBoxSquadResponsable.get(i).getId(), olcomboBoxSquadResponsable.get(i).getName(), null, 0, " ", " ", olcomboBoxSquadResponsable.get(i).getQuantityOfSoldiers(), olcomboBoxSquadResponsable.get(i).getRegionResponsable());
                 JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
                 return;
             }
