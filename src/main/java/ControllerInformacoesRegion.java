@@ -43,10 +43,10 @@ public class ControllerInformacoesRegion extends ControllerUtil {
 
 
     @FXML
-    private TableColumn<Region, String> tabbleColumnRegionPROTECAOAMBIENTE;
+    private TableColumn<Region, String> tabbleColumnRegionENVIRONMENTALPROTECTION;
 
     @FXML
-    private TableColumn<Region, String> tabbleColumnRegionREGIOESURBANA;
+    private TableColumn<Region, String> tabbleColumnRegionURBANREGION;
 
 
     /**
@@ -71,12 +71,12 @@ public class ControllerInformacoesRegion extends ControllerUtil {
         tabbleColumnRegionNOME.setCellValueFactory(new PropertyValueFactory<Region, String>("name"));
         tabbleColumnRegionSQUADRESPONSABLE.setCellValueFactory(new PropertyValueFactory<Region, String>("squadResponsable"));
         tabbleColumnRegionPROTECTEDAREA.setCellValueFactory(new PropertyValueFactory<Region, String>("protectedArea"));
-        tabbleColumnRegionPROTECAOAMBIENTE.setCellValueFactory(new PropertyValueFactory<Region, String>("protecaoAmbiente"));
-        tabbleColumnRegionREGIOESURBANA.setCellValueFactory(new PropertyValueFactory<Region, String>("regioesUrbana"));
+        tabbleColumnRegionENVIRONMENTALPROTECTION.setCellValueFactory(new PropertyValueFactory<Region, String>("environmentalProtection"));
+        tabbleColumnRegionURBANREGION.setCellValueFactory(new PropertyValueFactory<Region, String>("urbanRegion"));
 
         tabbleViewRegion.getColumns().clear();
         tabbleViewRegion.setItems(olcomboBoxRegionResponsable);
-        tabbleViewRegion.getColumns().addAll(tabbleColumnRegionID, tabbleColumnRegionNOME, tabbleColumnRegionSQUADRESPONSABLE, tabbleColumnRegionPROTECTEDAREA,tabbleColumnRegionPROTECAOAMBIENTE,tabbleColumnRegionREGIOESURBANA);
+        tabbleViewRegion.getColumns().addAll(tabbleColumnRegionID, tabbleColumnRegionNOME, tabbleColumnRegionSQUADRESPONSABLE, tabbleColumnRegionPROTECTEDAREA, tabbleColumnRegionENVIRONMENTALPROTECTION, tabbleColumnRegionURBANREGION);
         tabbleViewRegion.setEditable(true);
         tabbleColumnRegionNOME.setEditable(true);
 

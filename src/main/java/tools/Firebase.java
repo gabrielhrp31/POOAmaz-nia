@@ -62,8 +62,8 @@ public class Firebase {
             data.put("name", name);
             data.put("protectedArea", protectedArea);
             data.put("squadResponsable", squadResponsable);
-            data.put("protecaoAmbiente", protecaoAmbiente);
-            data.put("regioesUrbana", regioesUrbana);
+            data.put("environmentalProtection", protecaoAmbiente);
+            data.put("urbanRegion", regioesUrbana);
         }
 
         if (qualSalvar == 1) {//SQUAD

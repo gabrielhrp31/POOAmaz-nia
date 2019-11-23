@@ -3,22 +3,16 @@ import DAO.SquadDAO;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import javafx.scene.control.TextField;
 import models.Region;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import models.Squad;
-import tools.Firebase;
 
 import javax.swing.*;
 import java.io.*;
-import java.lang.reflect.Type;
 import java.security.GeneralSecurityException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -77,18 +71,18 @@ public class ControllerRegistroRegion extends ControllerUtil {
         }
 
         if(checkBoxProtecaoAmbiental.isSelected()){
-            regionButton.setProtecaoAmbiente(textBoxProtecaoAmbiental.getText());
+            regionButton.setEnvironmentalProtection(textBoxProtecaoAmbiental.getText());
         }
         else{
-        regionButton.setProtecaoAmbiente("Nao e uma area de Protecao Ambiental");
+        regionButton.setEnvironmentalProtection("Nao e uma area de Protecao Ambiental");
         }
 
 
         if(checkboxRegiaoUrbana.isSelected()){
-            regionButton.setRegioesUrbana(textBoxRegiaoUrbana.getText());
+            regionButton.setUrbanRegion(textBoxRegiaoUrbana.getText());
         }
         else{
-            regionButton.setRegioesUrbana("Nao e uma regiao Urbana");
+            regionButton.setUrbanRegion("Nao e uma regiao Urbana");
         }
 
 
@@ -107,7 +101,7 @@ public class ControllerRegistroRegion extends ControllerUtil {
         }
 
 
-        ControllerAnalisesMain.firebase.write(0,regionButton.getId(),regionButton.getName(),regionButton.getProtectedArea(),regionButton.getSquadResponsable(),regionButton.getProtecaoAmbiente(),regionButton.getRegioesUrbana(),0," ");
+        ControllerAnalisesMain.firebase.write(0,regionButton.getId(),regionButton.getName(),regionButton.getProtectedArea(),regionButton.getSquadResponsable(),regionButton.getEnvironmentalProtection(),regionButton.getUrbanRegion(),0," ");
         JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
     }
 

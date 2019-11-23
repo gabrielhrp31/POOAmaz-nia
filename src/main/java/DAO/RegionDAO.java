@@ -3,17 +3,9 @@ package DAO;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import models.Image;
 import models.Region;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-import models.Squad;
 import tools.Firebase;
-import tools.GsonTool;
 
-import javax.swing.*;
 import java.io.*;
-import java.lang.reflect.Type;
-import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -75,7 +67,6 @@ public class RegionDAO {
             nomeRegion = listaRegions.get(i).getString("name");
             region.setName(nomeRegion);
             region.setId(i);
-
             lista.add(region);
         }
 
@@ -113,8 +104,8 @@ public class RegionDAO {
             regionMod.setSquadResponsable(squadResponsavel);
             protegido = listaRegions.get(i).getBoolean("protectedArea");
             regionMod.setProtectedArea(protegido);
-            regionMod.setRegioesUrbana(listaRegions.get(i).getString("regioesUrbana"));
-            regionMod.setProtecaoAmbiente(listaRegions.get(i).getString("protecaoAmbiente"));
+            regionMod.setUrbanRegion(listaRegions.get(i).getString("urbanRegion"));
+            regionMod.setEnvironmentalProtection(listaRegions.get(i).getString("environmentalProtection"));
             lista.add(regionMod);
         }
         return lista;

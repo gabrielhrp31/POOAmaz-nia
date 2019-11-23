@@ -1,11 +1,9 @@
 import DAO.RegionDAO;
 import DAO.SquadDAO;
 import javafx.event.ActionEvent;
+import javafx.scene.control.TextField;
 import models.Region;
 import models.Squad;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -14,10 +12,7 @@ import javafx.scene.control.ComboBox;
 
 import javax.swing.*;
 import java.io.*;
-import java.lang.reflect.Type;
 import java.security.GeneralSecurityException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class ControllerEditarDadosRegion extends ControllerUtil {
@@ -30,6 +25,18 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
 
     @FXML
     private CheckBox checkBoxProtegidaEditarRegion;
+
+    @FXML
+    private CheckBox checkboxRegiaoUrbana;
+
+    @FXML
+    private TextField textBoxRegiaoUrbana;
+
+    @FXML
+    private CheckBox checkBoxProtecaoAmbiental;
+
+    @FXML
+    private TextField textBoxProtecaoAmbiental;
 
 
     /**
@@ -99,7 +106,18 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
                     }
                 }
 
-                ControllerAnalisesMain.firebase.write(0, olcomboBoxRegionResponsable.get(i).getId(), olcomboBoxRegionResponsable.get(i).getName(), olcomboBoxRegionResponsable.get(i).getProtectedArea(), olcomboBoxRegionResponsable.get(i).getSquadResponsable(),olcomboBoxRegionResponsable.get(i).getProtecaoAmbiente(),olcomboBoxRegionResponsable.get(i).getRegioesUrbana(),0, null);
+                if (checkBoxProtecaoAmbiental.isSelected()) {
+                    olcomboBoxRegionResponsable.get(i).setEnvironmentalProtection(textBoxProtecaoAmbiental.getText());
+                } else {
+                    olcomboBoxRegionResponsable.get(i).setEnvironmentalProtection("Nao e uma area de Protecao Ambiental");
+                }
+                if (checkboxRegiaoUrbana.isSelected()) {
+                    olcomboBoxRegionResponsable.get(i).setUrbanRegion(textBoxRegiaoUrbana.getText());
+                } else {
+                    olcomboBoxRegionResponsable.get(i).setUrbanRegion("Nao e uma regiao Urbana");
+                }
+
+                ControllerAnalisesMain.firebase.write(0, olcomboBoxRegionResponsable.get(i).getId(), olcomboBoxRegionResponsable.get(i).getName(), olcomboBoxRegionResponsable.get(i).getProtectedArea(), olcomboBoxRegionResponsable.get(i).getSquadResponsable(), olcomboBoxRegionResponsable.get(i).getEnvironmentalProtection(), olcomboBoxRegionResponsable.get(i).getUrbanRegion(), 0, null);
                 JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
                 return;
             }

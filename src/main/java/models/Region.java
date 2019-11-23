@@ -5,8 +5,8 @@ public class Region {
     private String name;
     private boolean protectedArea;
     private int squadResponsable;
-    private String protecaoAmbiente;
-    private String regioesUrbana;
+    private String environmentalProtection;
+    private String urbanRegion;
 
 
     /**
@@ -24,16 +24,16 @@ public class Region {
      * @param name nome da regiao
      * @param protectedArea se a área é protegida ou nao
      * @param squadResponsable o esquadrão responsável pela região
-     * @param protecaoAmbiente se é uma area de protecaoAmbiental
-     * @param regioesUrbana se é uma região urbana
+     * @param environmentalProtection se é uma area de protecaoAmbiental
+     * @param urbanRegion se é uma região urbana
      */
-    public Region(int id, String name, boolean protectedArea, int squadResponsable, String protecaoAmbiente, String regioesUrbana) {
+    public Region(int id, String name, boolean protectedArea, int squadResponsable, String environmentalProtection, String urbanRegion) {
         this.id = id;
         this.name = name;
         this.protectedArea = protectedArea;
         this.squadResponsable = squadResponsable;
-        this.protecaoAmbiente = protecaoAmbiente;
-        this.regioesUrbana = regioesUrbana;
+        this.environmentalProtection = environmentalProtection;
+        this.urbanRegion = urbanRegion;
     }
 
     /**
@@ -125,17 +125,17 @@ public class Region {
      *
      * @return
      */
-    public String getProtecaoAmbiente() {
-        return protecaoAmbiente;
+    public String getEnvironmentalProtection() {
+        return environmentalProtection;
     }
 
     /**
      * Setter protecaoAmbiente
      *
-     * @param protecaoAmbiente
+     * @param environmentalProtection
      */
-    public void setProtecaoAmbiente(String protecaoAmbiente) {
-        this.protecaoAmbiente = protecaoAmbiente;
+    public void setEnvironmentalProtection(String environmentalProtection) {
+        this.environmentalProtection = environmentalProtection;
     }
 
     /**
@@ -143,16 +143,16 @@ public class Region {
      *
      * @return
      */
-    public String getRegioesUrbana() {
-        return regioesUrbana;
+    public String getUrbanRegion() {
+        return urbanRegion;
     }
 
     /**
      * Setter regioesUrbana
      *
-     * @param regioesUrbana
+     * @param urbanRegion
      */
-    public void setRegioesUrbana(String regioesUrbana) {
-        this.regioesUrbana = regioesUrbana;
+    public void setUrbanRegion(String urbanRegion) {
+        this.urbanRegion = urbanRegion;
     }
 }

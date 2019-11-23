@@ -8,25 +8,39 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerEditarDadosRegion">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerEditarDadosRegion">
    <top>
       <AnchorPane BorderPane.alignment="CENTER">
          <children>
-            <TextField editable="false" layoutX="188.0" layoutY="49.0" style="-fx-background-color: #49d43f; -fx-font-size: 18;" text="EDITAR DADOS REGIÕES" />
+            <TextField editable="false" layoutX="258.0" layoutY="25.0" style="-fx-background-color: #49d43f; -fx-font-size: 18;" text="EDITAR DADOS REGIÕES" />
          </children>
       </AnchorPane>
    </top>
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ComboBox fx:id="comboBoxRegionEditar" layoutX="232.0" layoutY="41.0" onShowing="#carregarCheckBoxRegion" onShown="#carregarCheckBoxRegion" prefWidth="150.0" promptText="Selecione" />
-            <Text layoutX="249.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione a Região:" />
-            <ComboBox fx:id="checkBSqudEditarRegion" layoutX="20.0" layoutY="144.0" onShowing="#carregarCheckBoxSquad" onShown="#carregarCheckBoxSquad" prefWidth="150.0" promptText="Selecione" />
-            <Button layoutX="57.0" layoutY="234.0" mnemonicParsing="false" onAction="#botaoSalvarRegion" style="-fx-background-color: #b0db4d;" text="SALVAR NOVAS INFORMACOES DESTA REGIÃO" />
-            <CheckBox fx:id="checkBoxProtegidaEditarRegion" layoutX="468.0" layoutY="148.0" mnemonicParsing="false" text="Área Protegida" />
-            <Text layoutX="20.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Esquadrão Responsável" />
-            <Button layoutX="382.0" layoutY="234.0" mnemonicParsing="false" onAction="#removerRegion" style="-fx-background-color: #b0db4d;" text="REMOVER ESTA REGIAO" />
+            <ComboBox fx:id="comboBoxRegionEditar" layoutX="310.0" layoutY="44.0" onShowing="#carregarCheckBoxRegion" onShown="#carregarCheckBoxRegion" prefWidth="150.0" promptText="Selecione" />
+            <Text layoutX="319.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione a Região:" />
+            <ComboBox fx:id="checkBSqudEditarRegion" layoutX="20.0" layoutY="109.0" onShowing="#carregarCheckBoxSquad" onShown="#carregarCheckBoxSquad" prefWidth="150.0" promptText="Selecione" />
+            <CheckBox fx:id="checkBoxProtegidaEditarRegion" layoutX="20.0" layoutY="161.0" mnemonicParsing="false" text="Área Protegida" />
+            <Text layoutX="20.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Esquadrão Responsável" />
+            <Text layoutX="552.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Região Urbana:" wrappingWidth="99.923828125" />
+            <CheckBox fx:id="checkboxRegiaoUrbana" layoutX="558.0" layoutY="91.0" mnemonicParsing="false" text="Yes" />
+            <TextField fx:id="textBoxRegiaoUrbana" layoutX="503.0" layoutY="169.0" prefHeight="25.0" prefWidth="217.0" />
+            <Text layoutX="502.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informe o nome da cidade mais populosa:" wrappingWidth="230.984375" />
+            <Text layoutX="271.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Proteção Ambiental:" wrappingWidth="113.015625" />
+            <CheckBox fx:id="checkBoxProtecaoAmbiental" layoutX="271.0" layoutY="171.0" mnemonicParsing="false" text="Yes" />
+            <TextField fx:id="textBoxProtecaoAmbiental" layoutX="272.0" layoutY="241.0" />
+            <Text layoutX="272.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informe o nome da Lei:" wrappingWidth="127.771484375" />
          </children>
       </AnchorPane>
    </center>
+   <bottom>
+      <AnchorPane prefHeight="47.0" prefWidth="740.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="95.0" layoutY="11.0" mnemonicParsing="false" onAction="#botaoSalvarRegion" style="-fx-background-color: #b0db4d;" text="SALVAR NOVAS INFORMACOES DESTA REGIÃO" />
+            <Button layoutX="389.0" layoutY="11.0" mnemonicParsing="false" onAction="#removerRegion" style="-fx-background-color: #b0db4d;" text="REMOVER ESTA REGIAO" />
+         </children>
+      </AnchorPane>
+   </bottom>
 </BorderPane>
