@@ -114,7 +114,7 @@ public class ControllerRegistroRegion extends ControllerUtil {
     void carregarDadosCheckBox() throws IOException, ExecutionException, InterruptedException {
         RegionDAO regionDAO = new RegionDAO();
         ObservableList<String> olcomboBoxSquadResponsable = null;
-        olcomboBoxSquadResponsable = FXCollections.observableList(regionDAO.carregarComboBoxRegion(ControllerAnalisesMain.firebase));
+        olcomboBoxSquadResponsable = FXCollections.observableList(regionDAO.carregarComboBox(ControllerAnalisesMain.firebase));
 
         comboBoxSquadResponsable.setItems(olcomboBoxSquadResponsable);
         //OBS: O PUBLIC STATIC PARA A FIREBASE PARECE TER FUNCO

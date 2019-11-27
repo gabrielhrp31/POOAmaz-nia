@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class SquadDAO {
+public class SquadDAO implements InterfaceDAO{
 
 
     /**
@@ -20,7 +20,7 @@ public class SquadDAO {
      * @throws ExecutionException
      * @throws InterruptedException
      */
-    public List<String> carregarComboBoxRegion(Firebase firebase) throws FileNotFoundException, ExecutionException, InterruptedException {
+    public List<String> carregarComboBox(Firebase firebase) throws FileNotFoundException, ExecutionException, InterruptedException {
 
         List<QueryDocumentSnapshot> listaRegions = firebase.read(0);
 
@@ -78,7 +78,7 @@ public class SquadDAO {
      * @throws ExecutionException
      * @throws InterruptedException
      */
-    public List<String> carregarComboBoxSquadEditarDados(Firebase firebase) throws ExecutionException, InterruptedException {
+    public List<String> carregarComboBoxEditarDados(Firebase firebase) throws ExecutionException, InterruptedException {
 
         List<QueryDocumentSnapshot> listaSquads = firebase.read(1);
 
@@ -107,7 +107,7 @@ public class SquadDAO {
      * @throws ExecutionException
      * @throws InterruptedException
      */
-    public List<Squad> carregarTabbleViewSquad(Firebase firebase) throws FileNotFoundException, ExecutionException, InterruptedException {
+    public List<Squad> carregarTabbleView(Firebase firebase) throws FileNotFoundException, ExecutionException, InterruptedException {
 
         List<QueryDocumentSnapshot> listaRegions = firebase.read(1);
 

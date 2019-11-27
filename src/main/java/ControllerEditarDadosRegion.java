@@ -48,7 +48,7 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
     public void carregarCheckBoxRegion() throws FileNotFoundException, ExecutionException, InterruptedException {
         SquadDAO squadDAO = new SquadDAO();
         ObservableList<String> olcomboBoxSquadResponsable = null;
-        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxRegion(ControllerAnalisesMain.firebase));
+        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBox(ControllerAnalisesMain.firebase));
         comboBoxRegionEditar.setItems(olcomboBoxSquadResponsable);
     }
 
@@ -62,7 +62,7 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
     public void carregarCheckBoxSquad() throws FileNotFoundException, ExecutionException, InterruptedException {
         SquadDAO squadDAO = new SquadDAO();
         ObservableList<String> olcomboBoxSquadResponsable = null;
-        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxSquadEditarDados(ControllerAnalisesMain.firebase));
+        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxEditarDados(ControllerAnalisesMain.firebase));
         checkBSqudEditarRegion.setItems(olcomboBoxSquadResponsable);
     }
 
@@ -78,7 +78,7 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
         SquadDAO squadDAO = new SquadDAO();
         ObservableList<Region> olcomboBoxRegionResponsable;
         ObservableList<Squad> olcomboBoxSquadResponsable;
-        olcomboBoxRegionResponsable = FXCollections.observableList(regionDAO.carregarComboBoxRegionEditarDados(ControllerAnalisesMain.firebase));
+        olcomboBoxRegionResponsable = FXCollections.observableList(regionDAO.carregarComboBoxEditarDados(ControllerAnalisesMain.firebase));
         olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxSquad(ControllerAnalisesMain.firebase));
 
 
@@ -138,7 +138,7 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
 
         ObservableList<Region> olcomboBoxRegionResponsable;
 
-        olcomboBoxRegionResponsable = FXCollections.observableList(regionDAO.carregarComboBoxRegionEditarDados(ControllerAnalisesMain.firebase));
+        olcomboBoxRegionResponsable = FXCollections.observableList(regionDAO.carregarComboBoxEditarDados(ControllerAnalisesMain.firebase));
 
 
         String nomeRegion = " ", nomeRegionAux = " ";

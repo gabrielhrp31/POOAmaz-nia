@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class RegionDAO {
+public class RegionDAO implements InterfaceDAO{
 
 
     /**
@@ -22,7 +22,7 @@ public class RegionDAO {
      * @throws ExecutionException
      * @throws InterruptedException
      */
-    public List<String> carregarComboBoxRegion(Firebase firebase) throws FileNotFoundException, ExecutionException, InterruptedException {
+    public List<String> carregarComboBox(Firebase firebase) throws FileNotFoundException, ExecutionException, InterruptedException {
 
         List<QueryDocumentSnapshot> listaRegions = firebase.read(1);
 
@@ -53,7 +53,7 @@ public class RegionDAO {
      * @throws ExecutionException
      * @throws InterruptedException
      */
-    public List<Region> carregarComboBoxRegionEditarDados(Firebase firebase) throws FileNotFoundException, ExecutionException, InterruptedException {
+    public List<Region> carregarComboBoxEditarDados(Firebase firebase) throws FileNotFoundException, ExecutionException, InterruptedException {
 
         List<QueryDocumentSnapshot> listaRegions = firebase.read(0);
 
@@ -83,7 +83,7 @@ public class RegionDAO {
      * @throws ExecutionException
      * @throws InterruptedException
      */
-    public List<Region> carregarTabbleViewRegion(Firebase firebase) throws FileNotFoundException, ExecutionException, InterruptedException {
+    public List<Region> carregarTabbleView(Firebase firebase) throws FileNotFoundException, ExecutionException, InterruptedException {
 
         List<QueryDocumentSnapshot> listaRegions = firebase.read(0);
 

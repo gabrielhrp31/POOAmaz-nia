@@ -1,5 +1,4 @@
 import DAO.SquadDAO;
-import models.Region;
 import models.Squad;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -72,7 +71,7 @@ public class ControllerListarDados extends ControllerUtil {
     public void carregarCheckBoxRegion() throws FileNotFoundException, ExecutionException, InterruptedException {
         SquadDAO squadDAO = new SquadDAO();
         ObservableList<String> olcomboBoxSquadResponsable = null;
-        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxRegion(ControllerAnalisesMain.firebase));
+        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBox(ControllerAnalisesMain.firebase));
         comboBoxRegionListar.setItems(olcomboBoxSquadResponsable);
     }
 

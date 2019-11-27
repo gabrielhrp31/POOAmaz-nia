@@ -81,7 +81,7 @@ public class ControllerRegistroSquad extends ControllerUtil {
 
         squadDAO = new SquadDAO();
         ObservableList<String> olcomboBoxSquadResponsable = null;
-        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxRegion(ControllerAnalisesMain.firebase));
+        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBox(ControllerAnalisesMain.firebase));
         comboBoxSquad.setItems(olcomboBoxSquadResponsable);
 
     }

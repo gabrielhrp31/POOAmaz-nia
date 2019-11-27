@@ -50,7 +50,7 @@ public class ControllerInformacoesSquad extends ControllerUtil {
         SquadDAO squadDAO = new SquadDAO();
 
         ObservableList<Squad> olcomboBoxSquadResponsable;
-        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarTabbleViewSquad(ControllerAnalisesMain.firebase));;
+        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarTabbleView(ControllerAnalisesMain.firebase));;
 
 
         tabbleViewSquad.setEditable(true);

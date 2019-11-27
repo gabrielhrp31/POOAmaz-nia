@@ -62,7 +62,7 @@ public class ControllerInformacoesRegion extends ControllerUtil {
         RegionDAO regionDAO = new RegionDAO();
 
         ObservableList<Region> olcomboBoxRegionResponsable;
-        olcomboBoxRegionResponsable = FXCollections.observableList(regionDAO.carregarTabbleViewRegion(ControllerAnalisesMain.firebase));
+        olcomboBoxRegionResponsable = FXCollections.observableList(regionDAO.carregarTabbleView(ControllerAnalisesMain.firebase));
         ;
         //aqui pega dos campos dentro do observableList
         tabbleViewRegion.setEditable(true);

@@ -1,23 +1,16 @@
 import DAO.RegionDAO;
 import DAO.SquadDAO;
-import com.google.cloud.firestore.QueryDocumentSnapshot;
 import models.Region;
 import models.Squad;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import tools.Firebase;
 
 import javax.swing.*;
 import java.io.*;
-import java.lang.reflect.Type;
 import java.security.GeneralSecurityException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -47,7 +40,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
     public void carregarCheckBoxRegion() throws IOException, ExecutionException, InterruptedException {
         SquadDAO squadDAO = new SquadDAO();
         ObservableList<String> olcomboBoxSquadResponsable = null;
-        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxRegion(ControllerAnalisesMain.firebase));
+        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBox(ControllerAnalisesMain.firebase));
         checkBregiaoEditarSquad.setItems(olcomboBoxSquadResponsable);
     }
 
@@ -60,7 +53,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
     public void carregarCheckBoxSquad() throws FileNotFoundException, ExecutionException, InterruptedException {
         SquadDAO squadDAO = new SquadDAO();
         ObservableList<String> olcomboBoxSquadResponsable = null;
-        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxSquadEditarDados(ControllerAnalisesMain.firebase));
+        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxEditarDados(ControllerAnalisesMain.firebase));
         comboBoxSquadEditar.setItems(olcomboBoxSquadResponsable);
 
     }
@@ -156,7 +149,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
         ObservableList<Squad> olcomboBoxSquadResponsable;
 
         olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxSquad(ControllerAnalisesMain.firebase));
-        olcomboBoxRegionResponsable = FXCollections.observableList(regionDAO.carregarComboBoxRegionEditarDados(ControllerAnalisesMain.firebase));
+        olcomboBoxRegionResponsable = FXCollections.observableList(regionDAO.carregarComboBoxEditarDados(ControllerAnalisesMain.firebase));
 
 
         String nomeSquad = " ", nomeSquadPuro = " ", sQuantityOfSoldiers;
