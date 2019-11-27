@@ -32,14 +32,14 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
     /**
      * Carrega os dados das Regions para o CheckBox
      *
-     * @throws IOException
      * @throws ExecutionException
      * @throws InterruptedException
      */
     @FXML
-    public void carregarCheckBoxRegion() throws IOException, ExecutionException, InterruptedException {
+    public void carregarCheckBoxRegion() throws ExecutionException, InterruptedException {
         SquadDAO squadDAO = new SquadDAO();
         ObservableList<String> olcomboBoxSquadResponsable = null;
+        //dentro da .carregarComboBox tem o try catch já
         olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBox(ControllerAnalisesMain.firebase));
         checkBregiaoEditarSquad.setItems(olcomboBoxSquadResponsable);
     }
@@ -47,12 +47,12 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
     /**
      * Carregar para a CheckBox Squad os dados dos Esquadrões
      *
-     * @throws FileNotFoundException
      */
     @FXML
-    public void carregarCheckBoxSquad() throws FileNotFoundException, ExecutionException, InterruptedException {
+    public void carregarCheckBoxSquad() throws ExecutionException, InterruptedException {
         SquadDAO squadDAO = new SquadDAO();
         ObservableList<String> olcomboBoxSquadResponsable = null;
+        //dentro da .carregarComboBox tem o try catch já
         olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxEditarDados(ControllerAnalisesMain.firebase));
         comboBoxSquadEditar.setItems(olcomboBoxSquadResponsable);
 
@@ -61,15 +61,15 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
     /**
      * Atualiza os campos para que possam ser alterados
      *
-     * @throws FileNotFoundException
      */
     @FXML
-    public void atualizarDadosCheckBoxSquad() throws FileNotFoundException, ExecutionException, InterruptedException {
+    public void atualizarDadosCheckBoxSquad() throws ExecutionException, InterruptedException {
 
         SquadDAO squadDAO = new SquadDAO();
         List<Squad> listaSquads = null;
         ObservableList<Squad> olcomboBoxSquadResponsable;
 
+        //dentro da .carregarComboBox tem o try catch já
         olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxSquad(ControllerAnalisesMain.firebase));
         String nomeSquad = " ", nomeSquadPuro = " ", sQuantityOfSoldiers;
         String idText = " ";
@@ -84,7 +84,6 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
 
 
             if (comboBoxSquadEditar.getValue().equals(nomeSquad)) {//se o olcomboBox get String name == ao comboBox, atribui os dados
-                // java.lang.String quantify = Integer.toString(listaSquads.get(i).getQuantityOfSoldiers());
                 txtNomeEditarSquad.setText(nomeSquadPuro);
                 quantityOfSoldiers = olcomboBoxSquadResponsable.get(i).getQuantityOfSoldiers();
                 sQuantityOfSoldiers = Integer.toString(quantityOfSoldiers);
@@ -98,10 +97,9 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
     /**
      * Remove um esquadrão
      *
-     * @throws IOException
      */
     @FXML
-    public void removerSquad() throws IOException, GeneralSecurityException, ExecutionException, InterruptedException {
+    public void removerSquad() throws GeneralSecurityException, ExecutionException, InterruptedException {
 
         SquadDAO squadDAO = new SquadDAO();
 
@@ -147,7 +145,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
         RegionDAO regionDAO = new RegionDAO();
         ObservableList<Region> olcomboBoxRegionResponsable;
         ObservableList<Squad> olcomboBoxSquadResponsable;
-
+        //dentro da .carregarComboBox tem o try catch já
         olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxSquad(ControllerAnalisesMain.firebase));
         olcomboBoxRegionResponsable = FXCollections.observableList(regionDAO.carregarComboBoxEditarDados(ControllerAnalisesMain.firebase));
 
@@ -185,7 +183,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
                         olcomboBoxSquadResponsable.get(i).setRegionResponsable(nomeRegion);
                     }
                 }
-
+                //dentro do write tem o try catch já
                 ControllerAnalisesMain.firebase.write(1, olcomboBoxSquadResponsable.get(i).getId(), olcomboBoxSquadResponsable.get(i).getName(), null, 0, " ", " ", olcomboBoxSquadResponsable.get(i).getQuantityOfSoldiers(), olcomboBoxSquadResponsable.get(i).getRegionResponsable());
                 JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
                 return;

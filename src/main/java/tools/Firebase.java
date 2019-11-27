@@ -6,7 +6,7 @@ import com.google.cloud.firestore.*;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
-
+import Exceptions.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -74,13 +74,12 @@ public class Firebase {
         }
 
 
+
+
+
         // grava dados de forma assíncrona
-        ApiFuture<WriteResult> result = docRef.set(data);
-
-        // ...
-        // result.get() blocks on response
-
         try {
+            ApiFuture<WriteResult> result = docRef.set(data);
             System.out.println("Hora da atualizacao: " + result.get().getUpdateTime());
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -98,8 +97,9 @@ public class Firebase {
      * @throws ExecutionException
      * @throws InterruptedException
      */
-    public List<QueryDocumentSnapshot> read(int qualLer) throws ExecutionException, InterruptedException {
+    public List<QueryDocumentSnapshot> read(int qualLer) throws ExecutionException, InterruptedException,conexaoError{
         ApiFuture<QuerySnapshot> query = null;
+      //Aqui nao deu try catch, pois as funções que usam este método já tratam a exceção (conexaoError)
         if (qualLer == 0) {
             query = db.collection("regions").get();
         }
@@ -107,9 +107,6 @@ public class Firebase {
             query = db.collection("squads").get();
         }
 
-        // AQUI É O DIRETORIO DO BANCO DE DADOS
-        // ...
-        // query.get() blocks on response
         QuerySnapshot querySnapshot = query.get();
         List<QueryDocumentSnapshot> documents = querySnapshot.getDocuments();//documents esta com os dados
 
@@ -125,10 +122,9 @@ public class Firebase {
      * @throws InterruptedException
      */
     public void remove(String tabela, String coluna) throws ExecutionException, InterruptedException {
-        // asynchronously delete a document
         ApiFuture<WriteResult> writeResult = db.collection(tabela).document(coluna).delete();
-// ...
-        System.out.println("Update time : " + writeResult.get().getUpdateTime());
+        // ...
+        System.out.println("Hora de Update : " + writeResult.get().getUpdateTime());
     }
 
 

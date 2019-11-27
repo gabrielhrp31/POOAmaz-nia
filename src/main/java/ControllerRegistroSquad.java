@@ -1,4 +1,5 @@
 import DAO.SquadDAO;
+import Exceptions.conexaoError;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -36,6 +37,7 @@ public class ControllerRegistroSquad extends ControllerUtil {
      */
     @FXML
     void botaoEnviarRegistroSquad() throws IOException, GeneralSecurityException, ExecutionException, InterruptedException {
+        List<QueryDocumentSnapshot> documents=null;
 
         if (!(isAlpha(textRegistrationSquadName.getText()))) {
             JOptionPane.showMessageDialog(null, "Insira apenas Letras no nome");
@@ -47,7 +49,13 @@ public class ControllerRegistroSquad extends ControllerUtil {
         }
 
         Squad squadButton = new Squad();
-        List<QueryDocumentSnapshot> documents = ControllerAnalisesMain.firebase.read(1);
+
+
+        try {
+            documents= ControllerAnalisesMain.firebase.read(1);
+        } catch (Exceptions.conexaoError conexaoError) {
+            conexaoError.printStackTrace();
+        }
 
         //id é a qntd de itens
         if (documents != null) {
@@ -81,6 +89,7 @@ public class ControllerRegistroSquad extends ControllerUtil {
 
         squadDAO = new SquadDAO();
         ObservableList<String> olcomboBoxSquadResponsable = null;
+        //dentro do carregar tem try catch
         olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBox(ControllerAnalisesMain.firebase));
         comboBoxSquad.setItems(olcomboBoxSquadResponsable);
 

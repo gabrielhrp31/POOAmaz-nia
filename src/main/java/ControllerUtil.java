@@ -1,8 +1,3 @@
-import models.Region;
-import models.Squad;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,14 +5,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Control;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-
+import models.Region;
+import models.Squad;
 
 import javax.swing.*;
-import java.io.*;
-import java.lang.reflect.Type;
+import java.io.File;
+import java.io.IOException;
 import java.security.GeneralSecurityException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -104,6 +98,8 @@ public class ControllerUtil {
 
 
     /**
+     * VAI SÓ UTILIZAR SE FOR REATIVAR A OPÇÃO DE SALVAR LOCALMENTE (por isso não apaguei)
+     *
      * Funçaõ para o salvamento de todos os arquivos Json
      *
      * @param dir diretorio onde vai salvar
@@ -225,6 +221,8 @@ public class ControllerUtil {
     }
 
     /**
+     * VAI SÓ UTILIZAR SE FOR REATIVAR A OPÇÃO DE SALVAR LOCALMENTE (por isso não apaguei)
+     *
      * Chama a função para salvar apenas verifica antes se precisa criar uma nova pasta ou não
      *
      * @param dir diretorio onde vai salvar

@@ -1,16 +1,16 @@
 package DAO;
 
+import Exceptions.conexaoError;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import models.Image;
 import models.Region;
 import tools.Firebase;
 
-import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class RegionDAO implements InterfaceDAO{
+public class RegionDAO implements InterfaceDAO {
 
 
     /**
@@ -18,17 +18,20 @@ public class RegionDAO implements InterfaceDAO{
      *
      * @param firebase Recebe um ojbeto do Firebase para poder conectar com o Firebase para baixar os dados
      * @return
-     * @throws FileNotFoundException
      * @throws ExecutionException
      * @throws InterruptedException
      */
-    public List<String> carregarComboBox(Firebase firebase) throws FileNotFoundException, ExecutionException, InterruptedException {
+    public List<String> carregarComboBox(Firebase firebase) throws ExecutionException, InterruptedException {
+        List<QueryDocumentSnapshot> listaRegions = null;
 
-        List<QueryDocumentSnapshot> listaRegions = firebase.read(1);
-
+        //Tenta conectar e baixar os dados
+        try {
+            listaRegions = firebase.read(1);
+        } catch (conexaoError e) {
+            e.getMessage();
+        }
 
         List<String> listaNomes = new ArrayList<>();
-
         String nomeRegion = "", idText = "";
 
         for (int i = 0; i < listaRegions.size(); i++) {
@@ -38,10 +41,8 @@ public class RegionDAO implements InterfaceDAO{
             nomeRegion = nomeRegion.concat(idText);
             listaNomes.add(nomeRegion);
         }
-
         return listaNomes;
     }
-
 
     /**
      * Carrega o comboBoxRegion com os dados necessários para a region
@@ -49,21 +50,28 @@ public class RegionDAO implements InterfaceDAO{
      *
      * @param firebase Recebe um ojbeto do Firebase para poder conectar com o Firebase para baixar os dados
      * @return
-     * @throws FileNotFoundException
      * @throws ExecutionException
      * @throws InterruptedException
      */
-    public List<Region> carregarComboBoxEditarDados(Firebase firebase) throws FileNotFoundException, ExecutionException, InterruptedException {
+    public List<Region> carregarComboBoxEditarDados(Firebase firebase) throws
+            ExecutionException, InterruptedException {
+        List<QueryDocumentSnapshot> listaRegions = null;
 
-        List<QueryDocumentSnapshot> listaRegions = firebase.read(0);
+
+        //Tenta conectar e baixar os dados
+        try {
+            listaRegions = firebase.read(0);
+        } catch (conexaoError e) {
+            e.getMessage();
+        }
 
         Region region;
         List<Region> lista = new ArrayList<>();
 
-        String nomeRegion = "", idText = "";
+        String nomeRegion = "";
 
         for (int i = 0; i < listaRegions.size(); i++) {
-             region= new Region();
+            region = new Region();
             nomeRegion = listaRegions.get(i).getString("name");
             region.setName(nomeRegion);
             region.setId(i);
@@ -79,18 +87,21 @@ public class RegionDAO implements InterfaceDAO{
      *
      * @param firebase Recebe um ojbeto do Firebase para poder conectar com o Firebase para baixar os dados
      * @return
-     * @throws FileNotFoundException
      * @throws ExecutionException
      * @throws InterruptedException
      */
-    public List<Region> carregarTabbleView(Firebase firebase) throws FileNotFoundException, ExecutionException, InterruptedException {
-
-        List<QueryDocumentSnapshot> listaRegions = firebase.read(0);
+    public List<Region> carregarTabbleView(Firebase firebase) throws
+            ExecutionException, InterruptedException {
+        List<QueryDocumentSnapshot> listaRegions = null;
+        try {
+            listaRegions = firebase.read(0);
+        } catch (conexaoError e) {
+            e.getMessage();
+        }
 
         List<Region> lista = new ArrayList<>();
 
-        String id = "", name = "", sSquadResponsavel = "";
-        String protecaoAmbiente=" ",regioesUrbanas=" ";
+        String sSquadResponsavel = "";
         Boolean protegido = false;
         int squadResponsavel = 0;
         Region regionMod;
@@ -124,6 +135,7 @@ public class RegionDAO implements InterfaceDAO{
 
     /**
      * Seta a regiao
+     *
      * @param list recebe uma lista de regions para adicionar
      */
     public static void setRegions(ArrayList<Region> list) {

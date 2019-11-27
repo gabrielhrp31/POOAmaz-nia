@@ -3,27 +3,31 @@ package DAO;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import models.Squad;
 import tools.Firebase;
+import Exceptions.*;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class SquadDAO implements InterfaceDAO{
+public class SquadDAO implements InterfaceDAO {
 
 
     /**
      * Carrega os dados para a ComboBoxRegion
+     *
      * @param firebase Recebe um ojbeto do Firebase para poder conectar com o Firebase para baixar os dados
      * @return
-     * @throws FileNotFoundException
      * @throws ExecutionException
      * @throws InterruptedException
      */
-    public List<String> carregarComboBox(Firebase firebase) throws FileNotFoundException, ExecutionException, InterruptedException {
-
-        List<QueryDocumentSnapshot> listaRegions = firebase.read(0);
-
+    public List<String> carregarComboBox(Firebase firebase) throws ExecutionException, InterruptedException {
+        List<QueryDocumentSnapshot> listaRegions = null;
+        try {
+            listaRegions = firebase.read(0);
+        } catch (conexaoError e) {
+            e.getMessage();
+        }
 
         List<String> listaNomes = new ArrayList<>();
 
@@ -43,18 +47,24 @@ public class SquadDAO implements InterfaceDAO{
 
     /**
      * Carrega os dados para a ComboBoxSquad
+     *
      * @param firebase Recebe um ojbeto do Firebase para poder conectar com o Firebase para baixar os dados
      * @return
      * @throws ExecutionException
      * @throws InterruptedException
      */
     public List<Squad> carregarComboBoxSquad(Firebase firebase) throws ExecutionException, InterruptedException {
+        List<QueryDocumentSnapshot> listaSquads = null;
+        try {
+            listaSquads = firebase.read(1);
 
-        List<QueryDocumentSnapshot> listaSquads = firebase.read(1);
+        } catch (conexaoError e) {
+            e.getMessage();
+        }
 
         List<Squad> lista = new ArrayList<>();
         Squad squad;
-        String nomeSquad = "", idText = "", sQuantityOfSoldiers = " ";
+        String nomeSquad = "", sQuantityOfSoldiers = " ";
         int quantityOfSoldiers = 0;
         for (int i = 0; i < listaSquads.size(); i++) {
             squad = new Squad();
@@ -79,11 +89,16 @@ public class SquadDAO implements InterfaceDAO{
      * @throws InterruptedException
      */
     public List<String> carregarComboBoxEditarDados(Firebase firebase) throws ExecutionException, InterruptedException {
+        List<QueryDocumentSnapshot> listaSquads = null;
 
-        List<QueryDocumentSnapshot> listaSquads = firebase.read(1);
+        try {
+            listaSquads = firebase.read(1);
+        } catch (conexaoError e) {
+            e.getMessage();
+        }
+
 
         List<String> lista = new ArrayList<>();
-        Squad squad;
         String nomeSquad = "", idText = "";
 
         for (int i = 0; i < listaSquads.size(); i++) {
@@ -103,17 +118,19 @@ public class SquadDAO implements InterfaceDAO{
      *
      * @param firebase Recebe um ojbeto do Firebase para poder conectar com o Firebase para baixar os dados
      * @return
-     * @throws FileNotFoundException
      * @throws ExecutionException
      * @throws InterruptedException
      */
-    public List<Squad> carregarTabbleView(Firebase firebase) throws FileNotFoundException, ExecutionException, InterruptedException {
-
-        List<QueryDocumentSnapshot> listaRegions = firebase.read(1);
-
+    public List<Squad> carregarTabbleView(Firebase firebase) throws ExecutionException, InterruptedException {
+        List<QueryDocumentSnapshot> listaRegions = null;
+        try {
+            listaRegions = firebase.read(1);
+        } catch (conexaoError e) {
+            e.getMessage();
+        }
         List<Squad> lista = new ArrayList<>();
 
-        String id = "", name = "", sRegionResponsavel = "", sQuantityOfSoldiers = " ";
+        String sRegionResponsavel = "", sQuantityOfSoldiers = " ";
 
         int quantityOfSoldiers = 0;
         Squad squadMod;
@@ -122,10 +139,10 @@ public class SquadDAO implements InterfaceDAO{
             squadMod = new Squad();
             squadMod.setId(i);
             squadMod.setName(listaRegions.get(i).getString("name"));
-            sRegionResponsavel = listaRegions.get(i).getString("regionResponsable");//tem q arrumar isso, ta convertendo errado
+            sRegionResponsavel = listaRegions.get(i).getString("regionResponsable");
             sQuantityOfSoldiers = String.valueOf(listaRegions.get(i).get("quantityOfSoldiers"));
 
-            quantityOfSoldiers = Integer.parseInt(sQuantityOfSoldiers);//erro aqui n era p subir o nome no squadresponsavel
+            quantityOfSoldiers = Integer.parseInt(sQuantityOfSoldiers);
 
             squadMod.setRegionResponsable(sRegionResponsavel);
 
@@ -134,7 +151,6 @@ public class SquadDAO implements InterfaceDAO{
 
             lista.add(squadMod);
         }
-//arrumar a função p carregar a tabble view (atualizar), se retornar uma lista direito do outro lado já trata
         return lista;
     }
 

@@ -8,6 +8,7 @@ public class ControllerEditarDadosMain extends ControllerUtil {
      */
     @FXML
     private void telaEditarDadosSquad() {
+        //JÁ TEM O TRY CATCH dentro do MÉTODO
         creatUI("telaEditarDadosSquad");
     }
 

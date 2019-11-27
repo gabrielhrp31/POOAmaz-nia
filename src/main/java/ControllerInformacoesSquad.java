@@ -39,17 +39,17 @@ public class ControllerInformacoesSquad extends ControllerUtil {
     /**
      * Carrega os dados dos Squads para a TabbleView dos Squads
      *
-     * @throws FileNotFoundException
      * @throws ExecutionException
      * @throws InterruptedException
      */
     @FXML
-    public void atualizarTabbleViewSquad() throws FileNotFoundException, ExecutionException, InterruptedException {
+    public void atualizarTabbleViewSquad() throws ExecutionException, InterruptedException {
         //Lê do arquivo e adiciona no comboBox
         new Thread(ControllerUtil.t1).start();
         SquadDAO squadDAO = new SquadDAO();
 
         ObservableList<Squad> olcomboBoxSquadResponsable;
+        //carregarTabbleView já tem o try catch
         olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarTabbleView(ControllerAnalisesMain.firebase));;
 
 

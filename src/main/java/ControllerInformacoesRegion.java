@@ -9,7 +9,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import models.Region;
-
+import Exceptions.*;
 import javax.swing.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -62,6 +62,7 @@ public class ControllerInformacoesRegion extends ControllerUtil {
         RegionDAO regionDAO = new RegionDAO();
 
         ObservableList<Region> olcomboBoxRegionResponsable;
+        //dentro da .carregarComboBox tem o try catch já
         olcomboBoxRegionResponsable = FXCollections.observableList(regionDAO.carregarTabbleView(ControllerAnalisesMain.firebase));
         ;
         //aqui pega dos campos dentro do observableList
@@ -94,8 +95,13 @@ public class ControllerInformacoesRegion extends ControllerUtil {
     @FXML
     private void telaRegistrationRegion() throws IOException, ExecutionException, InterruptedException {
         //firebase;
-        List<QueryDocumentSnapshot> documents = ControllerAnalisesMain.firebase.read(1);
-        if (documents != null) {
+        List<QueryDocumentSnapshot> documents=null;
+        try{
+            documents= ControllerAnalisesMain.firebase.read(1);
+        }
+        catch (conexaoError e){
+            e.getMessage();
+        } if (documents != null) {
             creatUI("registroRegion");
         } else {
             JOptionPane.showMessageDialog(null, "Primeiro registre um Esquadrao");

@@ -6,7 +6,6 @@ import tools.GsonTool;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
-
 public class ImageDAO {
     private static ArrayList<Image> images;
 
@@ -23,10 +22,11 @@ public class ImageDAO {
      * @throws IOException
      * @throws GeneralSecurityException
      */
-    public static void addImage(Image image) throws IOException, GeneralSecurityException {
-        GsonTool.read("pictures.json",1);
+    public static void addImage(Image image) throws IOException, GeneralSecurityException{
+        GsonTool.read("pictures.json", 1);
         ImageDAO.images.add(image);
-        GsonTool.write("pictures.json",images);
+        GsonTool.write("pictures.json", images);
+
     }
 
     /**

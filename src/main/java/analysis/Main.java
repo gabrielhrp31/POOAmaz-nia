@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import tools.Firebase;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 
@@ -22,12 +23,17 @@ public class Main extends Application {
      */
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Index.fxml"));
-        Scene scene = new Scene(root);
-        BorderPane borderPane = (BorderPane) scene.lookup("#borderPane");
-        stage.setTitle("Amazonia Analysis");
-        stage.setScene(scene);
-        stage.show();
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Index.fxml"));
+            Scene scene = new Scene(root);
+            BorderPane borderPane = (BorderPane) scene.lookup("#borderPane");
+            stage.setTitle("Amazonia Analysis");
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch(FileNotFoundException e){
+            System.out.println(e.getMessage());
+        }
     }
 
 

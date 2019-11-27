@@ -1,5 +1,6 @@
 import DAO.RegionDAO;
 import DAO.SquadDAO;
+import Exceptions.conexaoError;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import javafx.scene.control.TextField;
 import models.Region;
@@ -55,8 +56,15 @@ public class ControllerRegistroRegion extends ControllerUtil {
     void botaoEnviarRegistroRegion() throws IOException, GeneralSecurityException, ExecutionException, InterruptedException {
         Region regionButton = new Region();
         SquadDAO squadButton= new SquadDAO();
+        List<QueryDocumentSnapshot> documents=null;
+        List<QueryDocumentSnapshot> documentsSquads=null;
 
-        List<QueryDocumentSnapshot> documentsSquads = ControllerAnalisesMain.firebase.read(1);
+
+        try {
+            documentsSquads = ControllerAnalisesMain.firebase.read(1);
+        } catch (Exceptions.conexaoError conexaoError) {
+            conexaoError.printStackTrace();
+        }
 
 
         List<Squad> listaSquad = squadButton.carregarComboBoxSquad(ControllerAnalisesMain.firebase);
@@ -93,14 +101,20 @@ public class ControllerRegistroRegion extends ControllerUtil {
         }
 
 
+        //conecta com o firebase
+        try {
+            documents= ControllerAnalisesMain.firebase.read(0);
+        } catch (Exceptions.conexaoError conexaoError) {
+            conexaoError.printStackTrace();
+        }
 
-        List<QueryDocumentSnapshot> documents = ControllerAnalisesMain.firebase.read(0);
+
         if (documents != null) {
             documents.size();
             regionButton.setId((documents.size()));
         }
 
-
+//No write já tem o try catch
         ControllerAnalisesMain.firebase.write(0,regionButton.getId(),regionButton.getName(),regionButton.getProtectedArea(),regionButton.getSquadResponsable(),regionButton.getEnvironmentalProtection(),regionButton.getUrbanRegion(),0," ");
         JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
     }

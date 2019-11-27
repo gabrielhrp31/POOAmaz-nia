@@ -48,6 +48,7 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
     public void carregarCheckBoxRegion() throws FileNotFoundException, ExecutionException, InterruptedException {
         SquadDAO squadDAO = new SquadDAO();
         ObservableList<String> olcomboBoxSquadResponsable = null;
+        //dentro da .carregarComboBox tem o try catch já
         olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBox(ControllerAnalisesMain.firebase));
         comboBoxRegionEditar.setItems(olcomboBoxSquadResponsable);
     }
@@ -62,6 +63,7 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
     public void carregarCheckBoxSquad() throws FileNotFoundException, ExecutionException, InterruptedException {
         SquadDAO squadDAO = new SquadDAO();
         ObservableList<String> olcomboBoxSquadResponsable = null;
+        //dentro da .carregarComboBox tem o try catch já
         olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxEditarDados(ControllerAnalisesMain.firebase));
         checkBSqudEditarRegion.setItems(olcomboBoxSquadResponsable);
     }
@@ -78,13 +80,14 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
         SquadDAO squadDAO = new SquadDAO();
         ObservableList<Region> olcomboBoxRegionResponsable;
         ObservableList<Squad> olcomboBoxSquadResponsable;
+        //dentro da .carregarComboBox tem o try catch já
         olcomboBoxRegionResponsable = FXCollections.observableList(regionDAO.carregarComboBoxEditarDados(ControllerAnalisesMain.firebase));
         olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxSquad(ControllerAnalisesMain.firebase));
 
 
-        String nomeRegion = " ", nomeSquad = " ", sQuantityOfSoldiers;
+        String nomeRegion = " ", nomeSquad = " ";
         String idText = " ";
-        int quantityOfSoldiers = 0, t = 0, tnomeSquad = 0;
+        int t = 0;
 
         for (int i = 0; i < olcomboBoxRegionResponsable.size(); i++) {
             nomeRegion = String.valueOf(olcomboBoxRegionResponsable.get(i).getName());
@@ -117,6 +120,7 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
                     olcomboBoxRegionResponsable.get(i).setUrbanRegion("Nao e uma regiao Urbana");
                 }
 
+                //no write tem o try catch
                 ControllerAnalisesMain.firebase.write(0, olcomboBoxRegionResponsable.get(i).getId(), olcomboBoxRegionResponsable.get(i).getName(), olcomboBoxRegionResponsable.get(i).getProtectedArea(), olcomboBoxRegionResponsable.get(i).getSquadResponsable(), olcomboBoxRegionResponsable.get(i).getEnvironmentalProtection(), olcomboBoxRegionResponsable.get(i).getUrbanRegion(), 0, null);
                 JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
                 return;
@@ -138,6 +142,7 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
 
         ObservableList<Region> olcomboBoxRegionResponsable;
 
+        //dentro da .carregarComboBox tem o try catch já
         olcomboBoxRegionResponsable = FXCollections.observableList(regionDAO.carregarComboBoxEditarDados(ControllerAnalisesMain.firebase));
 
 
