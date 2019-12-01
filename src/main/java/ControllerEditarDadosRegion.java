@@ -15,6 +15,8 @@ import java.io.*;
 import java.security.GeneralSecurityException;
 import java.util.concurrent.ExecutionException;
 
+import static analysis.Main.firebase;
+
 public class ControllerEditarDadosRegion extends ControllerUtil {
 
     @FXML
@@ -49,7 +51,7 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
         SquadDAO squadDAO = new SquadDAO();
         ObservableList<String> olcomboBoxSquadResponsable = null;
         //dentro da .carregarComboBox tem o try catch já
-        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBox(ControllerAnalisesMain.firebase));
+        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBox(firebase));
         comboBoxRegionEditar.setItems(olcomboBoxSquadResponsable);
     }
 
@@ -64,7 +66,7 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
         SquadDAO squadDAO = new SquadDAO();
         ObservableList<String> olcomboBoxSquadResponsable = null;
         //dentro da .carregarComboBox tem o try catch já
-        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxEditarDados(ControllerAnalisesMain.firebase));
+        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxEditarDados(firebase));
         checkBSqudEditarRegion.setItems(olcomboBoxSquadResponsable);
     }
 
@@ -81,8 +83,8 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
         ObservableList<Region> olcomboBoxRegionResponsable;
         ObservableList<Squad> olcomboBoxSquadResponsable;
         //dentro da .carregarComboBox tem o try catch já
-        olcomboBoxRegionResponsable = FXCollections.observableList(regionDAO.carregarComboBoxEditarDados(ControllerAnalisesMain.firebase));
-        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxSquad(ControllerAnalisesMain.firebase));
+        olcomboBoxRegionResponsable = FXCollections.observableList(regionDAO.carregarComboBoxEditarDados(firebase));
+        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxSquad(firebase));
 
 
         String nomeRegion = " ", nomeSquad = " ";
@@ -121,7 +123,7 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
                 }
 
                 //no write tem o try catch
-                ControllerAnalisesMain.firebase.write(0, olcomboBoxRegionResponsable.get(i).getId(), olcomboBoxRegionResponsable.get(i).getName(), olcomboBoxRegionResponsable.get(i).getProtectedArea(), olcomboBoxRegionResponsable.get(i).getSquadResponsable(), olcomboBoxRegionResponsable.get(i).getEnvironmentalProtection(), olcomboBoxRegionResponsable.get(i).getUrbanRegion(), 0, null);
+                firebase.write(0, olcomboBoxRegionResponsable.get(i).getId(), olcomboBoxRegionResponsable.get(i).getName(), olcomboBoxRegionResponsable.get(i).getProtectedArea(), olcomboBoxRegionResponsable.get(i).getSquadResponsable(), olcomboBoxRegionResponsable.get(i).getEnvironmentalProtection(), olcomboBoxRegionResponsable.get(i).getUrbanRegion(), 0, null);
                 JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
                 return;
             }
@@ -143,7 +145,7 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
         ObservableList<Region> olcomboBoxRegionResponsable;
 
         //dentro da .carregarComboBox tem o try catch já
-        olcomboBoxRegionResponsable = FXCollections.observableList(regionDAO.carregarComboBoxEditarDados(ControllerAnalisesMain.firebase));
+        olcomboBoxRegionResponsable = FXCollections.observableList(regionDAO.carregarComboBoxEditarDados(firebase));
 
 
         String nomeRegion = " ", nomeRegionAux = " ";
@@ -160,7 +162,7 @@ public class ControllerEditarDadosRegion extends ControllerUtil {
             if (comboBoxRegionEditar.getValue().equals(nomeRegion)) {
                 nomeRegionIntAux = olcomboBoxRegionResponsable.get(i).getId();
                 nomeRegionAux = Integer.toString(nomeRegionIntAux);
-                ControllerAnalisesMain.firebase.remove("regions", nomeRegionAux);
+                firebase.remove("regions", nomeRegionAux);
                 JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
                 return;
             }

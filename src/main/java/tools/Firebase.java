@@ -3,12 +3,18 @@ package tools;
 import com.google.api.core.ApiFuture;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.firestore.*;
+import com.google.cloud.storage.Blob;
+import com.google.cloud.storage.Storage;
+import com.google.cloud.storage.StorageOptions;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
 import Exceptions.*;
-import java.io.IOException;
-import java.io.InputStream;
+
+import javax.swing.*;
+import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,7 +23,9 @@ import java.util.concurrent.ExecutionException;
 public class Firebase {
     private GoogleCredentials credentials;
     private FirebaseOptions options;
-    private Firestore db;
+    public Firestore db;
+    public Storage storage ;
+    private static final String IMAGE_PATH = "data"+File.separator+"pictures"+File.separator;
 
     /**
      * Construtor para iniciar a conexão com o FireBase
@@ -29,10 +37,19 @@ public class Firebase {
         this.credentials = GoogleCredentials.fromStream(serviceAccount);
         this.options = new FirebaseOptions.Builder()
                 .setDatabaseUrl("https://poo-queimadas.firebaseio.com")
+                .setStorageBucket("poo-queimadas.appspot.com")
                 .setCredentials(credentials)
                 .build();
 
         FirebaseApp.initializeApp(options);
+
+
+        StorageOptions storageOptions = StorageOptions.newBuilder()
+                .setCredentials(credentials)
+                .build();
+
+        storage = storageOptions.getService();
+
         this.db = FirestoreClient.getFirestore();
     }
 
@@ -125,6 +142,28 @@ public class Firebase {
         ApiFuture<WriteResult> writeResult = db.collection(tabela).document(coluna).delete();
         // ...
         System.out.println("Hora de Update : " + writeResult.get().getUpdateTime());
+    }
+
+    public void downloadFile(String fileName){
+        Blob blobFile = storage.get(options.getStorageBucket(),fileName);
+        Path path = Paths.get(System.getProperty("user.dir") + File.separator + IMAGE_PATH );
+        File file = new File(String.valueOf(path)+ File.separator+fileName);
+        if(!file.exists()){
+            File dirDataFile = new File(String.valueOf(path));
+            if (!dirDataFile.exists()) {
+                dirDataFile.mkdirs();
+            }
+            try {
+                OutputStream output = new FileOutputStream(String.valueOf(path)+ File.separator+fileName);
+                blobFile.downloadTo(output);
+            } catch (FileNotFoundException e) {
+                JOptionPane.showMessageDialog(null,e.getMessage());
+            }
+        }
+        else{
+            return;
+        }
+
     }
 
 

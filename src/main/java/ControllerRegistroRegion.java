@@ -17,6 +17,8 @@ import java.security.GeneralSecurityException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import static analysis.Main.firebase;
+
 public class ControllerRegistroRegion extends ControllerUtil {
 
 
@@ -61,13 +63,13 @@ public class ControllerRegistroRegion extends ControllerUtil {
 
 
         try {
-            documentsSquads = ControllerAnalisesMain.firebase.read(1);
+            documentsSquads = firebase.read(1);
         } catch (Exceptions.conexaoError conexaoError) {
             conexaoError.printStackTrace();
         }
 
 
-        List<Squad> listaSquad = squadButton.carregarComboBoxSquad(ControllerAnalisesMain.firebase);
+        List<Squad> listaSquad = squadButton.carregarComboBoxSquad(firebase);
        
 
         String nomeRegion = comboBoxRegion.getValue();
@@ -103,7 +105,7 @@ public class ControllerRegistroRegion extends ControllerUtil {
 
         //conecta com o firebase
         try {
-            documents= ControllerAnalisesMain.firebase.read(0);
+            documents= firebase.read(0);
         } catch (Exceptions.conexaoError conexaoError) {
             conexaoError.printStackTrace();
         }
@@ -115,7 +117,7 @@ public class ControllerRegistroRegion extends ControllerUtil {
         }
 
 //No write já tem o try catch
-        ControllerAnalisesMain.firebase.write(0,regionButton.getId(),regionButton.getName(),regionButton.getProtectedArea(),regionButton.getSquadResponsable(),regionButton.getEnvironmentalProtection(),regionButton.getUrbanRegion(),0," ");
+        firebase.write(0,regionButton.getId(),regionButton.getName(),regionButton.getProtectedArea(),regionButton.getSquadResponsable(),regionButton.getEnvironmentalProtection(),regionButton.getUrbanRegion(),0," ");
         JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -128,7 +130,7 @@ public class ControllerRegistroRegion extends ControllerUtil {
     void carregarDadosCheckBox() throws IOException, ExecutionException, InterruptedException {
         RegionDAO regionDAO = new RegionDAO();
         ObservableList<String> olcomboBoxSquadResponsable = null;
-        olcomboBoxSquadResponsable = FXCollections.observableList(regionDAO.carregarComboBox(ControllerAnalisesMain.firebase));
+        olcomboBoxSquadResponsable = FXCollections.observableList(regionDAO.carregarComboBox(firebase));
 
         comboBoxSquadResponsable.setItems(olcomboBoxSquadResponsable);
         //OBS: O PUBLIC STATIC PARA A FIREBASE PARECE TER FUNCO

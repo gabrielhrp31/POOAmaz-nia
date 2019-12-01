@@ -10,6 +10,8 @@ import models.Squad;
 import java.io.FileNotFoundException;
 import java.util.concurrent.ExecutionException;
 
+import static analysis.Main.firebase;
+
 public class ControllerInformacoesSquad extends ControllerUtil {
 
     @FXML
@@ -50,7 +52,7 @@ public class ControllerInformacoesSquad extends ControllerUtil {
 
         ObservableList<Squad> olcomboBoxSquadResponsable;
         //carregarTabbleView já tem o try catch
-        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarTabbleView(ControllerAnalisesMain.firebase));;
+        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarTabbleView(firebase));;
 
 
         tabbleViewSquad.setEditable(true);

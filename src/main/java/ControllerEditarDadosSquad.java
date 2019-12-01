@@ -14,6 +14,8 @@ import java.security.GeneralSecurityException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import static analysis.Main.firebase;
+
 public class ControllerEditarDadosSquad extends ControllerUtil {
 
 
@@ -40,7 +42,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
         SquadDAO squadDAO = new SquadDAO();
         ObservableList<String> olcomboBoxSquadResponsable = null;
         //dentro da .carregarComboBox tem o try catch já
-        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBox(ControllerAnalisesMain.firebase));
+        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBox(firebase));
         checkBregiaoEditarSquad.setItems(olcomboBoxSquadResponsable);
     }
 
@@ -53,7 +55,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
         SquadDAO squadDAO = new SquadDAO();
         ObservableList<String> olcomboBoxSquadResponsable = null;
         //dentro da .carregarComboBox tem o try catch já
-        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxEditarDados(ControllerAnalisesMain.firebase));
+        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxEditarDados(firebase));
         comboBoxSquadEditar.setItems(olcomboBoxSquadResponsable);
 
     }
@@ -70,7 +72,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
         ObservableList<Squad> olcomboBoxSquadResponsable;
 
         //dentro da .carregarComboBox tem o try catch já
-        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxSquad(ControllerAnalisesMain.firebase));
+        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxSquad(firebase));
         String nomeSquad = " ", nomeSquadPuro = " ", sQuantityOfSoldiers;
         String idText = " ";
         int quantityOfSoldiers = 0;
@@ -105,7 +107,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
 
         ObservableList<Squad> olcomboBoxSquadResponsable;
 
-        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxSquad(ControllerAnalisesMain.firebase));
+        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxSquad(firebase));
 
 
         String nomeSquad = " ", nomeSquadPuro = " ", sQuantityOfSoldiers, nomeSquadAux = " ";
@@ -123,7 +125,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
             if (comboBoxSquadEditar.getValue().equals(nomeSquad)) {
                 nomeSquadIntAux = olcomboBoxSquadResponsable.get(i).getId();
                 nomeSquadAux = Integer.toString(nomeSquadIntAux);
-                ControllerAnalisesMain.firebase.remove("squads", nomeSquadAux);
+                firebase.remove("squads", nomeSquadAux);
                 JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
                 return;
             }
@@ -146,8 +148,8 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
         ObservableList<Region> olcomboBoxRegionResponsable;
         ObservableList<Squad> olcomboBoxSquadResponsable;
         //dentro da .carregarComboBox tem o try catch já
-        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxSquad(ControllerAnalisesMain.firebase));
-        olcomboBoxRegionResponsable = FXCollections.observableList(regionDAO.carregarComboBoxEditarDados(ControllerAnalisesMain.firebase));
+        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBoxSquad(firebase));
+        olcomboBoxRegionResponsable = FXCollections.observableList(regionDAO.carregarComboBoxEditarDados(firebase));
 
 
         String nomeSquad = " ", nomeSquadPuro = " ", sQuantityOfSoldiers;
@@ -184,7 +186,7 @@ public class ControllerEditarDadosSquad extends ControllerUtil {
                     }
                 }
                 //dentro do write tem o try catch já
-                ControllerAnalisesMain.firebase.write(1, olcomboBoxSquadResponsable.get(i).getId(), olcomboBoxSquadResponsable.get(i).getName(), null, 0, " ", " ", olcomboBoxSquadResponsable.get(i).getQuantityOfSoldiers(), olcomboBoxSquadResponsable.get(i).getRegionResponsable());
+                firebase.write(1, olcomboBoxSquadResponsable.get(i).getId(), olcomboBoxSquadResponsable.get(i).getName(), null, 0, " ", " ", olcomboBoxSquadResponsable.get(i).getQuantityOfSoldiers(), olcomboBoxSquadResponsable.get(i).getRegionResponsable());
                 JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
                 return;
             }

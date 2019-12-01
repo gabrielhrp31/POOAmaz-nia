@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import static analysis.Main.firebase;
+
 
 public class ControllerInformacoesRegion extends ControllerUtil {
 
@@ -63,7 +65,7 @@ public class ControllerInformacoesRegion extends ControllerUtil {
 
         ObservableList<Region> olcomboBoxRegionResponsable;
         //dentro da .carregarComboBox tem o try catch já
-        olcomboBoxRegionResponsable = FXCollections.observableList(regionDAO.carregarTabbleView(ControllerAnalisesMain.firebase));
+        olcomboBoxRegionResponsable = FXCollections.observableList(regionDAO.carregarTabbleView(firebase));
         ;
         //aqui pega dos campos dentro do observableList
         tabbleViewRegion.setEditable(true);
@@ -97,7 +99,7 @@ public class ControllerInformacoesRegion extends ControllerUtil {
         //firebase;
         List<QueryDocumentSnapshot> documents=null;
         try{
-            documents= ControllerAnalisesMain.firebase.read(1);
+            documents= firebase.read(1);
         }
         catch (conexaoError e){
             e.getMessage();

@@ -14,6 +14,8 @@ import java.security.GeneralSecurityException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import static analysis.Main.firebase;
+
 public class ControllerRegistroSquad extends ControllerUtil {
 
 
@@ -52,7 +54,7 @@ public class ControllerRegistroSquad extends ControllerUtil {
 
 
         try {
-            documents= ControllerAnalisesMain.firebase.read(1);
+            documents= firebase.read(1);
         } catch (Exceptions.conexaoError conexaoError) {
             conexaoError.printStackTrace();
         }
@@ -72,7 +74,7 @@ public class ControllerRegistroSquad extends ControllerUtil {
         squadButton.setQuantityOfSoldiers(numberSquadInt);
         squadButton.setRegionResponsable(region);
 
-        ControllerAnalisesMain.firebase.write(1, squadButton.getId(), squadButton.getName(), null, 0, " ", " ", squadButton.getQuantityOfSoldiers(), squadButton.getRegionResponsable());
+        firebase.write(1, squadButton.getId(), squadButton.getName(), null, 0, " ", " ", squadButton.getQuantityOfSoldiers(), squadButton.getRegionResponsable());
         JOptionPane.showMessageDialog(null, "Acao Concluida", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -90,7 +92,7 @@ public class ControllerRegistroSquad extends ControllerUtil {
         squadDAO = new SquadDAO();
         ObservableList<String> olcomboBoxSquadResponsable = null;
         //dentro do carregar tem try catch
-        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBox(ControllerAnalisesMain.firebase));
+        olcomboBoxSquadResponsable = FXCollections.observableList(squadDAO.carregarComboBox(firebase));
         comboBoxSquad.setItems(olcomboBoxSquadResponsable);
 
     }
