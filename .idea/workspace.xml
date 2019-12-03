@@ -17,46 +17,28 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.2/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.2/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.2/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.2/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.2/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.2/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.2/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerAnalisesMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerAnalisesMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosRegion.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosRegion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosSquad.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerEditarDadosSquad.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerInformacoesRegion.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerInformacoesRegion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerInformacoesSquad.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerInformacoesSquad.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroRegion.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroRegion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroSquad.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ControllerRegistroSquad.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DAO/ImageDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/DAO/ImageDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/analysis/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/analysis/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/tools/Firebase.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/tools/Firebase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Models/Region.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Models/Region.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/tools/GsonTool$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/tools/GsonTool$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/tools/GsonTool.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/tools/Image.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/tools/Image.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/distributions/AmazoniaAnalysis-1.1.tar" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/AmazoniaAnalysis-1.1.tar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/distributions/AmazoniaAnalysis-1.1.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/AmazoniaAnalysis-1.1.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/AmazoniaAnalysis-1.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/AmazoniaAnalysis-1.1.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/scripts/AmazoniaAnalysis" beforeDir="false" afterPath="$PROJECT_DIR$/build/scripts/AmazoniaAnalysis" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/scripts/AmazoniaAnalysis.bat" beforeDir="false" afterPath="$PROJECT_DIR$/build/scripts/AmazoniaAnalysis.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/region.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/relatorio/1571181369.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/relatorio/1571185161.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/relatorio/1571185172.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/relatorio/1571185296.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/relatorio/1571185309.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/relatorio/pictures.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/relatorio/relatorio.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControllerAnalisesMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerAnalisesMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosRegion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerEditarDadosSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerInformacoesRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerInformacoesRegion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerInformacoesSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerInformacoesSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerRegistroRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerRegistroRegion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerRegistroSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerRegistroSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/ImageDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/ImageDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/analysis/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/analysis/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Region.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Region.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tools/Firebase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tools/Firebase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tools/GsonTool.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tools/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tools/Image.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -251,7 +233,8 @@
       <workItem from="1574820320170" duration="388000" />
       <workItem from="1574825047589" duration="1605000" />
       <workItem from="1574862962210" duration="4291000" />
-      <workItem from="1575144577173" duration="8218000" />
+      <workItem from="1575144577173" duration="23020000" />
+      <workItem from="1575405639945" duration="8886000" />
     </task>
     <task id="LOCAL-00001" summary="enviando as coisa de volta">
       <created>1571274602610</created>
@@ -260,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571274602610</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="enviando as coisa de volta">
+      <created>1575164078866</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1575164078867</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,6 +274,20 @@
     <option name="LAST_COMMIT_MESSAGE" value="enviando as coisa de volta" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ControllerAnalisesMain.java</url>
+          <line>202</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/tools/Firebase.java</url>
+          <line>122</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Remote">
         <watch expression="documents.get(0)" />

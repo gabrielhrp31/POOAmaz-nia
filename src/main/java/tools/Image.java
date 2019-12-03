@@ -4,6 +4,7 @@ import DAO.ImageDAO;
 
 
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -19,6 +20,7 @@ public class Image {
     private int[][] colors;
     private int scale;
     private static final String IMAGE_PATH = "data"+File.separator+"pictures"+File.separator;
+    private String dataFormatada;
 
     /**
      * Construtor da classe
@@ -69,7 +71,7 @@ public class Image {
     /**
      * @return calcula media de incendio da região
      */
-    public double intensitiesAverage(){
+    public double getIntensitiesAverage(){
         int[][] matrix = this.getItensities();
         double result = 0 ;
         for (int[] row: matrix){
@@ -77,7 +79,6 @@ public class Image {
                 result+=el;
             }
         }
-        System.out.println(result);
         result /= (matrix.length);
         return result;
     }
@@ -93,7 +94,7 @@ public class Image {
         int[] rgb= new int[3];
         int col=0,row=0;
 
-        for(int i=4;i<lines.length; i+=this.scale){
+        for(int i=5;i<lines.length; i+=this.scale){
              nums = lines[i].split("\\s");
              col=0;
              for(int j=0;j<nums.length;){
@@ -247,5 +248,29 @@ public class Image {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public void lerImagem(String nome, int scale, int regionId, int generateTime) throws FileNotFoundException {
+        String arquivo = "";
+        try {
+            FileReader arq = new FileReader(System.getProperty("user.dir") + File.separator + "data" + File.separator + "pictures" + File.separator + nome);
+            BufferedReader lerArq = new BufferedReader(arq);
+            String linha = lerArq.readLine();
+            arquivo = linha+"\n";
+            while (linha != null) {
+                arquivo += linha+"\n"; // lê da segunda até a última linha
+                linha = lerArq.readLine();
+            }
+            arq.close();
+        } catch (IOException e) {
+            System.err.printf("Erro na abertura do arquivo: %s.\n",
+                    e.getMessage());
+        }
+        this.scale = scale;
+        this.image = arquivo;
+    }
+
+    public String getDataFormatada() {
+        return dataFormatada;
     }
 }

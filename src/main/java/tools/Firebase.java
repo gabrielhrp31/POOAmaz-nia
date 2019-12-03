@@ -76,6 +76,7 @@ public class Firebase {
             docRef = db.collection("regions").document(idString);
             //Adiciona as informações ao documento com o id "nomeID" usando a hashMap
             //nome campo | valor
+            data.put("id",id);
             data.put("name", name);
             data.put("protectedArea", protectedArea);
             data.put("squadResponsable", squadResponsable);
@@ -85,6 +86,7 @@ public class Firebase {
 
         if (qualSalvar == 1) {//SQUAD
             docRef = db.collection("squads").document(idString);
+            data.put("id",id);
             data.put("name", name);
             data.put("regionResponsable", regionResponsable);
             data.put("quantityOfSoldiers", quantityOfSoldiers);
@@ -110,9 +112,9 @@ public class Firebase {
      * Função para baixar os arquivos do FireBase
      *
      * @param qualLer se vai ler dos Squads ou dos Regions
-     * @return
-     * @throws ExecutionException
-     * @throws InterruptedException
+     * @return retorna uma query do firebase usada para pegar os dados do bd
+     * @throws ExecutionException retorna ume excessão de execução
+     * @throws InterruptedException retorna uma excessao de interrupção
      */
     public List<QueryDocumentSnapshot> read(int qualLer) throws ExecutionException, InterruptedException,conexaoError{
         ApiFuture<QuerySnapshot> query = null;
@@ -135,15 +137,14 @@ public class Firebase {
      *
      * @param tabela De qual Tabela vai deletar
      * @param coluna A coluna que será deletada
-     * @throws ExecutionException
-     * @throws InterruptedException
      */
-    public void remove(String tabela, String coluna) throws ExecutionException, InterruptedException {
+    public void remove(String tabela, String coluna) throws ExecutionException{
         ApiFuture<WriteResult> writeResult = db.collection(tabela).document(coluna).delete();
-        // ...
-        System.out.println("Hora de Update : " + writeResult.get().getUpdateTime());
     }
 
+    /**
+     * @param fileName passe o nome do arquivo a ser baixado parametro
+     */
     public void downloadFile(String fileName){
         Blob blobFile = storage.get(options.getStorageBucket(),fileName);
         Path path = Paths.get(System.getProperty("user.dir") + File.separator + IMAGE_PATH );

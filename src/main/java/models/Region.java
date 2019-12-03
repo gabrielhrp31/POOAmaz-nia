@@ -39,10 +39,10 @@ public class Region {
     /**
      * Getter da id
      *
-     * @return
+     * @return retorna o id da região
      */
     public int getId() {
-        return id;
+        return this.id;
     }
 
     /**
@@ -108,16 +108,6 @@ public class Region {
      */
     public void setSquadResponsable(int squadResponsable) {
         this.squadResponsable = squadResponsable;
-    }
-
-
-    /**
-     * Getter do protectedArea
-     *
-     * @return
-     */
-    public boolean isProtectedArea() {
-        return protectedArea;
     }
 
     /**
