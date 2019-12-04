@@ -1,0 +1,19 @@
+[
+  {
+    "id": 2,
+    "name": "Bombeiros",
+    "regionResponsable": "Sul",
+    "quantityOfSoldiers": 111
+  },
+  {
+    "id": 3,
+    "name": "Cientistas",
+    "regionResponsable": "Leste",
+    "quantityOfSoldiers": 110
+  },
+  {
+    "id": 1,
+    "name": "Policial",
+    "quantityOfSoldiers": 124
+  }
+]

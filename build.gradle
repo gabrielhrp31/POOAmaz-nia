@@ -32,9 +32,10 @@ jar {
     from {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
+    exclude ('META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA')
 }
 
 mainClassName = 'analysis.Launcher'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
-version = '1.1'
+version = '1.0'
